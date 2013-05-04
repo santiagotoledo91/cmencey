@@ -32,7 +32,7 @@
 |
 */
 
-Route::controller(Controller::detect());
+Route::controller('home');
 
 /*
 |--------------------------------------------------------------------------
