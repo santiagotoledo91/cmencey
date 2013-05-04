@@ -16,8 +16,8 @@ class Base_Controller extends Controller {
 	{
 		parent::__construct();
 		$this->layout->title = 'Construcciones Mencey, C.A';
-		$this->layout->header = View::make('inc.header');
-		$this->layout->footer = View::make('inc.footer');
+		$this->layout->header = View::make('inc.default.header');
+		$this->layout->footer = View::make('inc.default.footer');
 	}
 
 	public function __call($method, $parameters)
