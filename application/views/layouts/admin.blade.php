@@ -1,14 +1,27 @@
 <html>
 <head>
-	<title> {{ $title }} </title>
-	
-	{{ HTML::style('css/bootstrap.css')}}
-	{{ HTML::style('css/bootstrap-responsive.css')}}
+	<title> {{ $title }} </title> 
 
-	{{ HTML::script('js/bootstrap.js')}}
+	{{ Asset::styles() }} 
 
 </head>
 <body>
+
+	<header>
+		
+		this is a header
+
+	</header>
+
 	{{ $content }}
+
+	<footer>
+		
+		this is a footer
+
+	</footer>
+
+	{{ Asset::scripts() }}
+	
 </body>
 </html>
