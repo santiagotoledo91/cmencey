@@ -32,8 +32,9 @@
 |
 */
 
-Route::controller('home');
-Route::controller('admin');
+Route::any('/','home@index');
+
+Route::any('admin','admin.home@index');
 
 /*
 |--------------------------------------------------------------------------
