@@ -13,7 +13,7 @@ class Admin_Home_Controller extends Base_Controller {
 
 	public function action_index () 
 	{
-		$view = View::make('admin.index');
+		$view = View::make('admin.home.index');
 		$this->layout->content = $view;
 	}
 }
