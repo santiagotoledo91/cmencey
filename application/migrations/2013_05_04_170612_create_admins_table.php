@@ -1,9 +1,9 @@
 <?php
 
-class Create_Admins_Table {
-
+class Create_Admins_Table 
+{
 	/**
-	 * Make changes to the database.
+	 * Creates the admins table
 	 *
 	 * @return void
 	 */
@@ -13,12 +13,17 @@ class Create_Admins_Table {
 		{
 			$table->increments('id');
 			$table->string('username',15);
-			$table->string('password',15);
+			$table->unique('username');
+			$table->string('password',60);
 		});
+
+		// @TODO charset = 'utf8_general_ci'
+
+		DB::table('admins')->insert(array('username' => 'admin','password' => Hash::make('admin')));
 	}
 
 	/**
-	 * Revert the changes to the database.
+	 * Drops the admins table
 	 *
 	 * @return void
 	 */
@@ -26,5 +31,4 @@ class Create_Admins_Table {
 	{
 		Schema::drop('admins');
 	}
-
 }
