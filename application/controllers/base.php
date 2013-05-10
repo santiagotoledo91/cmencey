@@ -1,7 +1,7 @@
 <?php
 
-class Base_Controller extends Controller {
-
+class Base_Controller extends Controller 
+{
 	public $layout = 'layouts.default';
 	
 	public function __construct() 
@@ -24,5 +24,4 @@ class Base_Controller extends Controller {
 	{
 		return Response::error('404');
 	}
-
 }

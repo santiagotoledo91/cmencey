@@ -1,7 +1,7 @@
 <?php 
 
-class Admin_Auth_Controller extends Base_Controller {
-
+class Admin_Auth_Controller extends Base_Controller 
+{
 	public $layout = 'layouts.login';
 	public $restful = true;
 
@@ -27,7 +27,6 @@ class Admin_Auth_Controller extends Base_Controller {
 			$view = View::make('admin.auth.login');
 			$this->layout->content = $view;	
 		}
-
 	}
 
 	public function post_login()

@@ -1,7 +1,7 @@
 <?php
 
-class Admin_Home_Controller extends Base_Controller {
-	
+class Admin_Home_Controller extends Base_Controller
+{
 	public $layout = 'layouts.admin';
 
 	public function __construct() 

@@ -1,7 +1,7 @@
 <?php
 
-class Home_Controller extends Base_Controller {
-
+class Home_Controller extends Base_Controller 
+{
 	public function action_index()
 	{
 		// define the $view object as the home.index view loader
@@ -16,5 +16,4 @@ class Home_Controller extends Base_Controller {
 		// assigns the content of the view to the "content" property of the layout
 		$this->layout->content = $view;
 	}
-
 }
