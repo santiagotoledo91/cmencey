@@ -26,7 +26,12 @@ Route::get('admin/logout','admin.auth@logout');
 Route::group(array('before' => 'auth'), function() 
 { 
 	Route::any('admin','admin.home@index');
+	Route::get('admin/docs','admin.docs@index');
+	Route::get('admin/docs/add','admin.docs@add');
+	Route::post('admin/docs/add','admin.docs@add');
+
 	// all other restricted routes goes here
+
 });
 
 /*

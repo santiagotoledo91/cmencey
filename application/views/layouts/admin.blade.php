@@ -69,7 +69,7 @@
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-pencil"></i> Modificar</a>
+										<a href="#"><i class="icon-pencil"></i> Editar</a>
 									</li>
 
 									<li>
@@ -84,22 +84,22 @@
 
 							<li class="dropdown">
 
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-folder-open"></i> Documentos <b class="caret"></b></a>
+								<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-folder-open"></i> Documentos <b class="caret"></b></a>
 
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="#"><i class="icon-exclamation-sign"></i> Ver pendientes</a>
+										<a href="{{ URL::to('admin/docs') }}"><i class="icon-exclamation-sign"></i> Pendientes</a>
 									</li>
 
 									<li class="divider"></li>
 
 									<li>
-										<a href="#"><i class="icon-plus"></i> Añadir</a>
+										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Añadir</a>
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-minus"></i> Eliminar</a>
+										<a href="#"><i class="icon-pencil"></i> Editar</a>
 									</li>
 
 								</ul>
@@ -148,7 +148,7 @@
 
 						<ul class="nav pull-right">
 
-							<li><a href="admin/logout"><i class="icon-off"></i> Cerrar sesion</a></li>
+							<li><a href=" {{ URL::to('admin/logout') }} "><i class="icon-off"></i> Cerrar sesion</a></li>
 
 						</ul>
 
