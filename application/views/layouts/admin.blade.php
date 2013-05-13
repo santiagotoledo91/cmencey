@@ -64,17 +64,62 @@
 
 								<ul class="dropdown-menu">
 
-									<li>
-										<a href="#"><i class="icon-plus"></i> Agregar</a>
-									</li>
+									<li class="dropdown-submenu">
+									
+										<a tabindex="-1" href="#"> Empleados</a>
+										
+										<ul class="dropdown-menu">
+											
+											<li>
+												<a href="#"><i class="icon-eye-open"></i> Ver todos</a>
+											</li>
 
-									<li>
-										<a href="#"><i class="icon-pencil"></i> Editar</a>
-									</li>
+											<li class="divider"></li>
 
-									<li>
-										<a href="#"><i class="icon-minus"></i> Eliminar</a>
-									</li>
+											<li>
+												<a href="#"><i class="icon-plus"></i> Añadir</a>
+											</li>
+
+											<li>
+												<a href="#"><i class="icon-pencil"></i> Editar</a>
+											</li>
+
+											<li>
+												<a href="#"><i class="icon-minus"></i> Eliminar</a>
+											</li>
+									
+										</ul>
+
+ 									</li>				
+
+
+									<li class="dropdown-submenu">
+									
+										<a tabindex="-1" href="#"> Cargos</a>
+										
+										<ul class="dropdown-menu">
+											
+											<li>
+												<a href="#"><i class="icon-eye-open"></i> Ver todos</a>
+											</li>
+
+											<li class="divider"></li>		
+
+											<li>
+												<a href="{{ URL::to('admin/roles/add') }}"><i class="icon-plus"></i> Añadir</a>
+											</li>
+
+											<li>
+												<a href="#"><i class="icon-pencil"></i> Editar</a>
+											</li>
+
+											<li>
+												<a href="#"><i class="icon-minus"></i> Eliminar</a>
+											</li>
+									
+										</ul>
+										
+ 									</li>		
 
 								</ul>
 
