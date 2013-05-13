@@ -14,7 +14,7 @@ class Admin_Auth_Controller extends Base_Controller
 
 	public function get_login() 
 	{
-		$this->layout->title = 'Sistema de gestion de personal: Inicio de sesion.';
+		$this->layout->title .= ' - Inicio de sesion.';
 
 		// if the user is already logged then redirects to the admin page
 		if (Auth::check()) 

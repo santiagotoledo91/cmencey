@@ -7,7 +7,7 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function get_index()
 	{
-		$this->layout->title = $this->layout->title.' - Documentos pendientes.';
+		$this->layout->title .= ' - Documentos pendientes.';
 		
 		$view = View::make('admin.docs.index');
 		
@@ -16,7 +16,7 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function get_add() 
 	{
-		$this->layout->title = $this->layout->title.': Añadir documento.';
+		$this->layout->title .=' - Añadir documento.';
 
 		$view = View::make('admin.docs.add');
 
