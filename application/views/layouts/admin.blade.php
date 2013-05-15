@@ -77,7 +77,7 @@
 											<li class="divider"></li>
 
 											<li>
-												<a href="#"><i class="icon-plus"></i> Añadir</a>
+												<a href=" {{ URL::to('admin/employees/add') }} "><i class="icon-plus"></i> Añadir</a>
 											</li>
 
 											<li>
@@ -226,6 +226,7 @@
 		$(document).ready(function () {  
 			$(".collapse").collapse();
 			$(".dropdown-toggle").dropdown();  
+			$(".tooltip").tooltip()
 		});
 	</script>
 
