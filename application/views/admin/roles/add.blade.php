@@ -13,14 +13,14 @@
 					<label class="control-label">Nombre</label>
 
 					<div class="controls">
-						<input id="name" name="name" type="text" placeholder="Nombre del cargo" class="input" required="">
+						<input id="name" name="name" type="text" class="input" required="">
 					</div>
 
 				</div>
 
 				<div class="control-group">
 				
-					<label class="control-label">Salario (Bs.)</label>
+					<label class="control-label">Salario (Bs. Mensuales)</label>
 					
 					<div class="controls">
 						<input id="salary" name="salary" type="text" placeholder="Ej: 4500" class="input" required="">

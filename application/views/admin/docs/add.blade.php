@@ -6,9 +6,8 @@
 
 			{{ Form::open('admin/docs/add','POST', array('class' => 'form-horizontal')) }}
 
-			<legend>Añadir nuevo documento</legend>
+			<legend>Nuevo documento</legend>
 
-			<!-- Text input-->
 			<div class="control-group">
 
 				<label class="control-label">Nombre</label>
@@ -21,7 +20,6 @@
 
 			</div>
 
-			<!-- Select Basic -->
 			<div class="control-group">
 
 				<label class="control-label">Renovacion</label>
@@ -41,7 +39,6 @@
 
 			</div>
 
-			<!-- Button -->
 			<div class="control-group">
 
 				<div class="controls">
