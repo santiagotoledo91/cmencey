@@ -5,6 +5,26 @@ class Admin_Employees_Controller extends Base_Controller
 	public $layout = 'layouts.admin';
 	public $restful = true;
 
+	public function get_index()
+	{
+		$this->layout->title .= ' - Gestionar empleados.';
+
+		$view = View::make('admin.employees.index');
+
+		$view->employees = DB::table('employees')->join('roles','roles.id','=','employees.role_id')->get(array('*','employees.id as id'));
+
+		foreach ($view->employees as $employee)
+		{
+			switch ($employee->active) 
+			{
+				case 0: $employee->active = 'No'; break;
+				case 1:	$employee->active = 'Si';break;
+			}
+		}
+
+		$this->layout->content = $view;
+	}
+
 	public function get_add()
 	{
 		$this->layout->title .= ' - Añadir empleado.';
