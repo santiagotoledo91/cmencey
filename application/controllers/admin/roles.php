@@ -18,8 +18,8 @@ class Admin_Roles_Controller extends Base_Controller
 	{
 		$role = New role();
 
-		$role->name 	= Input::get('name');
-		$role->salary 	= Input::get('salary');
+		$role->description 	= Input::get('role_description');
+		$role->salary 		= Input::get('role_salary');
 		
 		$role->save();
 

@@ -25,12 +25,12 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function post_add()
 	{
-		$document = new DocumentType();
+		$document_type = new DocumentType();
 		
-		$document->name 		= Input::get('document_name');
-		$document->expiration 	= Input::get('expiration');
+		$document_type->description 	= Input::get('document_type_description');
+		$document_type->expires_in 		= Input::get('document_type_expires_in');
 		
-		$document->save();
+		$document_type->save();
 
 		return Redirect::to('admin');
 	}

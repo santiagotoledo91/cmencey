@@ -15,7 +15,7 @@ class Create_Employees_Table
 			$table->string('pin',8);
 			$table->unique('pin');
 			$table->string('fullname',200);
-			$table->integer('rol_id');
+			$table->integer('role_id');
 			$table->string('phone',11);
 			$table->string('address',200);
 			$table->boolean('active');

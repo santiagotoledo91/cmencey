@@ -22,15 +22,17 @@
 
 				<div class="controls">
 
-					<select id="rol" name="rol" class="input-xlarge span10">
+					<select id="employee_role" name="employee_role" class="input-xlarge span10">
 
-						@foreach ($roles as $rol) 
+						@foreach ($roles as $role) 
 
-							<option value = " {{ $rol->id }} "> {{ $rol->name  }} </option>
+							<option value = " {{ $role->id }} "> {{ $role->description  }} </option>
 
 						@endforeach
 
 					</select>
+
+				<a href=" {{ URL::to('admin/roles/add') }} "class="btn btn-small"><i class="icon-plus"></i></a>
 
 				</div>
 
@@ -42,7 +44,7 @@
 
 				<div class="controls">
 
-					<input id="pin" name="pin" type="text" placeholder="Ej: 15257593" maxlength="8" class="span10" required>
+					<input id="employee_pin" name="employee_pin" type="text" placeholder="Ej: 15257593" maxlength="8" class="span10" required>
 
 				</div>
 
@@ -54,7 +56,7 @@
 
 				<div class="controls">
 
-					<input id="firstnames" name="firstnames" type="text" maxlength="100" class="span10" required>
+					<input id="employee_firstnames" name="employee_firstnames" type="text" maxlength="100" class="span10" required>
 
 				</div>
 
@@ -66,7 +68,7 @@
 
 				<div class="controls">
 
-					<input id="lastnames" name="lastnames" type="text" maxlength="100" class="span10" required>
+					<input id="employee_lastnames" name="employee_lastnames" type="text" maxlength="100" class="span10" required>
 
 				</div>
 
@@ -78,7 +80,7 @@
 
 				<div class="controls">
 
-					<input id="phone" name="phone" type="text" placeholder="Ej: 04241235565" class="span10" required>
+					<input id="employee_phone" name="employee_phone" type="text" placeholder="Ej: 04241235565" class="span10" required>
 
 				</div>
 
@@ -94,7 +96,7 @@
 
 				<div class="controls">
 
-					<textarea id="address" name="address" class="span10" required></textarea>
+					<textarea id="employee_address" name="employee_address" class="span10" required></textarea>
 
 				</div>
 
@@ -113,9 +115,9 @@
 
 						<label class="checkbox">
 
-						<input type="checkbox" name="required_documents[]" value=" {{ $document-> id }} " checked="checked">
+						<input type="checkbox" name="employee_documents[]" value=" {{ $document-> id }} " checked="checked">
 
-						{{ $document->name }}
+						{{ $document->description }}
 
 						</label>
 

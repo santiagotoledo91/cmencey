@@ -12,9 +12,9 @@ class Create_Document_Types_Table
 		Schema::create('document_types',function($table)
 		{
 			$table->increments('id');
-			$table->string('name',100);
-			$table->unique('name');
-			$table->integer('expiration')->unsigned();
+			$table->string('description',100);
+			$table->unique('description');
+			$table->integer('expires_in')->unsigned();
 
 		});
 	}

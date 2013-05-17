@@ -12,8 +12,8 @@ class Create_Roles_Table
 		Schema::create('roles', function($table)
 		{
 			$table->increments('id');
-			$table->string('name',100);
-			$table->unique('name');
+			$table->string('description',100);
+			$table->unique('description');
 			$table->integer('salary')->unsigned();
 
 		});

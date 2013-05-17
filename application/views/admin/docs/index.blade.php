@@ -1,1 +1,1 @@
-pending documents
+documents management

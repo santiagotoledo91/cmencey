@@ -13,7 +13,7 @@
 					<label class="control-label">Nombre</label>
 
 					<div class="controls">
-						<input id="name" name="name" type="text" class="input" required="">
+						<input id="role_description" name="role_description" type="text" class="input" required="">
 					</div>
 
 				</div>
@@ -23,7 +23,7 @@
 					<label class="control-label">Salario (Bs. Mensuales)</label>
 					
 					<div class="controls">
-						<input id="salary" name="salary" type="text" placeholder="Ej: 4500" class="input" required="">
+						<input id="role_salary" name="role_salary" type="text" placeholder="Ej: 4500" class="input" required="">
 					</div>
 				
 				</div>

@@ -23,30 +23,30 @@ class Admin_Employees_Controller extends Base_Controller
 
 		$employee = new Employee();
 
-		$employee->pin 			= Input::get('pin');
-		$employee->fullname 	= Input::get('firstnames').' '.Input::get('lastnames');
-		$employee->rol_id 		= Input::get('rol');
-		$employee->phone 		= Input::get('phone');
-		$employee->address 		= Input::get('address');
+		$employee->pin 			= Input::get('employee_pin');
+		$employee->fullname 	= Input::get('employee_firstnames').' '.Input::get('employee_lastnames');
+		$employee->role_id 		= Input::get('employee_role');
+		$employee->phone 		= Input::get('employee_phone');
+		$employee->address 		= Input::get('employee_address');
 		$employee->active 		= 0;
 
 		$employee->save();
 
 		// retrieves the employee id
-		$employee = Employee::where('pin','=',Input::get('pin'))->first();
+		$employee = Employee::where('pin','=',Input::get('employee_pin'))->first();
 
 		// retrieves the required documents for the employee
-		$required_documents = Input::get('required_documents');
+		$employee_documents = Input::get('employee_documents');
 
 		// register the required documents in the documents table 
-		foreach ($required_documents as $required_document) 
+		foreach ($employee_documents as $required_document) 
 		{
 			$document = new Document();
 
 			$document->employee_id 			= $employee->id;
 			$document->document_type_id 	= $required_document;
 			$document->up_to_date 			= false;
-			$document->expiration 			= null;
+			$document->expires	 			= null;
 
 			$document->save();
 		}

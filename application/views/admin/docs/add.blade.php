@@ -14,7 +14,7 @@
 
 				<div class="controls">
 
-					<input id="document_name" name="document_name" type="text" placeholder="Nombre del documento" class="input" required="">
+					<input id="document_type_description" name="document_type_description" type="text" placeholder="Nombre del documento" class="input" required="">
 
 				</div>
 
@@ -26,8 +26,8 @@
 
 				<div class="controls">
 
-					<select id="document_expiration" name="expiration" class="input">
-						<option value="7">Semanal</option>
+					<select id="document_type_expires_in" name="document_type_expires_in" class="input">
+						<option value="7">Semanal</option>s
 						<option value="30">Mensual</option>
 						<option value="90">Trimestral</option>
 						<option value="180">Semestral</option>
