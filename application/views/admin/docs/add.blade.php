@@ -1,56 +1,120 @@
-<div class="container-fluid wallet" style="margin-top: 200px">
+<div class="container-fluid">
 
 	<div class="row-fluid">
 
-		<div class="span4 offset4">
+		<div class="span9">
 
-			{{ Form::open('admin/docs/add','POST', array('class' => 'form-horizontal')) }}
+			<div class="row-fluid">
+				
+				<legend>Nuevo documento</legend>
 
-			<legend>Nuevo documento</legend>
+			</div>
 
-			<div class="control-group">
+			<div class="row-fluid">
+				
+				{{ Form::open('admin/docs/add','POST', array('class' => 'form-horizontal')) }}
 
-				<label class="control-label">Nombre</label>
+				<div class="span6">
 
-				<div class="controls">
+					<div class="control-group">
 
-					<input id="document_type_description" name="document_type_description" type="text" placeholder="Nombre del documento" class="input" required="">
+						<label class="control-label">Nombre</label>
+
+						<div class="controls">
+
+							<input id="document_type_description" name="document_type_description" type="text" placeholder="Nombre del documento" class="input" required="">
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Renovacion</label>
+
+						<div class="controls">
+
+							<select id="document_type_expires_in" name="document_type_expires_in" class="input">
+								<option value="7">Semanal</option>s
+								<option value="30">Mensual</option>
+								<option value="90">Trimestral</option>
+								<option value="180">Semestral</option>
+								<option value="365">Anual</option>
+								<option value="0">No vence</option>
+							</select>
+
+						</div>
+
+					</div>
+				
+				</div>	
+
+				<div class="span6">
+				
+					<div class="control-group">
+
+						<label class="control-label">Asignar a:</label>
+
+						<div class="controls">
+
+							<div style="height:170px; overflow:auto;">
+
+								@foreach ($employees as $employee)
+
+								<label class="checkbox">
+
+								<input type="checkbox" name="employees[]" value=" {{ $employee-> id }} " checked="checked">
+
+								{{ $employee->fullname }}
+
+								</label>
+
+								@endforeach
+
+							</div>
+
+						</div>
+
+					</div>
 
 				</div>
 
 			</div>
 
-			<div class="control-group">
+			<div class="row-fluid">
+			
+				<div class="span2 offset5">
+					
+					<div class="control-group">
 
-				<label class="control-label">Renovacion</label>
+						<div class="controls">
+						
+							<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Añadir</button>
+					
+						</div>
 
-				<div class="controls">
-
-					<select id="document_type_expires_in" name="document_type_expires_in" class="input">
-						<option value="7">Semanal</option>s
-						<option value="30">Mensual</option>
-						<option value="90">Trimestral</option>
-						<option value="180">Semestral</option>
-						<option value="365">Anual</option>
-						<option value="0">No vence</option>
-					</select>
-
+					</div>
+				
 				</div>
-
-			</div>
-
-			<div class="control-group">
-
-				<div class="controls">
-					<button id="submit" name="submit" class="btn btn-primary"><i class="icon-ok icon-white"></i> Añadir</button>
-				</div>
-
+			
 			</div>
 
 			{{ Form::close() }}
 
 		</div>
 
+		<div class="span3">
+			
+			<legend>Ayuda</legend>
+			Informacion necesaria
+
+		</div>
+
+	</div>
+
+</div>
+
+	
 	</div>
 
 </div>

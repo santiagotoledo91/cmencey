@@ -20,6 +20,8 @@ class Admin_Docs_Controller extends Base_Controller
 
 		$view = View::make('admin.docs.add');
 
+		$view->employees = DB::table('employees')->get();
+
 		$this->layout->content = $view;
 	}
 
