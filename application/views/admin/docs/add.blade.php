@@ -63,7 +63,7 @@
 
 								<label class="checkbox">
 
-								<input type="checkbox" name="employees[]" value=" {{ $employee-> id }} " checked="checked">
+								<input type="checkbox" name="employees_ids[]" value=" {{ $employee-> id }} " checked="checked">
 
 								{{ $employee->fullname }}
 

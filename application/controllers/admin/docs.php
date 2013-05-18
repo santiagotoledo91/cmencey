@@ -45,13 +45,35 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function post_add()
 	{
-		$document_type = new DocumentType();
+		// creates the new document type
+		$document_type 	= new DocumentType();
 		
 		$document_type->description 	= Input::get('document_type_description');
 		$document_type->expires_in 		= Input::get('document_type_expires_in');
 		
 		$document_type->save();
 
+		// retrives the new document_type ID
+		$required_document = DB::table('document_types')
+								->where('description','=',Input::get('document_type_description'))
+								->first();
+
+		// gets the ids of the employees wich will have the new document assigned
+		$employees_ids = Input::get('employees_ids');
+
+		// creates the new documents
+		foreach ($employees_ids as $employee_id) 
+		{
+			$document = new Document();
+
+			$document->employee_id 			= $employee_id;
+			$document->document_type_id 	= $required_document->id;
+			$document->up_to_date 			= false;
+			$document->expires	 			= null;
+
+			$document->save();
+		}
+		
 		return Redirect::to('admin');
 	}
 }
