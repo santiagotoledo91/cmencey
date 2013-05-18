@@ -1,127 +1,149 @@
-<div class="container-fluid" style="margin-top: 100px">
+<div class="container-fluid">
 
 	<div class="row-fluid">
 
-		<div class="span10 offset1 ">
+		<div class="span9">
 
-			<legend>Nuevo empleado</legend>
+			<div class="row-fluid">
+				
+				<legend>Nuevo empleado</legend>
+			
+			</div>
 
-		</div>
+			<div class="row-fluid">
 
-	</div>
+				{{ Form::open('admin/employees/add','POST', array('class' => 'form-horizontal')) }}
 
-	<div class="row-fluid">
+				<div class="span6">
 
-	{{ Form::open('admin/employees/add','POST', array('class' => 'form-horizontal')) }}
+					<div class="control-group">
 
-		<div class="span5 offset1">
+						<label class="control-label">Cargo</label>
 
-			<div class="control-group">
+						<div class="controls">
 
-				<label class="control-label">Cargo</label>
+							<select id="employee_role" name="employee_role" class="input-xlarge span10">
 
-				<div class="controls">
+								@foreach ($roles as $role) 
 
-					<select id="employee_role" name="employee_role" class="input-xlarge span10">
+									<option value = " {{ $role->id }} "> {{ $role->description  }} </option>
 
-						@foreach ($roles as $role) 
+								@endforeach
 
-							<option value = " {{ $role->id }} "> {{ $role->description  }} </option>
+							</select>
 
-						@endforeach
+							<a href=" {{ URL::to('admin/roles/add') }} "class="btn btn-small"><i class="icon-plus"></i></a>
 
-					</select>
+						</div>
 
-				<a href=" {{ URL::to('admin/roles/add') }} "class="btn btn-small"><i class="icon-plus"></i></a>
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Cédula de identidad</label>
+
+						<div class="controls">
+
+							<input id="employee_pin" name="employee_pin" type="text" placeholder="Ej: 15257593" maxlength="8" class="span10" required>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Nombres</label>
+
+						<div class="controls">
+
+							<input id="employee_firstnames" name="employee_firstnames" type="text" maxlength="100" class="span10" required>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Apellidos</label>
+
+						<div class="controls">
+
+							<input id="employee_lastnames" name="employee_lastnames" type="text" maxlength="100" class="span10" required>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Teléfono</label>
+
+						<div class="controls">
+
+							<input id="employee_phone" name="employee_phone" type="text" placeholder="Ej: 04241235565" class="span10" required>
+
+						</div>
+
+					</div>
 
 				</div>
 
-			</div>
+				<div class="span6">
 
-			<div class="control-group">
+					<div class="control-group">
 
-				<label class="control-label">Cédula de identidad</label>
+						<label class="control-label">Dirección</label>
 
-				<div class="controls">
+						<div class="controls">
 
-					<input id="employee_pin" name="employee_pin" type="text" placeholder="Ej: 15257593" maxlength="8" class="span10" required>
+							<textarea id="employee_address" name="employee_address" class="span10" required></textarea>
 
-				</div>
+						</div>
 
-			</div>
+					</div>
 
-			<div class="control-group">
+					<div class="control-group">
 
-				<label class="control-label">Nombres</label>
+						<label class="control-label">Documentos a consignar</label>
 
-				<div class="controls">
 
-					<input id="employee_firstnames" name="employee_firstnames" type="text" maxlength="100" class="span10" required>
+						<div class="controls">
 
-				</div>
+							<div class="span10" style="height:170px; overflow:auto;">
 
-			</div>
+								@foreach ($documents as $document)
 
-			<div class="control-group">
+								<label class="checkbox">
 
-				<label class="control-label">Apellidos</label>
+								<input type="checkbox" name="employee_documents[]" value=" {{ $document-> id }} " checked="checked">
 
-				<div class="controls">
+								{{ $document->description }}
 
-					<input id="employee_lastnames" name="employee_lastnames" type="text" maxlength="100" class="span10" required>
+								</label>
 
-				</div>
+								@endforeach
 
-			</div>
+							</div>
 
-			<div class="control-group">
+						</div>
 
-				<label class="control-label">Teléfono</label>
-
-				<div class="controls">
-
-					<input id="employee_phone" name="employee_phone" type="text" placeholder="Ej: 04241235565" class="span10" required>
+					</div>
 
 				</div>
 
-			</div>
+			</div>	
 
-		</div>
+			<div class="row-fluid">
 
-		<div class="span5">
+				<div class="span2 offset5">
 
-			<div class="control-group">
+					<div class="control-group">
 
-				<label class="control-label">Dirección</label>
+						<div class="controls">
 
-				<div class="controls">
+							<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Añadir empleado</button>
 
-					<textarea id="employee_address" name="employee_address" class="span10" required></textarea>
-
-				</div>
-
-			</div>
-
-			<div class="control-group">
-
-				<label class="control-label">Documentos a consignar</label>
-
-
-				<div class="controls">
-
-					<div class="span10" style="height:170px; overflow:auto;">
-
-						@foreach ($documents as $document)
-
-						<label class="checkbox">
-
-						<input type="checkbox" name="employee_documents[]" value=" {{ $document-> id }} " checked="checked">
-
-						{{ $document->description }}
-
-						</label>
-
-						@endforeach
+						</div>
 
 					</div>
 
@@ -129,27 +151,16 @@
 
 			</div>
 
+			{{ Form::close() }}
+		
 		</div>
 
-	</div>	
-
-	<div class="row-fluid" style="padding-top: 20px">
-
-		<div class="span2 offset5">
-
-			<div class="control-group">
-
-				<div class="controls">
-
-					<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Añadir empleado</button>
-
-				</div>
-
-			</div>
+		<div class="span3">
+			
+			<legend>Ayuda</legend>
+			Informacion necesaria
 
 		</div>
-
-	{{ Form::close() }}
 
 	</div>
 

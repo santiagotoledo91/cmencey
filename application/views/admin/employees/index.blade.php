@@ -1,27 +1,57 @@
-<table class="table table-striped">
-	<tr class="head">
-		<th>ID</th>
-		<th>Cargo</th>
-		<th>C.I</th>
-		<th>Nombre</th>
-		<th>Teléfono</th>
-		<th>Dirección</th>
-		<th>Salario</th>
-		<th>Activo</th>
-	</tr>
+<div class="container-fluid">
+	
+	<div class="row-fluid">
 
-@foreach ($employees as $employee)
-	<tr>
-		<td>{{ $employee->id }} </td>
-		<td>{{ $employee->description }} </td>
-		<td>{{ $employee->pin }}</td>
-		<td>{{ $employee->fullname }}</td>
-		<td>{{ $employee->phone }}</td>
-		<td>{{ $employee->address }}</td>
-		<td>{{ $employee->salary }}</td>
-		<td>{{ $employee->active }}</td>
-	</tr>
-@endforeach
-</table>
+		<div class="span9">
+			
+			<legend>Listado de empleados</legend>
 
+			<table class="table table-striped well">
+			
+				<tr class="head">
+					<th>ID</th>
+					<th>Cargo</th>
+					<th>C.I</th>
+					<th>Nombre</th>
+					<th>Teléfono</th>
+					<th>Dirección</th>
+					<th>Salario</th>
+					<th>Activo</th>
+					<th>Acciones</th>
+				</tr>
 
+			@foreach ($employees as $employee)
+				
+				<tr>
+					<td>{{ $employee->id }} </td>
+					<td>{{ $employee->description }} </td>
+					<td>{{ $employee->pin }}</td>
+					<td>{{ $employee->fullname }}</td>
+					<td>{{ $employee->phone }}</td>
+					<td>{{ $employee->address }}</td>
+					<td>{{ $employee->salary }}</td>
+					<td>{{ $employee->active }}</td>
+					<td>{{ HTML::link('admin/employees/edit','Editar') }} - {{ HTML::link('admin/employees/delete','Eliminar') }} </td>
+				</tr>
+			
+			@endforeach
+			
+			</table>
+
+		</div>
+
+		<div class="span3">
+	
+			<div class="row-fluid">
+					
+				<legend>Ayuda</legend>
+			
+				informacion necesaria
+			
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
