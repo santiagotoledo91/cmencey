@@ -95,7 +95,7 @@
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-cog"></i> Gestionar</a>
+										<a href="{{ URL::to('admin/docs') }}"><i class="icon-cog"></i> Gestionar</a>
 									</li>
 
 								</ul>

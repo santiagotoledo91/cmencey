@@ -7,10 +7,12 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function get_index()
 	{
-		$this->layout->title .= ' - Documentos pendientes.';
-		
+		$this->layout->title .= ' - Gestionar documentos.';
+
 		$view = View::make('admin.docs.index');
-		
+
+		$view->document_types = DB::table('document_types')->get();
+	
 		$this->layout->content = $view;
 	}
 
