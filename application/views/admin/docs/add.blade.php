@@ -40,7 +40,7 @@
 								<option value="90">Trimestral</option>
 								<option value="180">Semestral</option>
 								<option value="365">Anual</option>
-								<option value="0">No vence</option>
+								<option value="0">No aplica</option>
 							</select>
 
 						</div>
