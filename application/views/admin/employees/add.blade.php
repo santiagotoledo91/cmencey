@@ -104,33 +104,6 @@
 
 					</div>
 
-					<div class="control-group">
-
-						<label class="control-label">Documentos a consignar</label>
-
-
-						<div class="controls">
-
-							<div class="span10" style="height:170px; overflow:auto;">
-
-								@foreach ($documents as $document)
-
-								<label class="checkbox">
-
-								<input type="checkbox" name="employee_documents[]" value=" {{ $document-> id }} " checked="checked">
-
-								{{ $document->description }}
-
-								</label>
-
-								@endforeach
-
-							</div>
-
-						</div>
-
-					</div>
-
 				</div>
 
 			</div>	

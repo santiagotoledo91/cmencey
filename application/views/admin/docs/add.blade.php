@@ -51,31 +51,7 @@
 
 				<div class="span6">
 				
-					<div class="control-group">
-
-						<label class="control-label">Asignar a:</label>
-
-						<div class="controls">
-
-							<div style="height:170px; overflow:auto;">
-
-								@foreach ($employees as $employee)
-
-								<label class="checkbox">
-
-								<input type="checkbox" name="employees_ids[]" value=" {{ $employee-> id }} " checked="checked">
-
-								{{ $employee->fullname }}
-
-								</label>
-
-								@endforeach
-
-							</div>
-
-						</div>
-
-					</div>
+					<!-- for further fields -->
 
 				</div>
 
@@ -83,7 +59,7 @@
 
 			<div class="row-fluid">
 			
-				<div class="span2 offset5">
+				<div class="span2 offset2">
 					
 					<div class="control-group">
 

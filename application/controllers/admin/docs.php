@@ -90,21 +90,21 @@ class Admin_Docs_Controller extends Base_Controller
 								->where('description','=',Input::get('document_type_description'))
 								->first();
 
-		// gets the ids of the employees wich will have the new document assigned
-		// $employees_ids = Input::get('employees_ids');
+		// gets the ids of the employees wich are registered in the system
+		$employees = DB::table('employees')->get();
 
-		// // creates the new documents
-		// foreach ($employees_ids as $employee_id) 
-		// {
-		// 	$document = new Document();
+		// creates the new documents
+		foreach ($employees as $employee) 
+		{
+			$document = new Document();
 
-		// 	$document->employee_id 			= $employee_id;
-		// 	$document->document_type_id 	= $required_document->id;
-		// 	$document->status 				= 3;
-		// 	$document->expires	 			= null;
+			$document->employee_id 			= $employee->id;
+			$document->document_type_id 	= $required_document->id;
+			$document->status 				= 3;
+			$document->expires	 			= null;
 
-		// 	$document->save();
-		// }
+			$document->save();
+		}
 		
 		return Redirect::to('admin');
 	}

@@ -55,16 +55,16 @@ class Admin_Employees_Controller extends Base_Controller
 		// retrieves the employee id
 		$employee = Employee::where('pin','=',Input::get('employee_pin'))->first();
 
-		// retrieves the required documents for the employee
-		$employee_documents = Input::get('employee_documents');
+		// retrieves the aviable document types
+		$document_types = DB::table('document_types')->get();
 
-		// register the required documents in the documents table 
-		foreach ($employee_documents as $required_document) 
+		// register the employee documents in the documents table 
+		foreach ($document_types as $document_type) 
 		{
 			$document = new Document();
 
 			$document->employee_id 			= $employee->id;
-			$document->document_type_id 	= $required_document;
+			$document->document_type_id 	= $document_type->id;
 			$document->status 				= 3;
 			$document->expires	 			= null;
 
