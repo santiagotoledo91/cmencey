@@ -13,16 +13,18 @@
 					<th>C.I</th>
 					<th>Nombre del empleado</th>
 					<th>Documento</th>
+					<th>Fecha de vencimiento</th>
 					<th>Acciones</th>
 				</tr>
 
-			@foreach ($pending_documents as $pending_document)
+			@foreach ($expired_documents as $expired_document)
 
-				<tr>
+				<tr class=" {{ $expired_document->class	}} ">
 
-					<td>{{ $pending_document->pin }}</td>
-					<td>{{ $pending_document->fullname }}</td>
-					<td>{{ $pending_document->description }} </td>
+					<td>{{ $expired_document->pin }}</td>
+					<td>{{ $expired_document->fullname }}</td>
+					<td>{{ $expired_document->description }} </td>
+					<td>{{ $expired_document->expires }} </td>
 					<td>{{ HTML::link('admin/','Actualizar') }}</td>
 					
 				</tr>

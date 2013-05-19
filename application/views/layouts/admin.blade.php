@@ -85,15 +85,11 @@
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="#"><i class="icon-exclamation-sign"></i> Vencidos</a>
+										<a href="{{ URL::to('admin/docs/expired') }}"><i class="icon-exclamation-sign"></i> Vencidos y por vencer</a>
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-exclamation-sign"></i> Por vencer</a>
-									</li>
-
-									<li>
-										<a href="#"><i class="icon-exclamation-sign"></i> Por consignar</a>
+										<a href="{{ URL::to('admin/docs/pending') }}"><i class="icon-exclamation-sign"></i> Por consignar</a>
 									</li>
 
 									<li class="divider"></li>
@@ -103,7 +99,7 @@
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-cog"></i> Editar documentos requeridos</a>
+										<a href="{{ URL::to('admin/docs') }}"><i class="icon-cog"></i> Editar documentos requeridos</a>
 									</li>
 
 								</ul>

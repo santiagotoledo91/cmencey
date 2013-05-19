@@ -16,18 +16,50 @@ class Admin_Docs_Controller extends Base_Controller
 		$this->layout->content = $view;
 	}
 
+	public function get_expired()
+	{
+		$subtitle = ' - Documentos vencidos y por vencer';	
+
+		$this->layout->title .= $subtitle;
+
+		$view = View::make('admin.docs.expired');
+
+		$view->expired_documents = DB::table('documents')
+									->where('status','=',1)
+									->or_where('status','=',2)
+									->join('employees','employees.id','=','documents.employee_id')
+									->join('document_types','document_types.id','=','documents.document_type_id')
+									->get(array('*','document_types.description as description','documents.id as id'));
+										
+		foreach ($view->expired_documents as $expired_document) 
+		{
+			switch ($expired_document->status) 
+			{
+				case 1: $expired_document->class = 'warning'; 	break;
+				case 2: $expired_document->class = 'error'; 	break;
+			}
+		}
+
+		$view->subtitle = $subtitle;
+
+		$this->layout->content = $view;
+	}
+
 	public function get_pending()
 	{
-		$this->layout->title .= ' - Documentos pendientes.';
-		
+		$subtitle = ' - Documentos por consignar';	
+
+		$this->layout->title .= $subtitle;
+
 		$view = View::make('admin.docs.pending');
 
-		$view->pendings = DB::table('documents')
-							->where('status','=','3')
-							->join('employees','employees.id','=','documents.employee_id')
-							->join('roles','roles.id','=','employees.role_id')
-							->join('document_types','document_types.id','=','documents.document_type_id')
-							->get(array('*','document_types.description as description','documents.id as id'));
+		$view->pending_documents = DB::table('documents')
+									->where('status','=',3)
+									->join('employees','employees.id','=','documents.employee_id')
+									->join('document_types','document_types.id','=','documents.document_type_id')
+									->get(array('*','document_types.description as description','documents.id as id'));
+		
+		$view->subtitle = $subtitle;
 
 		$this->layout->content = $view;
 	}
