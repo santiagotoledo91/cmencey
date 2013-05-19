@@ -23,6 +23,6 @@ class Admin_Roles_Controller extends Base_Controller
 		
 		$role->save();
 
-		return Redirect::to('admin');
+		return Redirect::to('admin/employees/add');
 	}
 }
