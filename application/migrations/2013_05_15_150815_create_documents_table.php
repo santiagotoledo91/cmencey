@@ -15,7 +15,7 @@ class Create_Documents_Table
 			$table->integer('employee_id');
 			$table->integer('document_type_id');
 			$table->date('expires')->nullable();
-			$table->boolean('up_to_date');
+			$table->integer('status');
 		});
 	}
 

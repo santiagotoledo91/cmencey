@@ -65,7 +65,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 			$document->employee_id 			= $employee->id;
 			$document->document_type_id 	= $required_document;
-			$document->up_to_date 			= false;
+			$document->status 				= 3;
 			$document->expires	 			= null;
 
 			$document->save();

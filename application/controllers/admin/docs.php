@@ -23,7 +23,7 @@ class Admin_Docs_Controller extends Base_Controller
 		$view = View::make('admin.docs.pending');
 
 		$view->pendings = DB::table('documents')
-							->where('up_to_date','=','0')
+							->where('status','=','3')
 							->join('employees','employees.id','=','documents.employee_id')
 							->join('roles','roles.id','=','employees.role_id')
 							->join('document_types','document_types.id','=','documents.document_type_id')
@@ -59,20 +59,20 @@ class Admin_Docs_Controller extends Base_Controller
 								->first();
 
 		// gets the ids of the employees wich will have the new document assigned
-		$employees_ids = Input::get('employees_ids');
+		// $employees_ids = Input::get('employees_ids');
 
-		// creates the new documents
-		foreach ($employees_ids as $employee_id) 
-		{
-			$document = new Document();
+		// // creates the new documents
+		// foreach ($employees_ids as $employee_id) 
+		// {
+		// 	$document = new Document();
 
-			$document->employee_id 			= $employee_id;
-			$document->document_type_id 	= $required_document->id;
-			$document->up_to_date 			= false;
-			$document->expires	 			= null;
+		// 	$document->employee_id 			= $employee_id;
+		// 	$document->document_type_id 	= $required_document->id;
+		// 	$document->status 				= 3;
+		// 	$document->expires	 			= null;
 
-			$document->save();
-		}
+		// 	$document->save();
+		// }
 		
 		return Redirect::to('admin');
 	}
