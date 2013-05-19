@@ -27,7 +27,7 @@ Route::group(array('before' => 'auth'), function()
 { 
 	Route::any('admin','admin.home@index');
 	
-	Route::get('admin/docs','admin.docs@index');
+	Route::get('admin/docs/manage','admin.docs@manage');
 	Route::get('admin/docs/add','admin.docs@add');
 	Route::post('admin/docs/add','admin.docs@add');
 	Route::get('admin/docs/pending','admin.docs@pending');
@@ -35,7 +35,7 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::get('admin/employees/add','admin.employees@add');
 	Route::post('admin/employees/add','admin.employees@add');
-	Route::get('admin/employees','admin.employees@index');
+	Route::get('admin/employees/manage','admin.employees@manage');
 	
 	Route::get('admin/roles/add','admin.roles@add');
 	Route::post('admin/roles/add','admin.roles@add');

@@ -5,11 +5,11 @@ class Admin_Docs_Controller extends Base_Controller
 	public $layout = 'layouts.admin';
 	public $restful = true;
 
-	public function get_index()
+	public function get_manage()
 	{
 		$this->layout->title .= ' - Gestionar documentos.';
 
-		$view = View::make('admin.docs.index');
+		$view = View::make('admin.docs.manage');
 
 		$view->document_types = DB::table('document_types')->get();
 		

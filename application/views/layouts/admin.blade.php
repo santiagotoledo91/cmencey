@@ -69,7 +69,7 @@
 									</li>
 
 									<li>
-										<a href=" {{ URL::to('admin/employees') }} "><i class="icon-cog"></i> Gestionar</a>
+										<a href=" {{ URL::to('admin/employees/manage') }} "><i class="icon-cog"></i> Editar</a>
 									</li>
 
 								</ul>
@@ -99,7 +99,7 @@
 									</li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs') }}"><i class="icon-cog"></i> Editar documentos requeridos</a>
+										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar documentos requeridos</a>
 									</li>
 
 								</ul>
