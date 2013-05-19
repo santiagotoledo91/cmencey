@@ -85,17 +85,25 @@
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="{{ URL::to('admin/docs/pending') }}"><i class="icon-exclamation-sign"></i> Pendientes</a>
+										<a href="#"><i class="icon-exclamation-sign"></i> Vencidos</a>
+									</li>
+
+									<li>
+										<a href="#"><i class="icon-exclamation-sign"></i> Por vencer</a>
+									</li>
+
+									<li>
+										<a href="#"><i class="icon-exclamation-sign"></i> Por consignar</a>
 									</li>
 
 									<li class="divider"></li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Añadir</a>
+										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Nuevo documento requerido</a>
 									</li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs') }}"><i class="icon-cog"></i> Gestionar</a>
+										<a href="#"><i class="icon-cog"></i> Editar documentos requeridos</a>
 									</li>
 
 								</ul>
