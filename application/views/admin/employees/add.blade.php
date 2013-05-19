@@ -18,29 +18,7 @@
 
 					<div class="control-group">
 
-						<label class="control-label">Cargo</label>
-
-						<div class="controls">
-
-							<select id="employee_role" name="employee_role" class="input-xlarge span10">
-
-								@foreach ($roles as $role) 
-
-									<option value = " {{ $role->id }} "> {{ $role->description  }} </option>
-
-								@endforeach
-
-							</select>
-
-							<a href=" {{ URL::to('admin/roles/add') }} "class="btn btn-small"><i class="icon-plus"></i></a>
-
-						</div>
-
-					</div>
-
-					<div class="control-group">
-
-						<label class="control-label">Cédula de identidad</label>
+						<label class="control-label">Cedula de identidad</label>
 
 						<div class="controls">
 
@@ -76,6 +54,34 @@
 
 					<div class="control-group">
 
+						<label class="control-label">Cargo</label>
+
+						<div class="controls">
+
+							<input id="employee_role" name="employee_role" type="text" placeholder="Ej: Obrero" maxlength="8" class="span10" required>
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Salario (Bs.)</label>
+
+						<div class="controls">
+
+							<input id="employee_salary" name="employee_salary" type="text" placeholder="Ej: 10000" maxlength="8" class="span10" required>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="span6">
+
+					<div class="control-group">
+
 						<label class="control-label">Teléfono</label>
 
 						<div class="controls">
@@ -85,10 +91,6 @@
 						</div>
 
 					</div>
-
-				</div>
-
-				<div class="span6">
 
 					<div class="control-group">
 

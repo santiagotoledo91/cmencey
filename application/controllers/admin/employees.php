@@ -11,7 +11,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 		$view = View::make('admin.employees.manage');
 
-		$view->employees = DB::table('employees')->join('roles','roles.id','=','employees.role_id')->get(array('*','employees.id as id'));
+		$view->employees = DB::table('employees')->get();
 
 		foreach ($view->employees as $employee)
 		{
@@ -31,8 +31,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 		$view = View::make('admin.employees.add');
 
-		$view->roles 		= DB::table('roles')->get();
-		$view->documents 	= DB::table('document_types')->get();
+		$view->documents = DB::table('document_types')->get();
 
 		$this->layout->content = $view;
 	}
@@ -45,9 +44,10 @@ class Admin_Employees_Controller extends Base_Controller
 
 		$employee->pin 			= Input::get('employee_pin');
 		$employee->fullname 	= Input::get('employee_firstnames').' '.Input::get('employee_lastnames');
-		$employee->role_id 		= Input::get('employee_role');
+		$employee->role 		= Input::get('employee_role');
 		$employee->phone 		= Input::get('employee_phone');
 		$employee->address 		= Input::get('employee_address');
+		$employee->salary 		= Input::get('employee_salary');
 		$employee->active 		= 0;
 
 		$employee->save();

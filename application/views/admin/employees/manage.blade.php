@@ -10,7 +10,6 @@
 			
 				<tr class="head">
 					<th>ID</th>
-					<th>Cargo</th>
 					<th>C.I</th>
 					<th>Nombre</th>
 					<th>Teléfono</th>
@@ -24,7 +23,6 @@
 				
 				<tr>
 					<td>{{ $employee->id }} </td>
-					<td>{{ $employee->description }} </td>
 					<td>{{ $employee->pin }}</td>
 					<td>{{ $employee->fullname }}</td>
 					<td>{{ $employee->phone }}</td>
