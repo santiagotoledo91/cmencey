@@ -57,6 +57,7 @@ class Admin_Docs_Controller extends Base_Controller
 									->where('status','=',3)
 									->join('employees','employees.id','=','documents.employee_id')
 									->join('document_types','document_types.id','=','documents.document_type_id')
+									->order_by('employees.id','desc')
 									->get(array('*','document_types.description as description','documents.id as id'));
 		
 		$view->subtitle = $subtitle;
