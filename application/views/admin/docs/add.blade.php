@@ -14,7 +14,7 @@
 				
 				{{ Form::open('admin/docs/add','POST', array('class' => 'form-horizontal')) }}
 
-				<div class="span6">
+				<div class="span6 offset3">
 
 					<div class="control-group">
 
@@ -59,7 +59,7 @@
 
 			<div class="row-fluid">
 			
-				<div class="span2 offset2">
+				<div class="span2 offset5">
 					
 					<div class="control-group">
 
