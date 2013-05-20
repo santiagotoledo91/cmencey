@@ -58,7 +58,7 @@
 
 						<div class="controls">
 
-							<input id="employee_role" name="employee_role" type="text" placeholder="Ej: Obrero" maxlength="8" class="span10" required>
+							<input id="employee_role" name="employee_role" type="text" placeholder="Ej: Obrero" maxlength="200" class="span10" required>
 
 						</div>
 
@@ -86,7 +86,7 @@
 
 						<div class="controls">
 
-							<input id="employee_phone" name="employee_phone" type="text" placeholder="Ej: 04241235565" class="span10" required>
+							<input id="employee_phone" name="employee_phone" type="text" placeholder="Ej: 04241235565" maxlength="11" class="span10" required>
 
 						</div>
 
