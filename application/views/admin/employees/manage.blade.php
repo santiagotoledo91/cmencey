@@ -29,7 +29,7 @@
 					<td>{{ $employee->address }}</td>
 					<td>{{ $employee->salary }}</td>
 					<td>{{ $employee->active }}</td>
-					<td>{{ HTML::link('admin/employees/edit','Editar') }} - {{ HTML::link('admin/employees/delete','Eliminar') }} </td>
+					<td>Editar</td>
 				</tr>
 			
 			@endforeach
