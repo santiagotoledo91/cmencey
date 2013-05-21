@@ -10,8 +10,7 @@
 	
 				<tr class="head">
 	
-					<th>Nombre</th>
-					<th>Duracion</th>
+					<th>Descripción del documento</th>
 					<th>Acciones</th>
 	
 				</tr>
@@ -21,7 +20,6 @@
 				<tr>
 	
 					<td>{{ $document_type->description }}</td>
-					<td>{{ $document_type->expires_in }}</td>
 					<td>{{ HTML::link('admin/docs/edit','Editar') }} - {{ HTML::link('admin/docs/delete','Eliminar') }} </td>
 	
 				</tr>

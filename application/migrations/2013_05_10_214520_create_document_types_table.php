@@ -14,8 +14,6 @@ class Create_Document_Types_Table
 			$table->increments('id');
 			$table->string('description',100);
 			$table->unique('description');
-			$table->integer('expires_in')->unsigned();
-
 		});
 	}
 

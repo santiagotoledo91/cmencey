@@ -28,25 +28,6 @@
 
 					</div>
 
-					<div class="control-group">
-
-						<label class="control-label">Renovacion</label>
-
-						<div class="controls">
-
-							<select id="document_type_expires_in" name="document_type_expires_in" class="input">
-								<option value="7">Semanal</option>s
-								<option value="30">Mensual</option>
-								<option value="90">Trimestral</option>
-								<option value="180">Semestral</option>
-								<option value="365">Anual</option>
-								<option value="0">No aplica</option>
-							</select>
-
-						</div>
-
-					</div>
-				
 				</div>	
 
 				<div class="span6">

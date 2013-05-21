@@ -82,7 +82,6 @@ class Admin_Docs_Controller extends Base_Controller
 		$document_type 	= new DocumentType();
 		
 		$document_type->description 	= Input::get('document_type_description');
-		$document_type->expires_in 		= Input::get('document_type_expires_in');
 		
 		$document_type->save();
 
