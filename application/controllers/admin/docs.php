@@ -108,4 +108,26 @@ class Admin_Docs_Controller extends Base_Controller
 		
 		return Redirect::to('admin');
 	}
+
+	public function get_edit($id) 
+	{
+		$this->layout->title .=' - Editar documento.';
+
+		$view = View::make('admin.docs.edit');
+
+		$view->document_type = DocumentType::find($id);
+
+		$this->layout->content = $view;
+	}
+
+	public function post_edit($id) 
+	{
+		$document_type = DocumentType::find($id);
+
+		$document_type->description = Input::get('document_type_description');
+
+		$document_type->save();
+
+		return Redirect::to('admin/docs/manage');
+	}
 }

@@ -4,7 +4,7 @@
 	
 		<div class="span9">
 	
-			<legend> Listado de documentos disponibles </legend>
+			<legend> Listado de documentos requeridos </legend>
 	
 			<table class="table table-striped well">
 	
@@ -20,7 +20,7 @@
 				<tr>
 	
 					<td>{{ $document_type->description }}</td>
-					<td>{{ HTML::link('admin/docs/edit','Editar') }} - {{ HTML::link('admin/docs/delete','Eliminar') }} </td>
+					<td>{{ HTML::link('admin/docs/edit/'.$document_type->id,'Editar') }} - {{ HTML::link('admin/docs/delete','Eliminar') }} </td>
 	
 				</tr>
 	

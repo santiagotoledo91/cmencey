@@ -30,6 +30,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('admin/docs/manage','admin.docs@manage');
 	Route::get('admin/docs/add','admin.docs@add');
 	Route::post('admin/docs/add','admin.docs@add');
+	Route::get('admin/docs/edit/(:num)','admin.docs@edit');
+	Route::post('admin/docs/edit/(:num)','admin.docs@edit');
 	Route::get('admin/docs/pending','admin.docs@pending');
 	Route::get('admin/docs/expired','admin.docs@expired');
 
