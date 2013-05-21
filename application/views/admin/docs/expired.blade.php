@@ -24,7 +24,7 @@
 					<td>{{ $expired_document->pin }}</td>
 					<td>{{ $expired_document->fullname }}</td>
 					<td>{{ $expired_document->description }} </td>
-					<td>{{ $expired_document->expires }} </td>
+					<td>{{ $expired_document->expiration }} </td>
 					<td>{{ HTML::link('admin/','Actualizar') }}</td>
 					
 				</tr>

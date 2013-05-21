@@ -66,7 +66,7 @@ class Admin_Employees_Controller extends Base_Controller
 			$document->employee_id 			= $employee->id;
 			$document->document_type_id 	= $document_type->id;
 			$document->status 				= 3;
-			$document->expires	 			= null;
+			$document->expiration 			= null;
 
 			$document->save();
 		}
@@ -103,11 +103,11 @@ class Admin_Employees_Controller extends Base_Controller
 
 		$documents = Input::get('employee_documents');
 
-		foreach ($documents as $id=>$expires) 
+		foreach ($documents as $id=>$expiration) 
 		{
 			$doc = Document::find($id);
 			
-			$doc->expires = $expires;
+			$doc->expiration = $expiration;
 			
 			$doc->save();
 		}

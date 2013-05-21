@@ -81,8 +81,8 @@ class Admin_Docs_Controller extends Base_Controller
 		// creates the new document type
 		$document_type 	= new DocumentType();
 		
-		$document_type->description 	= Input::get('document_type_description');
-		
+		$document_type->description = Input::get('document_type_description');
+		$document_type->expires 	= Input::get('document_type_expires');
 		$document_type->save();
 
 		// retrives the new document_type ID
@@ -101,7 +101,7 @@ class Admin_Docs_Controller extends Base_Controller
 			$document->employee_id 			= $employee->id;
 			$document->document_type_id 	= $required_document->id;
 			$document->status 				= 3;
-			$document->expires	 			= null;
+			$document->expiration 			= null;
 
 			$document->save();
 		}

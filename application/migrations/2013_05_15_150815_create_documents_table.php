@@ -17,7 +17,7 @@ class Create_Documents_Table
 			$table->integer('status');
 		});
 
-		DB::query('ALTER TABLE documents ADD expires DATE');
+		DB::query('ALTER TABLE documents ADD expiration DATE');
 	}
 
 	/**

@@ -114,7 +114,7 @@
 
 										<td> <label> {{ $document->description }} </label></td>
 
-										<td> <input type="text" name="employee_documents[{{ $document->id }}]" value="{{ $document->expires }}" class="span12"> </td>
+										<td> <input type="text" name="employee_documents[{{ $document->id }}]" value="{{ $document->expiration }}" class="span12"> </td>
 
 									</tr>
 
