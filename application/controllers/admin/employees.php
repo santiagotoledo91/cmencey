@@ -73,4 +73,45 @@ class Admin_Employees_Controller extends Base_Controller
 
 		return Redirect::to('admin');
 	}
+
+	public function get_edit($id)
+	{
+		$this->layout->title .= ' - Editar empleado.';
+
+		$view = View::make('admin.employees.edit');
+
+		$view->employee = Employee::find($id);
+
+		$view->documents = DB::table('documents')
+							->where('employee_id','=',$id)
+							->join('document_types','document_types.id','=','documents.document_type_id')
+							->get();
+
+		$this->layout->content = $view;
+	}
+
+	public function post_edit($id)
+	{
+		$employee = Employee::find($id);
+
+		$employee->role 	= Input::get('employee_role');
+		$employee->salary 	= Input::get('employee_salary');
+		$employee->phone 	= Input::get('employee_phone');
+		$employee->address 	= Input::get('employee_address');
+		
+		$employee->save();
+
+		$documents = Input::get('employee_documents');
+
+		foreach ($documents as $id=>$expires) 
+		{
+			$doc = Document::find($id);
+			
+			$doc->expires = $expires;
+			
+			$doc->save();
+		}
+
+		return Redirect::to('admin');
+	}
 }

@@ -16,14 +16,14 @@
 					<th>Acciones</th>
 				</tr>
 
-			@foreach ($pending_documents as $pending_document)
+			@foreach ($employees as $employee)
 
 				<tr>
 
-					<td>{{ $pending_document->pin }}</td>
-					<td>{{ $pending_document->fullname }}</td>
-					<td>{{ $pending_document->description }} </td>
-					<td>{{ HTML::link('admin/','Actualizar') }}</td>
+					<td>{{ $employee->pin }}</td>
+					<td>{{ $employee->fullname }}</td>
+					<td>{{ $employee->pending_document }} </td>
+					<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Actualizar') }}</td>
 					
 				</tr>
 

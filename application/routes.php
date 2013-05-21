@@ -36,6 +36,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('admin/employees/add','admin.employees@add');
 	Route::post('admin/employees/add','admin.employees@add');
 	Route::get('admin/employees/manage','admin.employees@manage');
+	Route::get('admin/employees/edit/(:num)','admin.employees@edit');
+	Route::post('admin/employees/edit/(:num)','admin.employees@edit');
 	
 	// all other restricted routes goes here
 
