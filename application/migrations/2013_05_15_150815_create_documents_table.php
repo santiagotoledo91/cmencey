@@ -14,9 +14,10 @@ class Create_Documents_Table
 			$table->increments('id');
 			$table->integer('employee_id');
 			$table->integer('document_type_id');
-			$table->date('expires')->nullable();
 			$table->integer('status');
 		});
+
+		DB::query('ALTER TABLE documents ADD expires DATE');
 	}
 
 	/**
