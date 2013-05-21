@@ -104,17 +104,17 @@
 
 										<th>Documento</th>
 										
-										<th>Fecha de vencimiento</th>
+										<th>Status</th>
 
 									</tr>
 
 									@foreach ($documents as $document)
 
-									<tr>
+									<tr class="{{$document->row_class}}">
 
 										<td> <label> {{ $document->description }} </label></td>
 
-										<td> <input type="text" name="employee_documents[{{ $document->id }}]" value="{{ $document->expiration }}" class="span12"> </td>
+										{{ $document->show }}
 
 									</tr>
 
