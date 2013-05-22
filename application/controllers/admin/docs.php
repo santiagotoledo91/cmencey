@@ -29,7 +29,7 @@ class Admin_Docs_Controller extends Base_Controller
 									->or_where('status','=',2)
 									->join('employees','employees.id','=','documents.employee_id')
 									->join('document_types','document_types.id','=','documents.document_type_id')
-									->get(array('*','document_types.description as description','documents.id as id'));
+									->get(array('*','document_types.description as description','employees.id as employee_id'));
 										
 		foreach ($view->expired_documents as $expired_document) 
 		{

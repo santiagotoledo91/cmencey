@@ -25,7 +25,7 @@
 					<td>{{ $expired_document->fullname }}</td>
 					<td>{{ $expired_document->description }} </td>
 					<td>{{ $expired_document->expiration }} </td>
-					<td>{{ HTML::link('admin/','Actualizar') }}</td>
+					<td>{{ HTML::link('admin/employees/edit/'.$expired_document->employee_id,'Actualizar') }}</td>
 					
 				</tr>
 
