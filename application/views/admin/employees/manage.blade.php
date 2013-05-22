@@ -10,14 +10,14 @@
 
 				<tr class="head">
 
-					<th>ID</th>
+					<th>CARGO</th>
 					<th>C.I</th>
-					<th>Nombre</th>
-					<th>Teléfono</th>
-					<th>Dirección</th>
-					<th>Salario</th>
-					<th>Activo</th>
-					<th>Acciones</th>
+					<th>NOMBRE</th>
+					<th>TELÉFONO</th>
+					<th>DIRECCIÓN</th>
+					<th>SALARIO</th>
+					<th>ACTIVO</th>
+					<th>ACCIONES</th>
 
 				</tr>
 
@@ -25,7 +25,7 @@
 
 				<tr>
 
-					<td>{{ $employee->id }} </td>
+					<td>{{ $employee->role }} </td>
 					<td>{{ $employee->pin }}</td>
 					<td>{{ $employee->fullname }}</td>
 					<td>{{ $employee->phone }}</td>

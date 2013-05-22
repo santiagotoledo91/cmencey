@@ -69,7 +69,7 @@
 									</li>
 
 									<li>
-										<a href=" {{ URL::to('admin/employees/manage') }} "><i class="icon-cog"></i> Editar</a>
+										<a href=" {{ URL::to('admin/employees/manage') }} "><i class="icon-cog"></i> Ver - Editar</a>
 									</li>
 
 								</ul>
