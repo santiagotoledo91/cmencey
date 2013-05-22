@@ -4,32 +4,41 @@
 
 		<div class="span9">
 
-			<legend> Listado {{ $subtitle }} </legend>
+			@if (!empty($documents))
 
-			<table class="table table-striped well">
+				<legend> Listado {{ $subtitle }} </legend>
 
-				<tr class="head">
+				<table class="table table-striped well">
 
-					<th>C.I</th>
-					<th>Nombre del empleado</th>
-					<th>Documento</th>
-					<th>Acciones</th>
-				</tr>
+					<tr class="head">
 
-			@foreach ($documents as $document)
+						<th>C.I</th>
+						<th>Nombre del empleado</th>
+						<th>Documento</th>
+						<th>Acciones</th>
+					</tr>
 
-				<tr>
+				@foreach ($documents as $document)
 
-					<td>{{ $document->employee_pin }}</td>
-					<td>{{ $document->employee_fullname }}</td>
-					<td>{{ $document->description }} </td>
-					<td>{{ HTML::link('admin/employees/edit/'.$document->employee_id,'Actualizar') }}</td>
-					
-				</tr>
+					<tr>
 
-			@endforeach
+						<td>{{ $document->employee_pin }}</td>
+						<td>{{ $document->employee_fullname }}</td>
+						<td>{{ $document->description }} </td>
+						<td>{{ HTML::link('admin/employees/edit/'.$document->employee_id,'Actualizar') }}</td>
+						
+					</tr>
 
-			</table>
+				@endforeach
+
+				</table>
+			
+			@else
+				
+				<legend> Listado {{ $subtitle }} </legend>
+				<h4 class="text-center"> No tiene documentos por consignar.</h4>
+
+			@endif
 
 		</div>
 
