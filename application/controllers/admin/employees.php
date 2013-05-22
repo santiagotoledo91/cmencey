@@ -89,7 +89,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 		foreach ($documents as $document) 
 		{
-			if ($document->expires === 0) 
+			if ($document->expires == false) 
 			{
 				switch ($document->status) 
 				{
@@ -164,6 +164,6 @@ class Admin_Employees_Controller extends Base_Controller
 
 		}
 
-		return Redirect::to('admin');
+		return Redirect::to('admin/employees/manage');
 	}
 }

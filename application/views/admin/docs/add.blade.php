@@ -42,7 +42,7 @@
 
 							<label class="radio">
 
-								<input type="radio" name="document_type_expires" id="document_type_expires" value="2" required> No
+								<input type="radio" name="document_type_expires" id="document_type_expires" value="0" required> No
 
 							</label>
 
