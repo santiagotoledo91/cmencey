@@ -28,6 +28,46 @@
 
 					</div>
 
+					<div class="control-group">
+
+						<label class="control-label">¿Llevar control del vencimiento?</label>
+
+						<div class="controls">	
+
+							@if ($document_type->expires == 1)
+
+								<label class="radio">
+
+									<input type="radio" name="document_type_expires" id="document_type_expires" value="1" required checked> Si 
+
+								</label>
+
+								<label class="radio">
+
+									<input type="radio" name="document_type_expires" id="document_type_expires" value="0" required> No
+
+								</label>
+
+							@else
+
+								<label class="radio">
+
+									<input type="radio" name="document_type_expires" id="document_type_expires" value="1" required> Si 
+
+								</label>
+
+								<label class="radio">
+
+									<input type="radio" name="document_type_expires" id="document_type_expires" value="0" required checked> No
+
+								</label>
+
+							@endif
+
+						</div>
+
+					</div>
+
 				</div>	
 
 				<div class="span6">

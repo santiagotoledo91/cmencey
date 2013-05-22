@@ -94,7 +94,9 @@ class Admin_Employees_Controller extends Base_Controller
 				switch ($document->status) 
 				{
 					// the document its up to date
-					case 0: 
+					case 0:
+					case 1:
+					case 2: 
 						$document->show = '<td class="succes"> Recibido </td>'; 
 						$document->row_class="success";
 					break; 
@@ -162,36 +164,39 @@ class Admin_Employees_Controller extends Base_Controller
 		$expirable_documents = Input::get('employee_expirable_documents');
 
 		// updates the status of the documents according to the expiration date
-		foreach ($expirable_documents as $id=>$expiration) 
+		if (isset($expirable_documents))
 		{
-			// searches the document to update
-			$document = Document::find($id);
-
-			// to prevent blank values to be set as status 2
-			if ($expiration != '')
+		foreach ($expirable_documents as $id=>$expiration) 
 			{
-				// up to date
-				if ($expiration > $today)  
+				// searches the document to update
+				$document = Document::find($id);
+
+				// to prevent blank values to be set as status 2
+				if ($expiration != '')
 				{
-					$document->status = 0;
+					// up to date
+					if ($expiration > $today)  
+					{
+						$document->status = 0;
+					}
+
+					// about to expire
+					if ($expiration <= $close_to_expire)
+					{
+						$document->status = 1;
+					}
+
+					// expired
+					if ($expiration <= $today)
+					{
+						$document->status = 2;
+					}
+
+					$document->expiration = $expiration;
 				}
 
-				// about to expire
-				if ($expiration <= $close_to_expire)
-				{
-					$document->status = 1; 
-				}
-
-				// expired
-				if ($expiration <= $today)
-				{
-					$document->status = 2;
-				}
-
-				$document->expiration = $expiration;
-			}
-			
 			$document->save();
+			}
 		}
 
 		// retrieves the no expirable documents array
