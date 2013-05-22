@@ -85,7 +85,7 @@ class Admin_Employees_Controller extends Base_Controller
 		$documents = DB::table('documents')
 							->where('employee_id','=',$id)
 							->join('document_types','document_types.id','=','documents.document_type_id')
-							->get();
+							->get(array('*','documents.id as id'));
 
 		foreach ($documents as $document) 
 		{
@@ -167,26 +167,30 @@ class Admin_Employees_Controller extends Base_Controller
 			// searches the document to update
 			$document = Document::find($id);
 
-			$document->expiration = $expiration;
-
-			// up to date
-			if ($expiration > $today)  
+			// to prevent blank values to be set as status 2
+			if ($expiration != '')
 			{
-				$document->status = 0;
-			}
+				// up to date
+				if ($expiration > $today)  
+				{
+					$document->status = 0;
+				}
 
-			// about to expire
-			if ($expiration <= $close_to_expire)
-			{
-				$document->status = 1; 
-			}
+				// about to expire
+				if ($expiration <= $close_to_expire)
+				{
+					$document->status = 1; 
+				}
 
-			// expired
-			if ($expiration <= $today)
-			{
-				$document->status = 2;
-			}
+				// expired
+				if ($expiration <= $today)
+				{
+					$document->status = 2;
+				}
 
+				$document->expiration = $expiration;
+			}
+			
 			$document->save();
 		}
 
