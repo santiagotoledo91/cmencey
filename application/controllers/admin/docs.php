@@ -24,19 +24,19 @@ class Admin_Docs_Controller extends Base_Controller
 
 		$view = View::make('admin.docs.expired');
 
-		$view->expired_documents = DB::table('documents')
+		$view->documents = DB::table('documents')
 									->where('status','=',1)
 									->or_where('status','=',2)
 									->join('employees','employees.id','=','documents.employee_id')
 									->join('document_types','document_types.id','=','documents.document_type_id')
-									->get(array('*','document_types.description as description','employees.id as employee_id'));
+									->get(array('*','employees.id as employee_id','employees.fullname as employee_fullname','employees.pin as employee_pin'));
 										
-		foreach ($view->expired_documents as $expired_document) 
+		foreach ($view->documents as $document) 
 		{
-			switch ($expired_document->status) 
+			switch ($document->status) 
 			{
-				case 1: $expired_document->class = 'warning'; 	break;
-				case 2: $expired_document->class = 'error'; 	break;
+				case 1: $document->class = 'warning'; 	break;
+				case 2: $document->class = 'error'; 	break;
 			}
 		}
 
@@ -53,13 +53,13 @@ class Admin_Docs_Controller extends Base_Controller
 
 		$view = View::make('admin.docs.pending');
 
-		$view->employees = DB::table('documents')
-									->where('status','=',3)
-									->join('employees','employees.id','=','documents.employee_id')
-									->join('document_types','document_types.id','=','documents.document_type_id')
-									->order_by('employees.id','desc')
-									->get(array('*','document_types.description as pending_document','documents.employee_id as id'));
-		
+		$view->documents = DB::table('documents')
+							->where('status','=',3)
+							->join('employees','employees.id','=','documents.employee_id')
+							->join('document_types','document_types.id','=','documents.document_type_id')
+							->order_by('documents.id','desc')
+							->get(array('*','documents.employee_id as employee_id','employees.fullname as employee_fullname','employees.pin as employee_pin'));
+
 		$view->subtitle = $subtitle;
 
 		$this->layout->content = $view;

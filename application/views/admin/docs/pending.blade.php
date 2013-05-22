@@ -3,7 +3,7 @@
 	<div class="row-fluid">
 
 		<div class="span9">
-			
+
 			<legend> Listado {{ $subtitle }} </legend>
 
 			<table class="table table-striped well">
@@ -16,14 +16,14 @@
 					<th>Acciones</th>
 				</tr>
 
-			@foreach ($employees as $employee)
+			@foreach ($documents as $document)
 
 				<tr>
 
-					<td>{{ $employee->pin }}</td>
-					<td>{{ $employee->fullname }}</td>
-					<td>{{ $employee->pending_document }} </td>
-					<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Actualizar') }}</td>
+					<td>{{ $document->employee_pin }}</td>
+					<td>{{ $document->employee_fullname }}</td>
+					<td>{{ $document->description }} </td>
+					<td>{{ HTML::link('admin/employees/edit/'.$document->employee_id,'Actualizar') }}</td>
 					
 				</tr>
 

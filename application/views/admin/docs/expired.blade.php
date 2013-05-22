@@ -3,7 +3,7 @@
 	<div class="row-fluid">
 
 		<div class="span9">
-			
+
 			<legend> Listado {{ $subtitle }} </legend>
 
 			<table class="table table-striped well">
@@ -17,15 +17,15 @@
 					<th>Acciones</th>
 				</tr>
 
-			@foreach ($expired_documents as $expired_document)
+			@foreach ($documents as $document)
 
-				<tr class=" {{ $expired_document->class	}} ">
+				<tr class=" {{ $document->class	}} ">
 
-					<td>{{ $expired_document->pin }}</td>
-					<td>{{ $expired_document->fullname }}</td>
-					<td>{{ $expired_document->description }} </td>
-					<td>{{ $expired_document->expiration }} </td>
-					<td>{{ HTML::link('admin/employees/edit/'.$expired_document->employee_id,'Actualizar') }}</td>
+					<td>{{ $document->employee_pin }}</td>
+					<td>{{ $document->employee_fullname }}</td>
+					<td>{{ $document->description }} </td>
+					<td>{{ $document->expiration }} </td>
+					<td>{{ HTML::link('admin/employees/edit/'.$document->employee_id,'Actualizar') }}</td>
 					
 				</tr>
 
