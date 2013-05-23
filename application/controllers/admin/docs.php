@@ -29,8 +29,10 @@ class Admin_Docs_Controller extends Base_Controller
 									->join('document_types','document_types.id','=','documents.document_type_id')
 									->where('documents.status','=',1)
 									->where('document_types.expires','=',1)
+									->where('employees.active','=',1)
 									->or_where('documents.status','=',2)
 									->where('document_types.expires','=',1)
+									->where('employees.active','=',1)
 									->get(array('*','employees.id as employee_id','employees.fullname as employee_fullname','employees.pin as employee_pin'));
 										
 		foreach ($view->documents as $document) 

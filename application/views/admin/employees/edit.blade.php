@@ -88,6 +88,46 @@
 
 					</div>
 
+					<div class="control-group form-vertical">
+
+						<label class="control-label">Activo</label>
+
+						<div class="controls">	
+
+							@if ($employee->active == 1)
+
+								<label class="radio">
+
+									<input type="radio" name="employee_active" id="employee_active" value="1" required checked> Si 
+
+								</label>
+
+								<label class="radio">
+
+									<input type="radio" name="employee_active" id="employee_active" value="0" required> No
+
+								</label>
+
+							@else
+
+								<label class="radio">
+
+									<input type="radio" name="employee_active" id="employee_active" value="1" required> Si 
+
+								</label>
+
+								<label class="radio">
+
+									<input type="radio" name="employee_active" id="employee_active" value="0" required checked> No
+
+								</label>
+
+							@endif
+
+						</div>
+
+					</div>
+
 				</div>
 
 				<div class="span7">
@@ -96,7 +136,7 @@
 
 						<div class="controls">
 
-							<div class="span12" style="height:325px; overflow:auto;">
+							<div class="span12" style="height:380px; overflow:auto;">
 
 								<table class="table">
 

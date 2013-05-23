@@ -150,6 +150,7 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->salary 	= Input::get('employee_salary');
 		$employee->phone 	= Input::get('employee_phone');
 		$employee->address 	= Input::get('employee_address');
+		$employee->active 	= Input::get('employee_active');
 
 		$employee->save();
 
