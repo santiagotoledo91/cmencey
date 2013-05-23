@@ -88,7 +88,7 @@
 
 					</div>
 
-					<div class="control-group form-vertical">
+					<div class="control-group">
 
 						<label class="control-label">Activo</label>
 
@@ -140,7 +140,7 @@
 
 								<table class="table table-bordered table-hover">
 
-									<tr>
+									<tr class="well">
 
 										<th>Documento</th>
 										
