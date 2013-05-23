@@ -136,9 +136,9 @@
 
 						<div class="controls">
 
-							<div class="span12" style="height:380px; overflow:auto;">
+							<div class="span12" style="height:385px; overflow:auto;">
 
-								<table class="table">
+								<table class="table table-bordered table-hover">
 
 									<tr>
 

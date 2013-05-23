@@ -6,12 +6,13 @@
 	
 			<legend> Listado de documentos requeridos </legend>
 	
-			<table class="table table-striped well">
+			<table class="table table-bordered table-hover">
 	
-				<tr class="head">
+				<tr class="head well">
 	
-					<th>Descripción del documento</th>
-					<th>Acciones</th>
+					<th>DESCRIPCCIÓN DEL DOCUMENTO</th>
+					<th>CONTROL DE VENCIMIENTO</th>
+					<th>ACCIONES</th>
 	
 				</tr>
 
@@ -20,6 +21,17 @@
 				<tr>
 	
 					<td>{{ $document_type->description }}</td>
+					
+					@if ($document_type->expires == 1)
+					
+						<td> Si </td>
+					
+					@else
+					
+						<td> No </td>
+					
+					@endif
+					
 					<td>{{ HTML::link('admin/docs/edit/'.$document_type->id,'Editar') }}</td>
 	
 				</tr>

@@ -6,9 +6,9 @@
 
 			<legend>Listado de empleados</legend>
 
-			<table class="table table-striped well">
+			<table class="table table-bordered table-hover">
 
-				<tr class="head">
+				<tr class="head well">
 
 					<th>CARGO</th>
 					<th>C.I</th>
@@ -30,7 +30,7 @@
 					<td>{{ $employee->fullname }}</td>
 					<td>{{ $employee->phone }}</td>
 					<td>{{ $employee->address }}</td>
-					<td>{{ $employee->salary }}</td>
+					<td>Bs. {{ $employee->salary }}</td>
 					<td>{{ $employee->active }}</td>
 					<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar') }}</td>
 

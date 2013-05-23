@@ -8,15 +8,15 @@
 
 				<legend> Listado {{ $subtitle }} </legend>
 
-				<table class="table table-striped well">
+				<table class="table table-bordered table-hover">
 
-					<tr class="head">
+					<tr class="head well">
 
 						<th>C.I</th>
-						<th>Nombre del empleado</th>
-						<th>Documento</th>
-						<th>Fecha de vencimiento</th>
-						<th>Acciones</th>
+						<th>NOMBRE DEL EMPLEADO</th>
+						<th>DOCUMENTO</th>
+						<th>FECHA DE VENCIMIENTO</th>
+						<th>ACCIONES</th>
 					</tr>
 
 				@foreach ($documents as $document)
