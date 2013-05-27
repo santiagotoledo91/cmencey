@@ -45,7 +45,7 @@
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="#">Nómina</a>
+										<a href="{{ URL::to('admin/paysheets/pre') }}">Nómina</a>
 									</li>
 
 									<li>
@@ -181,7 +181,6 @@
 		$(document).ready(function () {  
 			$(".collapse").collapse();
 			$(".dropdown-toggle").dropdown();  
-			$(".tooltip").tooltip()
 		});
 	</script>
 
