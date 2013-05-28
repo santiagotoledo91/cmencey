@@ -18,6 +18,7 @@ class Create_Employees_Table
 			$table->string('role',200);
 			$table->string('phone',11);
 			$table->string('address',200);
+			$table->string('bank_account',20);
 			$table->integer('salary');
 			$table->boolean('active');
 			$table->date('startdate');

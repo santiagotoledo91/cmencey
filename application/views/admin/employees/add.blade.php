@@ -104,6 +104,18 @@
 
 					</div>
 
+					<div class="control-group">
+
+						<label class="control-label">Cuenta bancaria N˚ (Banco de venezuela)</label>
+
+						<div class="controls">
+
+							<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" placeholder="Ej: 0116077880015459039" required>
+
+						</div>
+
+					</div>
+
 				</div>
 
 			</div>	

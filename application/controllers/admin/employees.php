@@ -48,6 +48,7 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->phone 		= Input::get('employee_phone');
 		$employee->address 		= Input::get('employee_address');
 		$employee->salary 		= Input::get('employee_salary');
+		$employee->bank_account = Input::get('employee_bank_account');
 		$employee->active 		= 0;
 
 		$employee->save();
