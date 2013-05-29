@@ -26,7 +26,7 @@
 					<input type="hidden" name="id[]" value="{{ $employee->id }}">
 					<td> {{ $employee->pin }} </td>
 					<td> {{ $employee->fullname }} </td>
-					<td>Bs. {{ $employee->salary / 4 }} </td>
+					<td>Bs. {{ $employee->salary * 7}} </td>
 					<td> <input type="checkbox" name="include[{{ $employee->id }}]" checked></td>
 				</tr>
 

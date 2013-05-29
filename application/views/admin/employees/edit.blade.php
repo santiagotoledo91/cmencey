@@ -54,7 +54,7 @@
 
 					<div class="control-group">
 
-						<label class="control-label">Salario (Bs.)</label>
+						<label class="control-label">Salario diario (Bs.)</label>
 
 						<div class="controls">
 

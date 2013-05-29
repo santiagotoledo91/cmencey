@@ -39,12 +39,12 @@ class Admin_Paysheets_Controller extends Base_Controller
 			{ 
 				$employee = Employee::find($id);
 
-				$employee->sso 				= 0.045 * ($employee->salary / 4);
-				$employee->forced_stop 		= 0.005 * ($employee->salary / 4);
-				$employee->faov 			= 0.01 	* ($employee->salary / 4);
+				$employee->sso 				= 0.045 * ($employee->salary * 7);
+				$employee->forced_stop 		= 0.005 * ($employee->salary * 7);
+				$employee->faov 			= 0.01 	* ($employee->salary * 7);
 				$employee->bonus_feeding 	= 76*0.55*5;
 			
-				$employee->total =  (($employee->salary / 4) + (($employee->salary / 28) * $employee->extra)) - ($employee->sso + $employee->forced_stop + $employee->faov) + $employee->bonus_feeding ;
+				$employee->total =  ($employee->salary * 7) - ($employee->sso + $employee->forced_stop + $employee->faov) + $employee->bonus_feeding ;
 
 				// inserts the info in the array
 				$employees[$id] = $employee;

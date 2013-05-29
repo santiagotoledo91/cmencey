@@ -29,7 +29,7 @@
 					<input type="hidden" name="id[]" value="{{ $employee->id }}">
 					<td> {{ $employee->pin }} </td>
 					<td> {{ $employee->fullname }} </td>
-					<td>Bs. {{ $employee->salary / 4 }} </td>
+					<td>Bs. {{ $employee->salary * 7 }} </td>
 					<td>Bs. {{$employee->bonus_feeding}}</td>
 					<td>Bs. {{$employee->sso}}</td>
 					<td>Bs. {{$employee->forced_stop}}</td>

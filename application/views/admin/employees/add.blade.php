@@ -66,11 +66,11 @@
 
 					<div class="control-group">
 
-						<label class="control-label">Salario (Bs.)</label>
+						<label class="control-label">Salario diario (Bs.)</label>
 
 						<div class="controls">
 
-							<input id="employee_salary" name="employee_salary" type="text" placeholder="Ej: 10000" maxlength="8" class="span10" required>
+							<input id="employee_salary" name="employee_salary" type="text" placeholder="Ej: 150" maxlength="8" class="span10" required>
 
 						</div>
 
