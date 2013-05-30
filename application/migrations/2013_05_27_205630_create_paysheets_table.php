@@ -12,6 +12,7 @@ class Create_Paysheets_Table {
 		Schema::create('paysheets', function($table)
 		{
 			$table->increments('id');
+			$table->integer('total');
 		});
 
 		DB::query('ALTER TABLE paysheets ADD startdate DATE');

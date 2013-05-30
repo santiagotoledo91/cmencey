@@ -14,15 +14,25 @@ class Create_Payments_Paysheet_Table {
 			$table->increments('id');
 			$table->integer('employee_id');
 			$table->integer('paysheet_id');
-			$table->integer('salary_base');
-			$table->integer('salary_complements');
-			$table->integer('bonus_feeding');
-			$table->integer('total_accrued');
+			$table->integer('weekly_salary');
+			$table->boolean('mo');
+			$table->boolean('tu');
+			$table->boolean('we');
+			$table->boolean('th');
+			$table->boolean('fr');
+			$table->boolean('sa');
+			$table->boolean('su');
+			$table->integer('feeding_bonus');
+			$table->integer('extra_hours');
+			$table->integer('production_bonus');
+			$table->integer('extra_raws');
+			$table->integer('others');
+			$table->integer('accrued_total');
 			$table->integer('sso');
 			$table->integer('faov');
 			$table->integer('forced_stop');
-			$table->integer('advances_received');
-			$table->integer('total_net');
+			$table->integer('received_loans');
+			$table->integer('net_total');
 		});
 	}
 
