@@ -20,6 +20,7 @@
 					<th>BONO DE PRODUCCION</th>
 					<th>PRIMAS EXTRAORDINARIAS</th>
 					<th>OTROS</th>
+					<th>TOTAL DEVENGADO</th>
 					<th>PRESTAMOS RECIBIDOS</th>
 					<th>SSO</th>
 					<th>PARO FORZOSO</th>
@@ -33,19 +34,20 @@
 				<tr>
 
 					<input type="hidden" name="id[]" value="{{ $employee->id }}">
-					<td> {{ $employee->pin }} </td>
-					<td> {{ $employee->fullname }} </td>
-					<td>Bs. {{ $employee->salary * 7 }} </td>
-					<td>Bs. {{$employee->feeding_bonus }}</td>
-					<td>Bs. {{$employee->extra_hours }}</td>
-					<td>Bs. {{$employee->production_bonus }}</td>
-					<td>Bs. {{$employee->extra_raws }}</td>
-					<td>Bs. {{$employee->others }}</td>
-					<td>Bs. {{$employee->recieved_loans }}</td>
-					<td>Bs. {{$employee->sso}}</td>
-					<td>Bs. {{$employee->forced_stop}}</td>
-					<td>Bs. {{$employee->faov}}</td>
-					<td>Bs. {{$employee->total}}</td>
+					<td> 	{{ $employee->pin 				}}	</td>
+					<td> 	{{ $employee->fullname			}}	</td>
+					<td>Bs. {{ $employee->salary * 7 		}} 	</td>
+					<td>Bs. {{ $employee->feeding_bonus 	}}	</td>
+					<td>Bs. {{ $employee->extra_hours		}}	</td>
+					<td>Bs. {{ $employee->production_bonus 	}}	</td>
+					<td>Bs. {{ $employee->extra_raws 		}}	</td>
+					<td>Bs. {{ $employee->others 			}}	</td>
+					<td>Bs. {{ $employee->accrued_total 	}}	</td>
+					<td>Bs. {{ $employee->recieved_loans 	}}	</td>
+					<td>Bs. {{ $employee->sso 				}}	</td>
+					<td>Bs. {{ $employee->forced_stop		}}	</td>
+					<td>Bs. {{ $employee->faov 				}}	</td>
+					<td>Bs. {{ $employee->net_total 		}}	</td>
 
 				</tr>
 

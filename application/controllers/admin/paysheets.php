@@ -72,31 +72,83 @@ class Admin_Paysheets_Controller extends Base_Controller
 				$employee->faov 				= 0.01 	* ($employee->salary * 7);
 				$employee->recieved_loans 		= $recieved_loans[$id];
 
-				$employee->total =  ($employee->salary * 7)
-									+
-									($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws) 
-									- 
-									($employee->sso + $employee->forced_stop + $employee->faov + $employee->recieved_loans); 
+				$employee->accrued_total =  ($employee->salary * 7)
+											+
+											($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws);
+				
+				$employee->net_total = 	$employee->accrued_total 
+										- 
+										($employee->sso + $employee->forced_stop + $employee->faov + $employee->recieved_loans); 
 
 				// inserts the object in the array with the id as key
 				$employees[$id] = $employee;
 
+				
+
 				// total to pay
-				$total = $total + $employee->total;
+				$total = $total + $employee->net_total;
 			}
 		}
 
 		$view = View::make('admin.paysheets.view');
 
 		$view->total = $total;
+		Session::put('total',$total);
+		
 
 		$view->employees = $employees;
+		Session::put('employees',$employees);
 
 		$this->layout->content = $view;
+
+
 	}
 
 	public function post_save()
-	{
-		
+	{	
+		$employees = Session::get('employees');
+		$total = Session::get('total');
+
+		// registers the new paysheet 
+		$paysheet = new Paysheet;
+
+		$paysheet->total 		= $total;
+		$paysheet->startdate 	= '2013-05-25'; // startdate please
+		$paysheet->stopdate 	= '2013-05-31'; // stopdate, please (:
+
+		$paysheet->save();
+
+		$paysheet = Paysheet::find(1);
+	
+		// registers the new paysheet payments of the employees
+		foreach ($employees as $employee) 
+		{
+			$payment = new PaymentPaysheet;
+
+			$payment->employee_id 		= $employee->id;
+			$payment->paysheet_id 		= $paysheet->id;
+			$payment->weekly_salary		= $employee->salary * 7;
+			$payment->mo 				= $employee->mo;
+			$payment->tu 				= $employee->tu;
+			$payment->we 				= $employee->we;
+			$payment->th 				= $employee->th;
+			$payment->fr 				= $employee->fr;
+			$payment->sa 				= $employee->sa;
+			$payment->su 				= $employee->su;
+			$payment->feeding_bonus 	= $employee->feeding_bonus;
+			$payment->extra_hours		= $employee->extra_hours;
+			$payment->production_bonus 	= $employee->production_bonus;
+			$payment->extra_raws		= $employee->extra_raws;
+			$payment->others 			= $employee->others;
+			$payment->accrued_total		= $employee->accrued_total;
+			$payment->sso 				= $employee->sso;
+			$payment->faov 				= $employee->faov;
+			$payment->forced_stop 		= $employee->forced_stop;
+			$payment->received_loans 	= $employee->recieved_loans;
+			$payment->net_total			= $employee->net_total;
+
+			$payment->save();
+		}
+
 	}
 }
