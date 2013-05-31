@@ -40,7 +40,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 		$production_bonus 	= Input::get('production_bonus');
 		$others 			= Input::get('others');
 		$extra_raws 		= Input::get('extra_raws');
-		$recieved_loans 	= Input::get('recieved_loans');
+		$received_loans 	= Input::get('received_loans');
 		
 		// creates an array of objects with the employee paysheet properties
 		foreach ($id as $id)
@@ -70,10 +70,10 @@ class Admin_Paysheets_Controller extends Base_Controller
 				$employee->sso 					= round((0.045 	* ($employee->salary * 7)),2);
 				$employee->forced_stop 			= round((0.005 	* ($employee->salary * 7)),2);
 				$employee->faov 				= round((0.01 	* ($employee->salary * 7)),2);
-				$employee->recieved_loans 		= round($recieved_loans[$id],2);
+				$employee->received_loans 		= round($received_loans[$id],2);
 
 				$employee->accrued_total 		= round((($employee->salary * 7) + ($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws)),2);
-				$employee->net_total 			= round(($employee->accrued_total - ($employee->sso + $employee->forced_stop + $employee->faov + $employee->recieved_loans)),2); 
+				$employee->net_total 			= round(($employee->accrued_total - ($employee->sso + $employee->forced_stop + $employee->faov + $employee->received_loans)),2); 
 
 				// inserts the object in the array with the id as key
 				$employees[$id] = $employee;
@@ -135,7 +135,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 			$payment->sso 				= $employee->sso;
 			$payment->faov 				= $employee->faov;
 			$payment->forced_stop 		= $employee->forced_stop;
-			$payment->received_loans 	= $employee->recieved_loans;
+			$payment->received_loans 	= $employee->received_loans;
 			$payment->net_total			= $employee->net_total;
 
 			$payment->save();

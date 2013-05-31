@@ -43,7 +43,7 @@
 					<td>Bs. {{ $employee->extra_raws 		}}	</td>
 					<td>Bs. {{ $employee->others 			}}	</td>
 					<td>Bs. {{ $employee->accrued_total 	}}	</td>
-					<td>Bs. {{ $employee->recieved_loans 	}}	</td>
+					<td>Bs. {{ $employee->received_loans 	}}	</td>
 					<td>Bs. {{ $employee->sso 				}}	</td>
 					<td>Bs. {{ $employee->forced_stop		}}	</td>
 					<td>Bs. {{ $employee->faov 				}}	</td>

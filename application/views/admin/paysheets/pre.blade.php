@@ -50,7 +50,7 @@
 					<td>Bs.<input type="text" name="production_bonus[{{ $employee->id }}]" class="span4" value="0"></td>
 					<td>Bs.<input type="text" name="others[{{ $employee->id }}]" class="span4" value="0"></td>
 					<td>Bs.<input type="text" name="extra_raws[{{ $employee->id }}]" class="span4" value="0"></td>
-					<td>Bs.<input type="text" name="recieved_loans[{{ $employee->id }}]" class="span4" value="0"></td>
+					<td>Bs.<input type="text" name="received_loans[{{ $employee->id }}]" class="span4" value="0"></td>
 					<td> <input type="checkbox" name="include[{{ $employee->id }}]" checked></td>
 
 				</tr>

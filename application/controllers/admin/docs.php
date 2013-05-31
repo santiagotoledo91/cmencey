@@ -145,7 +145,7 @@ class Admin_Docs_Controller extends Base_Controller
 			{
 				$document = Document::find($doc->id);
 
-				// if the expiration date its null, that means that is a recieved document without any expiration date and will pass to a pending status, in order to ask for a expiration date
+				// if the expiration date its null, that means that is a received document without any expiration date and will pass to a pending status, in order to ask for a expiration date
 				if ($document->expiration == null)
 					{
 						$document->status = 3;
