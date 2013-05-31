@@ -47,7 +47,7 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->role 		= Input::get('employee_role');
 		$employee->phone 		= Input::get('employee_phone');
 		$employee->address 		= Input::get('employee_address');
-		$employee->salary 		= Input::get('employee_salary');
+		$employee->salary 		= round(Input::get('employee_salary'),2);
 		$employee->bank_account = Input::get('employee_bank_account');
 		$employee->active 		= 0;
 
@@ -148,7 +148,7 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee = Employee::find($id);
 
 		$employee->role 	= Input::get('employee_role');
-		$employee->salary 	= Input::get('employee_salary');
+		$employee->salary 	= round(Input::get('employee_salary'),2);
 		$employee->phone 	= Input::get('employee_phone');
 		$employee->address 	= Input::get('employee_address');
 		$employee->active 	= Input::get('employee_active');

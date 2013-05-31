@@ -59,34 +59,27 @@ class Admin_Paysheets_Controller extends Base_Controller
 				if (isset($fr[$id])) { $employee->fr = 1; } else { $employee->fr = 0; }
 				if (isset($sa[$id])) { $employee->sa = 1; $employee->extra_raws = $employee->extra_raws + 150; } else { $employee->sa = 0; }
 				if (isset($su[$id])) { $employee->su = 1; $employee->extra_raws = $employee->extra_raws + 150; } else { $employee->su = 0; }
-	
-				$employee->worked = $employee->mo + $employee->tu + $employee->we + $employee->th + $employee->fr + $employee->sa + $employee->su;
- 
-				$employee->feeding_bonus 		= 65 * $employee->worked;
-				$employee->extra_hours 			= $extra_hours[$id]; 
-				$employee->production_bonus 	= $production_bonus[$id];
-				$employee->others 				= $others[$id];
-				$employee->extra_raws 			= $employee->extra_raws + $extra_raws[$id];
-				$employee->sso 					= 0.045 * ($employee->salary * 7);
-				$employee->forced_stop 			= 0.005 * ($employee->salary * 7);
-				$employee->faov 				= 0.01 	* ($employee->salary * 7);
-				$employee->recieved_loans 		= $recieved_loans[$id];
 
-				$employee->accrued_total =  ($employee->salary * 7)
-											+
-											($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws);
-				
-				$employee->net_total = 	$employee->accrued_total 
-										- 
-										($employee->sso + $employee->forced_stop + $employee->faov + $employee->recieved_loans); 
+				$employee->worked = $employee->mo + $employee->tu + $employee->we + $employee->th + $employee->fr + $employee->sa + $employee->su;
+
+				$employee->feeding_bonus 		= 65 * $employee->worked;
+				$employee->extra_hours 			= round($extra_hours[$id],2); 
+				$employee->production_bonus 	= round($production_bonus[$id],2);
+				$employee->others 				= round($others[$id],2);
+				$employee->extra_raws 			= round(($employee->extra_raws + $extra_raws[$id]),2);
+				$employee->sso 					= round((0.045 	* ($employee->salary * 7)),2);
+				$employee->forced_stop 			= round((0.005 	* ($employee->salary * 7)),2);
+				$employee->faov 				= round((0.01 	* ($employee->salary * 7)),2);
+				$employee->recieved_loans 		= round($recieved_loans[$id],2);
+
+				$employee->accrued_total 		= round((($employee->salary * 7) + ($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws)),2);
+				$employee->net_total 			= round(($employee->accrued_total - ($employee->sso + $employee->forced_stop + $employee->faov + $employee->recieved_loans)),2); 
 
 				// inserts the object in the array with the id as key
 				$employees[$id] = $employee;
 
-				
-
 				// total to pay
-				$total = $total + $employee->net_total;
+				$total = round(($total + $employee->net_total),2);
 			}
 		}
 
@@ -94,18 +87,16 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 		$view->total = $total;
 		Session::put('total',$total);
-		
 
 		$view->employees = $employees;
 		Session::put('employees',$employees);
 
 		$this->layout->content = $view;
 
-
 	}
 
 	public function post_save()
-	{	
+	{
 		$employees = Session::get('employees');
 		$total = Session::get('total');
 
@@ -119,7 +110,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 		$paysheet->save();
 
 		$paysheet = Paysheet::find(1);
-	
+
 		// registers the new paysheet payments of the employees
 		foreach ($employees as $employee) 
 		{
@@ -149,6 +140,6 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 			$payment->save();
 		}
-
+		return Redirect::to('admin');
 	}
 }
