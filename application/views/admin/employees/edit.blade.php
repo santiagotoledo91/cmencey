@@ -94,7 +94,7 @@
 
 						<div class="controls">
 
-							<input id="employee_bank_account" name="employee_bank_account" type="text" class="span12" value="{{ $employee->bank_account }}" required>
+							<input id="employee_bank_account" name="employee_bank_account" type="text" class="span12" value="{{ $employee->bank_account }}"  maxlength="20" required>
 
 						</div>
 

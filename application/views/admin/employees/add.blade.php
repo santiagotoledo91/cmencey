@@ -110,7 +110,7 @@
 
 						<div class="controls">
 
-							<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" placeholder="Ej: 0116077880015459039" required>
+							<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" placeholder="Ej: 0116077880015459039" maxlength="20" required>
 
 						</div>
 

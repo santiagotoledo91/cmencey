@@ -147,11 +147,12 @@ class Admin_Employees_Controller extends Base_Controller
 		// updates the employee information
 		$employee = Employee::find($id);
 
-		$employee->role 	= Input::get('employee_role');
-		$employee->salary 	= round(Input::get('employee_salary'),2);
-		$employee->phone 	= Input::get('employee_phone');
-		$employee->address 	= Input::get('employee_address');
-		$employee->active 	= Input::get('employee_active');
+		$employee->role 		= Input::get('employee_role');
+		$employee->salary 		= round(Input::get('employee_salary'),2);
+		$employee->phone 		= Input::get('employee_phone');
+		$employee->address 		= Input::get('employee_address');
+		$employee->bank_account = Input::get('employee_bank_account');
+		$employee->active 		= Input::get('employee_active');
 
 		$employee->save();
 
