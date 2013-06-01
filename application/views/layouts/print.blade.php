@@ -1,17 +1,9 @@
 <html>
 <head>
 	<title> {{ $title }} </title> 
-	
-	{{ Asset::styles() }} 
-
+	{{ HTML::style('css/custom.css') }}
 </head>
 <body>
-	
-	<header>
-		
-		
-
-	</header>
 
 	{{ $content }}
 
