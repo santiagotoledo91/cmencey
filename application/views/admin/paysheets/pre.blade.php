@@ -6,7 +6,7 @@
 
 		<div class="span12">
 
-			<legend>Prenómina - Inicio: <input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23"></legend>
+			<legend>Prenómina - Inicio: <input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required></legend>
 	
 
 			<table class="table table-bordered table-hover" style="font-size: 12px">
