@@ -41,7 +41,12 @@ class Admin_Paysheets_Controller extends Base_Controller
 		$others 			= Input::get('others');
 		$extra_raws 		= Input::get('extra_raws');
 		$received_loans 	= Input::get('received_loans');
+		$startdate 			= Input::get('startdate');
 		
+		// calculates the stop day by adding 6 days (weekly paysheet).
+		$stopdate 			= strtotime(date("Y-m-d", strtotime($startdate)). "+6 days");
+		$stopdate  			= date("Y-m-d",$stopdate);
+
 		// creates an array of objects with the employee paysheet properties
 		foreach ($id as $id)
 		{
@@ -83,33 +88,38 @@ class Admin_Paysheets_Controller extends Base_Controller
 			}
 		}
 
+		Session::put('total',		$total);
+		Session::put('startdate',	$startdate);	
+		Session::put('stopdate',	$stopdate);
+		Session::put('employees',	$employees);
+
 		$view = View::make('admin.paysheets.view');
 
-		$view->total = $total;
-		Session::put('total',$total);
+		$view->total 			= $total;
+		$view->startdate 		= $startdate;
+		$view->stopdate 		= $stopdate;
+		$view->employees 		= $employees;
 
-		$view->employees = $employees;
-		Session::put('employees',$employees);
-
-		$this->layout->content = $view;
-
+		$this->layout->content 	= $view;
 	}
 
 	public function post_save()
 	{
-		$employees = Session::get('employees');
-		$total = Session::get('total');
+		$total 		= Session::get('total');
+		$startdate	= Session::get('startdate');
+		$stopdate 	= Session::get('stopdate');
+		$employees 	= Session::get('employees');
 
 		// registers the new paysheet 
 		$paysheet = new Paysheet;
 
 		$paysheet->total 		= $total;
-		$paysheet->startdate 	= '2013-05-25'; // startdate please
-		$paysheet->stopdate 	= '2013-05-31'; // stopdate, please (:
+		$paysheet->startdate 	= $startdate; 
+		$paysheet->stopdate 	= $stopdate ; 
 
 		$paysheet->save();
 
-		$paysheet = Paysheet::find(1);
+		$paysheet = Paysheet::where('startdate','=',$startdate)->first();
 
 		// registers the new paysheet payments of the employees
 		foreach ($employees as $employee) 

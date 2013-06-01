@@ -6,7 +6,8 @@
 
 		<div class="span12">
 
-			<legend>Prenómina (25-05-2013 al 31-05-2013)</legend>
+			<legend>Prenómina - Inicio: <input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23"></legend>
+	
 
 			<table class="table table-bordered table-hover" style="font-size: 12px">
 

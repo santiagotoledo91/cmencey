@@ -86,7 +86,7 @@
 			</tr>
 			
 			<tr>
-				<td>Anticipos Recibidos</td>
+				<td>Prestamos Recibidos</td>
 				<td>Bs.{{ $payment->received_loans }}</td>
 			</tr>
 
