@@ -1,0 +1,12 @@
+.receipt-header
+{
+	font-size: 10px;
+}
+
+.table-print td 
+{
+	font-size: 10px; 
+	margin-bottom: 0px;
+	padding: 1px ;
+	line-height: normal;
+}
