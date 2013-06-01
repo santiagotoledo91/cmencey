@@ -9,7 +9,35 @@
 	float: left; 	
 }
 
-.table-print 
+.deposits
+{
+	font-size: 10px;
+	margin-left:auto;
+	margin-right:auto;
+	border-collapse:collapse;
+	width: 650px;
+}
+
+.deposits table
+{
+	font-size: 12px;
+	border-collapse:collapse;
+	width: 100%;
+
+}
+
+.deposits th 
+{
+	border: 1px solid;
+}
+
+.deposits td 
+{
+	border: 1px solid;
+	padding: 1px 0px 1px 5px;
+}
+
+.receipt table
 {
 	margin-left:auto;
 	margin-right:auto;	
@@ -17,6 +45,30 @@
 	border-collapse:collapse;
 	width: 220px;
 	height: 230px;
+}
+
+h5 
+{
+	font-size: 10px;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-right:0px;
+	margin-left:0px;
+}
+
+.receipt th 
+{
+	text-align: left;
+}
+
+.receipt td 
+{
+	text-indent:20px;
+}
+
+.receipt tr.total 
+{
+	border-top: 1px solid;
 }
 
 .receipt-header	
@@ -49,27 +101,3 @@
 	text-align: center;
 }
 
-h5 
-{
-	font-size: 10px;
-	margin-top:5px;
-	margin-bottom:5px;
-	margin-right:0px;
-	margin-left:0px;
-}
-
-th 
-{
-	text-align: left;
-}
-
-td 
-{
-	text-indent:20px;
-}
-
-tr.total 
-{
-	
-	border-top: 1px solid;
-}

@@ -1,14 +1,16 @@
-<legend> Totales a depositar - Nomina #{{ $paysheet->id }} ({{ $paysheet->startdate}} al {{ $paysheet->stopdate }})  </legend>
+<div class="deposits">
+<div class="centered">{{HTML::image('img/logo.png','logo',array('width' => '170px'));}}</div>
+<h5 class="centered"> Totales a depositar - Nomina #{{ $paysheet->id }} ({{ $paysheet->startdate}} al {{ $paysheet->stopdate }})  </h5>
 
-<table class="table table-bordered table-hover" style="font-size: 12px">
+<table>
 
-	<tr class="head well">
+	<tr>
 
+		<th>CUENTA CLIENTE NUMERO</th>
 		<th>C.I DEL TITULAR</th>
 		<th>NOMBRE DEL TITULAR</th>
-		<th>CUENTA CLIENTE NUMERO</th>
 		<th>TOTAL A PAGAR</th>
-		<th>DEPOSITADO</th>
+		<th>OK</th>
 
 	</tr>
 
@@ -16,15 +18,22 @@
 
 	<tr>
 
-		<td> 	{{ $payment->pin 				}}	</td>
-		<td> 	{{ $payment->fullname			}}	</td>
 		<td>	{{ $payment->bank_account		}}	</td>
+		<td>  V-{{ $payment->pin 				}}	</td>
+		<td>  	{{ $payment->fullname			}}	</td>
 		<td>Bs. {{ $payment->net_total 			}}	</td>
-		<td></td>
+		<td style="padding-left: 8px">☐</td>
 	</tr>
 
 @endforeach
+	
+	<tr>
+		<th colspan="3">TOTAL NÓMINA</th>
+		<th colspan="2">Bs. {{ $paysheet->total }}</th>
+
+	</tr>
 
 </table>
 
-<h4 class="text-right"> TOTAL NOMINA: Bs. {{ $paysheet->total }} </h4>
+
+</div>
