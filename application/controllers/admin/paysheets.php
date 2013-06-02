@@ -20,6 +20,16 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 		$view->employees = Employee::where('active','=','1')->get();
 
+		// gets the stopdate of the last paysheet 
+		$paysheet = Paysheet::order_by('id','desc')->first();
+		
+		// adds 1 day to generate the new paysheet startdate only if there is a previous paysheet
+		if (!empty($paysheet))
+		{
+			$startdate 			= strtotime(date("Y-m-d", strtotime($paysheet->stopdate)). "+1 days");
+			$view->startdate  	= date("Y-m-d",$startdate);
+		} 	
+
 		$this->layout->content = $view;	
 
 	}

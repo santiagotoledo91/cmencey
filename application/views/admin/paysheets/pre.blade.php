@@ -6,7 +6,13 @@
 
 		<div class="span12">
 
-			<legend>Prenómina - Inicio: <input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required></legend>
+			<legend>Prenómina - Fecha de inicio: 
+				@if (isset($startdate))
+					<input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required value="{{$startdate}}">
+				@else
+					<input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required>
+				@endif
+			</legend>
 	
 
 			<table class="table table-bordered table-hover" style="font-size: 12px">
