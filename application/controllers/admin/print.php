@@ -5,21 +5,7 @@ class Admin_Print_Controller extends Base_Controller
 	public $layout = 'layouts.print';
 	public $restful = true;
 
-	public function get_deposits($id)
-	{
-		$view = View::make('admin.print.deposits');
-
-		$view->paysheet = Paysheet::find($id);
-		
-		$view->paysheetpayments = DB::table('payments_paysheet')
-									->where('paysheet_id','=',$id)
-									->join('employees','employees.id','=','payments_paysheet.employee_id')
-									->get();
- 	
- 		$this->layout->content = $view;
-	}
-
-	public function get_receipts($id)
+	public function post_receipts($id)
 	{
 		$view = View::make('admin.print.receipts');
 
@@ -31,5 +17,19 @@ class Admin_Print_Controller extends Base_Controller
 									->get();
  	
  		$this->layout->content = $view;
+	}
+
+	public function get_paysheet($id)
+	{
+		$view = View::make('admin.print.paysheet');
+
+		$view->paysheet = Paysheet::find($id);
+
+		$view->paysheetpayments = DB::table('payments_paysheet')
+									->where('paysheet_id','=',$id)
+									->join('employees','employees.id','=','payments_paysheet.employee_id')
+									->get();
+
+		$this->layout->content = $view;
 	}
 }

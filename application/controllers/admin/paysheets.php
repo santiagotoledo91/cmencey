@@ -150,6 +150,6 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 			$payment->save();
 		}
-		return Redirect::to('admin');
+		return Redirect::to('admin/print/paysheet/'.$paysheet->id);
 	}
 }
