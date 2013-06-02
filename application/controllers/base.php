@@ -12,8 +12,7 @@ class Base_Controller extends Controller
 
 		Asset::add('bootstrap.css','css/bootstrap.css');
 		Asset::add('responsive.css','css/bootstrap-responsive.css');
-		Asset::add('custom.css','css/custom.css');
-		
+				
 		Asset::add('bootstrap.js','js/bootstrap.js');
 		Asset::add('jquery.js','js/jquery.js');
 		Asset::add('bootstrap-dropdown.js','js/bootstrap-dropdown.js');
