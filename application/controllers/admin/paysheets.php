@@ -119,8 +119,6 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 		$paysheet->save();
 
-		$paysheet = Paysheet::where('startdate','=',$startdate)->first();
-
 		// registers the new paysheet payments of the employees
 		foreach ($employees as $employee) 
 		{

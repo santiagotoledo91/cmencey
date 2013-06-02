@@ -53,9 +53,6 @@ class Admin_Employees_Controller extends Base_Controller
 
 		$employee->save();
 
-		// retrieves the employee id
-		$employee = Employee::where('pin','=',Input::get('employee_pin'))->first();
-
 		// retrieves the aviable document types
 		$document_types = DB::table('document_types')->get();
 
