@@ -31,7 +31,6 @@ class Admin_Paysheets_Controller extends Base_Controller
 		} 	
 
 		$this->layout->content = $view;	
-
 	}
 
 	public function post_view()
@@ -170,7 +169,14 @@ class Admin_Paysheets_Controller extends Base_Controller
 			// a error message must be shown
 			return Redirect::to('admin'); 
 		}
+	}
 
+	public function get_list()
+	{
+		$view = View::make('admin.paysheets.list');
+
+		$view->paysheets = Paysheet::order_by('id','desc')->get();
 		
+		$this->layout->content = $view;	
 	}
 }

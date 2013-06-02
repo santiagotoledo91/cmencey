@@ -44,9 +44,11 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('admin/paysheets/pre','admin.paysheets@pre');
 	Route::post('admin/paysheets/view','admin.paysheets@view');
 	Route::post('admin/paysheets/save','admin.paysheets@save');
+	Route::get('admin/paysheets/list','admin.paysheets@list');
 
 	Route::post('admin/print/receipt/','admin.print@receipts');
 	Route::get('admin/print/paysheet/(:num)','admin.print@paysheet');
+
 	
 	// all other restricted routes goes here
 
