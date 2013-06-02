@@ -120,44 +120,57 @@ class Admin_Paysheets_Controller extends Base_Controller
 		$stopdate 	= Session::get('stopdate');
 		$employees 	= Session::get('employees');
 
-		// registers the new paysheet 
-		$paysheet = new Paysheet;
+		$lastpaysheet = Paysheet::order_by('id','desc')->first();
 
-		$paysheet->total 		= $total;
-		$paysheet->startdate 	= $startdate; 
-		$paysheet->stopdate 	= $stopdate ; 
-
-		$paysheet->save();
-
-		// registers the new paysheet payments of the employees
-		foreach ($employees as $employee) 
+		if ($startdate > $lastpaysheet->stopdate)
 		{
-			$payment = new PaymentPaysheet;
+			// registers the new paysheet 
+			$paysheet = new Paysheet;
 
-			$payment->employee_id 		= $employee->id;
-			$payment->paysheet_id 		= $paysheet->id;
-			$payment->weekly_salary		= $employee->salary * 7;
-			$payment->mo 				= $employee->mo;
-			$payment->tu 				= $employee->tu;
-			$payment->we 				= $employee->we;
-			$payment->th 				= $employee->th;
-			$payment->fr 				= $employee->fr;
-			$payment->sa 				= $employee->sa;
-			$payment->su 				= $employee->su;
-			$payment->feeding_bonus 	= $employee->feeding_bonus;
-			$payment->extra_hours		= $employee->extra_hours;
-			$payment->production_bonus 	= $employee->production_bonus;
-			$payment->extra_raws		= $employee->extra_raws;
-			$payment->others 			= $employee->others;
-			$payment->accrued_total		= $employee->accrued_total;
-			$payment->sso 				= $employee->sso;
-			$payment->faov 				= $employee->faov;
-			$payment->forced_stop 		= $employee->forced_stop;
-			$payment->received_loans 	= $employee->received_loans;
-			$payment->net_total			= $employee->net_total;
+			$paysheet->total 		= $total;
+			$paysheet->startdate 	= $startdate; 
+			$paysheet->stopdate 	= $stopdate ; 
 
-			$payment->save();
+			$paysheet->save();
+
+			// registers the new paysheet payments of the employees
+			foreach ($employees as $employee) 
+			{
+				$payment = new PaymentPaysheet;
+
+				$payment->employee_id 		= $employee->id;
+				$payment->paysheet_id 		= $paysheet->id;
+				$payment->weekly_salary		= $employee->salary * 7;
+				$payment->mo 				= $employee->mo;
+				$payment->tu 				= $employee->tu;
+				$payment->we 				= $employee->we;
+				$payment->th 				= $employee->th;
+				$payment->fr 				= $employee->fr;
+				$payment->sa 				= $employee->sa;
+				$payment->su 				= $employee->su;
+				$payment->feeding_bonus 	= $employee->feeding_bonus;
+				$payment->extra_hours		= $employee->extra_hours;
+				$payment->production_bonus 	= $employee->production_bonus;
+				$payment->extra_raws		= $employee->extra_raws;
+				$payment->others 			= $employee->others;
+				$payment->accrued_total		= $employee->accrued_total;
+				$payment->sso 				= $employee->sso;
+				$payment->faov 				= $employee->faov;
+				$payment->forced_stop 		= $employee->forced_stop;
+				$payment->received_loans 	= $employee->received_loans;
+				$payment->net_total			= $employee->net_total;
+
+				$payment->save();
+			}
+			
+			return Redirect::to('admin/print/paysheet/'.$paysheet->id);
 		}
-		return Redirect::to('admin/print/paysheet/'.$paysheet->id);
+		else
+		{
+			// a error message must be shown
+			return Redirect::to('admin'); 
+		}
+
+		
 	}
 }
