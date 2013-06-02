@@ -15,8 +15,8 @@ class Create_Paysheets_Table {
 			$table->float('total');
 		});
 
-		DB::query('ALTER TABLE paysheets ADD startdate DATE');
-		DB::query('ALTER TABLE paysheets ADD stopdate DATE');
+		DB::query('ALTER TABLE paysheets ADD startdate DATE UNIQUE');
+		DB::query('ALTER TABLE paysheets ADD stopdate DATE UNIQUE');
 	}
 
 	/**
