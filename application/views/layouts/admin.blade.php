@@ -99,7 +99,7 @@
 									</li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar tipo de documento</a>
+										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar tipos de documentos</a>
 									</li>
 
 								</ul>

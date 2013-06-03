@@ -6,7 +6,7 @@
 
 			<div class="row-fluid">
 
-				<legend>Añadir nuevo documento</legend>
+				<legend>Nuevo tipo de documento</legend>
 
 			</div>
 
