@@ -45,7 +45,7 @@
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="{{ URL::to('admin/paysheets/pre') }}">Nómina</a>
+										<a href="{{ URL::to('admin/paysheets/pre') }}">Generar nómina</a>
 									</li>
 
 									<li>
@@ -95,11 +95,11 @@
 									<li class="divider"></li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Nuevo documento requerido</a>
+										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Nuevo tipo de documento</a>
 									</li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar documentos requeridos</a>
+										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar tipo de documento</a>
 									</li>
 
 								</ul>
@@ -115,7 +115,7 @@
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="#">Nómina</a>
+										<a href="{{ URL::to('admin/paysheets/list') }}">Nómina</a>
 									</li>
 
 									<li>
