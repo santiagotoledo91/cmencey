@@ -164,7 +164,7 @@
 	<!-- END HEADER -->
 
 	<!-- START CONTENT -->
-	{{ $content }}
+	@yield('content')
 	<!-- END CONTENT -->
 
 	<!-- START FOOTER -->

@@ -2,23 +2,20 @@
 
 class Admin_Paysheets_Controller extends Base_Controller 
 {
-	public $layout = 'layouts.admin';
 	public $restful = true;
 
 	public function __construct() 
 	{
 		parent::__construct();
 
-		$this->layout->title = 'Sistema de gestion de personal';
+		$this->title = 'Sistema de gestion de personal';
 	}
 
 	public function get_pre() 
 	{
-		$this->layout->title .= ' - Pre-nómina.';
+		$title = $this->title .' - Prenómina.';
 
-		$view = View::make('admin.paysheets.pre');
-
-		$view->employees = Employee::where('active','=','1')->get();
+		$employees = Employee::where('active','=','1')->get();
 
 		// gets the stopdate of the last paysheet 
 		$paysheet = Paysheet::order_by('id','desc')->first();
@@ -26,15 +23,21 @@ class Admin_Paysheets_Controller extends Base_Controller
 		// adds 1 day to generate the new paysheet startdate only if there is a previous paysheet
 		if (!empty($paysheet))
 		{
-			$startdate 			= strtotime(date("Y-m-d", strtotime($paysheet->stopdate)). "+1 days");
-			$view->startdate  	= date("Y-m-d",$startdate);
-		} 	
+			$startdate	= strtotime(date("Y-m-d", strtotime($paysheet->stopdate)). "+1 days");
+			$startdate	= date("Y-m-d",$startdate);
+		} 
+		else
+		{
+			$startdate = null;
+		}	
 
-		$this->layout->content = $view;	
+		return View::make('admin.paysheets.pre')->with('title',$title)->with('employees',$employees)->with('startdate',$startdate);
 	}
 
 	public function post_view()
 	{
+		$title = $this->title.' - Vista preliminar de nomina';
+
 		$total 				= 0;
 		$id 				= Input::get('id');
 		$include 			= Input::get('include');
@@ -102,14 +105,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 		Session::put('stopdate',	$stopdate);
 		Session::put('employees',	$employees);
 
-		$view = View::make('admin.paysheets.view');
-
-		$view->total 			= $total;
-		$view->startdate 		= $startdate;
-		$view->stopdate 		= $stopdate;
-		$view->employees 		= $employees;
-
-		$this->layout->content 	= $view;
+		return View::make('admin.paysheets.view')->with('title',$title)->with('total',$total)->with('startdate',$startdate)->with('stopdate',$stopdate)->with('employees',$employees);
 	}
 
 	public function post_save()
@@ -173,10 +169,10 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 	public function get_list()
 	{
-		$view = View::make('admin.paysheets.list');
-
-		$view->paysheets = Paysheet::order_by('id','desc')->get();
+		$title = $this->title.' - Listado de nominas';
 		
-		$this->layout->content = $view;	
+		$paysheets = Paysheet::order_by('id','desc')->get();
+		
+		return View::make('admin.paysheets.list')->with('title',$title)->with('paysheets',$paysheets);
 	}
 }

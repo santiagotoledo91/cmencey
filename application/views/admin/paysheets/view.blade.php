@@ -1,3 +1,5 @@
+@layout('layouts.admin')
+@section('content')
 {{ Form::open('admin/paysheets/save','POST', array('class' => 'form-horizontal')) }}
 
 <div class="container-fluid">
@@ -70,4 +72,5 @@
 </div>
 
 {{ Form::close() }}
+@endsection
 

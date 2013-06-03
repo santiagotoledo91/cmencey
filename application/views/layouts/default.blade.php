@@ -13,7 +13,7 @@
 
 	</header>
 
-	{{ $content }}
+	@yield('content')
 
 	<footer>
 

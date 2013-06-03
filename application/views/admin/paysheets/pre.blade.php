@@ -1,3 +1,5 @@
+@layout('layouts.admin')
+@section('content')
 {{ Form::open('admin/paysheets/view','POST', array('class' => 'form-horizontal')) }}
 
 <div class="container-fluid">
@@ -8,14 +10,11 @@
 
 			@if (!empty($employees))
 				<legend>Prenómina - Fecha de inicio: 
-					@if (isset($startdate))
-						<input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required value="{{$startdate}}">
-					@else
-						<input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required>
-					@endif
+
+				<input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required value="{{$startdate}}">
+
 				</legend>
 		
-
 				<table class="table table-bordered table-hover" style="font-size: 12px">
 
 					<tr class="head well">
@@ -85,3 +84,4 @@
 </div>
 
 {{ Form::close() }}
+@endsection

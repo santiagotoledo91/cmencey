@@ -2,18 +2,22 @@
 
 class Admin_Employees_Controller extends Base_Controller
 {
-	public $layout = 'layouts.admin';
 	public $restful = true;
+	
+	public function __construct() 
+	{
+		parent::__construct();
+
+		$this->title = 'Sistema de gestion de personal';
+	}
 
 	public function get_manage()
 	{
-		$this->layout->title .= ' - Gestionar empleados.';
+		$title = $this->title.' - Gestionar empleados.';
 
-		$view = View::make('admin.employees.manage');
+		$employees = DB::table('employees')->get();
 
-		$view->employees = DB::table('employees')->get();
-
-		foreach ($view->employees as $employee)
+		foreach ($employees as $employee)
 		{
 			switch ($employee->active) 
 			{
@@ -22,18 +26,14 @@ class Admin_Employees_Controller extends Base_Controller
 			}
 		}
 
-		$this->layout->content = $view;
+		return View::make('admin.employees.manage')->with('title',$title)->with('employees',$employees);
 	}
 
 	public function get_add()
 	{
-		$this->layout->title .= ' - Añadir empleado.';
+		$title = $this->title.' - Añadir empleado.';
 
-		$view = View::make('admin.employees.add');
-
-		$view->documents = DB::table('document_types')->get();
-
-		$this->layout->content = $view;
+		return View::make('admin.employees.add')->with('title',$title);
 	}
 
 	public function post_add()
@@ -74,16 +74,14 @@ class Admin_Employees_Controller extends Base_Controller
 
 	public function get_edit($id)
 	{
-		$this->layout->title .= ' - Editar empleado.';
+		$title = $this->title .' - Editar empleado.';
 
-		$view = View::make('admin.employees.edit');
-
-		$view->employee = Employee::find($id);
+		$employee = Employee::find($id);
 
 		$documents = DB::table('documents')
-							->where('employee_id','=',$id)
-							->join('document_types','document_types.id','=','documents.document_type_id')
-							->get(array('*','documents.id as id'));
+						->where('employee_id','=',$id)
+						->join('document_types','document_types.id','=','documents.document_type_id')
+						->get(array('*','documents.id as id'));
 
 		foreach ($documents as $document) 
 		{
@@ -134,9 +132,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 		}
 
-		$view->documents = $documents;
-
-		$this->layout->content = $view;
+		return View::make('admin.employees.edit')->with('title',$title)->with('employee',$employee)->with('documents',$documents);
 	}
 
 	public function post_edit($id)

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	{{ $content }}
+	@yield('content')
 
 </body>
 </html>

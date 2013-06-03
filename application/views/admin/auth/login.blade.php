@@ -1,3 +1,6 @@
+@layout('layouts.login')
+@section('content')
+
 <div class="container-fluid" style="margin-top: 200px">
 
 	<div class="row-fluid">
@@ -55,3 +58,5 @@
 	</div>
 
 </div>
+
+@endsection

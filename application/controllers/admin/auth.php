@@ -2,19 +2,18 @@
 
 class Admin_Auth_Controller extends Base_Controller 
 {
-	public $layout = 'layouts.login';
 	public $restful = true;
-
+	
 	public function __construct() 
 	{
 		parent::__construct();
 
-		$this->layout->title = 'Sistema de gestion de personal';
+		$this->title = 'Sistema de gestion de personal';
 	}
-
+	
 	public function get_login() 
 	{
-		$this->layout->title .= ' - Inicio de sesion.';
+		$title = $this->title.' - Inicio de sesion.';
 
 		// if the user is already logged then redirects to the admin page
 		if (Auth::check()) 
@@ -24,8 +23,7 @@ class Admin_Auth_Controller extends Base_Controller
 		// if the user is not logged in then loads the login form
 		else 
 		{
-			$view = View::make('admin.auth.login');
-			$this->layout->content = $view;	
+			return View::make('admin.auth.login')->with('title',$title);
 		}
 	}
 

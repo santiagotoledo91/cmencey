@@ -1,3 +1,5 @@
+@layout('layouts.print')
+@section('content')
 <div class="deposits">
 	
 	<div class="centered">
@@ -264,3 +266,4 @@
 	</div>
 
 @endforeach
+@endsection

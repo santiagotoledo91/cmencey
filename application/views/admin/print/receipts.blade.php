@@ -1,3 +1,5 @@
+@layout('layouts.print')
+@section('content')
 @foreach ($paysheetpayments as $payment)
 
 	<div class="receipt">
@@ -221,3 +223,4 @@
 	</div>
 
 @endforeach
+@endsection

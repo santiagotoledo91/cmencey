@@ -2,40 +2,41 @@
 
 class Admin_Docs_Controller extends Base_Controller 
 {
-	public $layout = 'layouts.admin';
 	public $restful = true;
+
+	public function __construct() 
+	{
+		parent::__construct();
+
+		$this->title = 'Sistema de gestion de personal';
+	}
 
 	public function get_manage()
 	{
-		$this->layout->title .= ' - Gestionar documentos.';
+		$title = $this->title.' - Gestionar documentos.';
 
-		$view = View::make('admin.docs.manage');
-
-		$view->document_types = DB::table('document_types')->get();
+		$document_types = DB::table('document_types')->get();
 		
-		$this->layout->content = $view;
+		return View::make('admin.docs.manage')->with('title',$title)->with('document_types',$document_types);
 	}
 
 	public function get_expired()
 	{
 		$subtitle = ' - Documentos vencidos y por vencer';	
+		$title = $this->title.$subtitle;
 
-		$this->layout->title .= $subtitle;
-
-		$view = View::make('admin.docs.expired');
-
-		$view->documents = DB::table('documents')
-									->join('employees','employees.id','=','documents.employee_id')
-									->join('document_types','document_types.id','=','documents.document_type_id')
-									->where('documents.status','=',1)
-									->where('document_types.expires','=',1)
-									->where('employees.active','=',1)
-									->or_where('documents.status','=',2)
-									->where('document_types.expires','=',1)
-									->where('employees.active','=',1)
-									->get(array('*','employees.id as employee_id','employees.fullname as employee_fullname','employees.pin as employee_pin'));
+		$documents = DB::table('documents')
+						->join('employees','employees.id','=','documents.employee_id')
+						->join('document_types','document_types.id','=','documents.document_type_id')
+						->where('documents.status','=',1)
+						->where('document_types.expires','=',1)
+						->where('employees.active','=',1)
+						->or_where('documents.status','=',2)
+						->where('document_types.expires','=',1)
+						->where('employees.active','=',1)
+						->get(array('*','employees.id as employee_id','employees.fullname as employee_fullname','employees.pin as employee_pin'));
 										
-		foreach ($view->documents as $document) 
+		foreach ($documents as $document) 
 		{
 			switch ($document->status) 
 			{
@@ -44,40 +45,29 @@ class Admin_Docs_Controller extends Base_Controller
 			}
 		}
 
-		$view->subtitle = $subtitle;
-
-		$this->layout->content = $view;
+		return View::make('admin.docs.expired')->with('title',$title)->with('documents',$documents)->with('subtitle',$subtitle);
 	}
 
 	public function get_pending()
 	{
 		$subtitle = ' - Documentos por consignar';	
+		$title = $this->title.$subtitle;
 
-		$this->layout->title .= $subtitle;
+		$documents = DB::table('documents')
+						->where('status','=',3)
+						->join('employees','employees.id','=','documents.employee_id')
+						->join('document_types','document_types.id','=','documents.document_type_id')
+						->order_by('documents.id','desc')
+						->get(array('*','documents.employee_id as employee_id','employees.fullname as employee_fullname','employees.pin as employee_pin'));
 
-		$view = View::make('admin.docs.pending');
-
-		$view->documents = DB::table('documents')
-							->where('status','=',3)
-							->join('employees','employees.id','=','documents.employee_id')
-							->join('document_types','document_types.id','=','documents.document_type_id')
-							->order_by('documents.id','desc')
-							->get(array('*','documents.employee_id as employee_id','employees.fullname as employee_fullname','employees.pin as employee_pin'));
-
-		$view->subtitle = $subtitle;
-
-		$this->layout->content = $view;
+		return View::make('admin.docs.pending')->with('title',$title)->with('subtitle',$subtitle)->with('documents',$documents);
 	}
 
 	public function get_add() 
 	{
-		$this->layout->title .=' - Añadir documento.';
+		$title = $this->title.' - Añadir documento.';
 
-		$view = View::make('admin.docs.add');
-
-		$view->employees = DB::table('employees')->get();
-
-		$this->layout->content = $view;
+		return View::make('admin.docs.add')->with('title',$title);
 	}
 
 	public function post_add()
@@ -115,13 +105,11 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function get_edit($id) 
 	{
-		$this->layout->title .=' - Editar documento.';
+		$title = $this->title.' - Editar documento.';
 
-		$view = View::make('admin.docs.edit');
+		$document_type = DocumentType::find($id);
 
-		$view->document_type = DocumentType::find($id);
-
-		$this->layout->content = $view;
+		return View::make('admin.docs.edit')->with('title',$title)->with('document_type',$document_type);
 	}
 
 	public function post_edit($id) 
