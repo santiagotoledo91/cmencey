@@ -74,7 +74,7 @@
 			@else
 
 				<legend>Prenomina</legend>
-				<h4 class="text-center"> Es imposible generar la nomina sin empleados. ¿Por que no intenta primero {{ HTML::link('admin/employees/add','agregar') }} un nuevo empleado?</h4>
+				<h4 class="text-center"> Es imposible generar la nomina sin empleados activos. ¿Por que no intenta primero {{ HTML::link('admin/employees/add','agregar') }} un nuevo empleado o {{ HTML::link('admin/employees/manage','activar') }} uno existente?</h4>
 
 			@endif
 		</div>
