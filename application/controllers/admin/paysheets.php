@@ -121,7 +121,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 		$lastpaysheet = Paysheet::order_by('id','desc')->first();
 
-		if ($startdate > $lastpaysheet->stopdate)
+		if ($lastpaysheet == null or $startdate > $lastpaysheet->stopdate)
 		{
 			// registers the new paysheet 
 			$paysheet = new Paysheet;
