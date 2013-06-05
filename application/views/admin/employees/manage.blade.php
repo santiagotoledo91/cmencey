@@ -4,7 +4,7 @@
 
 	<div class="row-fluid">
 
-		<div class="span9">
+		<div class="span10 offset1">
 
 			@if (!empty($employees))
 				
@@ -36,7 +36,7 @@
 						<td>{{ $employee->address }}</td>
 						<td>Bs. {{ $employee->salary }}</td>
 						<td>{{ $employee->active }}</td>
-						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar') }}</td>
+						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar') }} - Activar</td>
 
 					</tr>
 
@@ -50,18 +50,6 @@
 				<h4 class="text-center"> Aun no ha registrado ningun empleado. {{ HTML::link('admin/employees/add','Agregar un nuevo empleado.') }}</h4>
 
 			@endif
-
-		</div>
-
-		<div class="span3">
-
-			<div class="row-fluid">
-	
-				<legend>Ayuda</legend>
-
-				informacion necesaria
-
-			</div>
 
 		</div>
 

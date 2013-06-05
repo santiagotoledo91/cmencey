@@ -4,11 +4,11 @@
 
 	<div class="row-fluid">
 
-		<div class="span9">
+		<div class="span10 offset1">
 
 			@if (!empty($paysheets))
 
-				<legend>Listado de nominas</legend>
+				<legend class="text-center">Listado de nominas</legend>
 
 				<table class="table table-bordered table-hover">
 
@@ -44,18 +44,6 @@
 				<h4 class="text-center"> Aun no ha generado ninguna nomina. {{ HTML::link('admin/paysheets/pre','Generar nomina.') }}</h4>
 			
 			@endif
-
-		</div>
-
-		<div class="span3">
-
-			<div class="row-fluid">
-	
-				<legend>Ayuda</legend>
-
-				informacion necesaria
-
-			</div>
 
 		</div>
 

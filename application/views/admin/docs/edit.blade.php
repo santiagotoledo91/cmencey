@@ -4,11 +4,11 @@
 
 	<div class="row-fluid">
 
-		<div class="span9">
+		<div class="span10 offset1">
 
 			<div class="row-fluid">
 				
-				<legend>Editar documento</legend>
+				<legend class="text-center">Editar documento</legend>
 
 			</div>
 
@@ -72,12 +72,6 @@
 
 				</div>	
 
-				<div class="span6">
-				
-					<!-- for further fields -->
-
-				</div>
-
 			</div>
 
 			<div class="row-fluid">
@@ -99,13 +93,6 @@
 			</div>
 
 			{{ Form::close() }}
-
-		</div>
-
-		<div class="span3">
-			
-			<legend>Ayuda</legend>
-			Informacion necesaria
 
 		</div>
 

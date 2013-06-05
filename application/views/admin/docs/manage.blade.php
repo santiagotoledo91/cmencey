@@ -4,11 +4,11 @@
 	
 	<div class="row-fluid">
 	
-		<div class="span9">
+		<div class="span10 offset1">
 	
 			@if (!empty($document_types))
 
-				<legend> Listado de documentos requeridos </legend>
+				<legend class="text-center"> Documentos requeridos </legend>
 		
 				<table class="table table-bordered table-hover">
 		
@@ -51,18 +51,6 @@
 			
 			@endif
 	
-		</div>
-	
-		<div class="span3">
-	
-			<div class="row-fluid">
-					
-				<legend>Ayuda</legend>
-			
-				informacion necesaria
-			
-			</div>
-
 		</div>
 	
 	</div>

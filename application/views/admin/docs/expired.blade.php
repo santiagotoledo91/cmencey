@@ -4,11 +4,11 @@
 
 	<div class="row-fluid">
 
-		<div class="span9">
+		<div class="span10 offset1">
 
 			@if (!empty($documents))
 
-				<legend> Listado {{ $subtitle }} </legend>
+				<legend class="text-center"> {{ $subtitle }} </legend>
 
 				<table class="table table-bordered table-hover">
 
@@ -43,19 +43,10 @@
 				<h4 class="text-center"> No tiene documentos por vencidos o por vencer.</h4>
 
 			@endif
-		</div>
-
-		<div class="span3">
-		
-			<div class="row-fluid">
-					
-				<legend>Ayuda</legend>
-			
-				informacion necesaria
-			
-			</div>
 
 		</div>
+
+	</div>
 
 </div>
 @endsection

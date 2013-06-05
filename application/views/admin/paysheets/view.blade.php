@@ -8,7 +8,7 @@
 
 		<div class="span12">
 
-			<legend>Vista preliminar - Nómina {{$startdate}} al {{$stopdate}}</legend>
+			<legend class="text-center">Vista preliminar - Nómina {{$startdate}} al {{$stopdate}}</legend>
 
 			<table class="table table-bordered table-hover" style="font-size: 12px">
 

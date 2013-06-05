@@ -4,7 +4,7 @@
 
 	<div class="row-fluid">
 
-		<div class="span9 offset1">
+		<div class="span10 offset1">
 
 			<div class="row-fluid">
 				

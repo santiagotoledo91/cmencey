@@ -9,7 +9,7 @@
 		<div class="span12">
 
 			@if (!empty($employees))
-				<legend>Prenómina - Fecha de inicio: 
+				<legend class="text-center">Prenómina - Fecha de inicio: 
 
 				<input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required value="{{$startdate}}">
 

@@ -22,8 +22,8 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function get_expired()
 	{
-		$subtitle = ' - Documentos vencidos y por vencer';	
-		$title = $this->title.$subtitle;
+		$subtitle = 'Documentos vencidos y por vencer';	
+		$title = $this->title.' - '.$subtitle;
 
 		$documents = DB::table('documents')
 						->join('employees','employees.id','=','documents.employee_id')
@@ -50,8 +50,8 @@ class Admin_Docs_Controller extends Base_Controller
 
 	public function get_pending()
 	{
-		$subtitle = ' - Documentos por consignar';	
-		$title = $this->title.$subtitle;
+		$subtitle = 'Documentos por consignar';	
+		$title = $this->title.' - '.$subtitle;
 
 		$documents = DB::table('documents')
 						->where('status','=',3)

@@ -4,11 +4,11 @@
 
 	<div class="row-fluid">
 
-		<div class="span9">
+		<div class="span10 offset1">
 
-			<div class="row-fluid">
+			<div class="row-fluid span6 offset3">
 
-				<legend>Nuevo tipo de documento</legend>
+				<legend class="text-center">Nuevo tipo de documento</legend>
 
 			</div>
 
@@ -16,7 +16,7 @@
 
 				{{ Form::open('admin/docs/add','POST', array('class' => 'form-horizontal')) }}
 
-				<div class="offset3">
+				<div class="span6 offset3">
 
 					<div class="control-group">
 
@@ -75,13 +75,6 @@
 			</div>
 
 			{{ Form::close() }}
-
-		</div>
-
-		<div class="span3">
-
-			<legend>Ayuda</legend>
-			Informacion necesaria
 
 		</div>
 
