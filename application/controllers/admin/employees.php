@@ -50,6 +50,9 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->salary 		= round(Input::get('employee_salary'),2);
 		$employee->bank_account = Input::get('employee_bank_account');
 		$employee->active 		= 0;
+		$employee->size_shoes	= Input::get('employee_size_shoes');
+		$employee->size_shirt	= Input::get('employee_size_shirt');
+		$employee->size_pant	= Input::get('employee_size_pant');
 
 		$employee->save();
 
@@ -146,6 +149,9 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->address 		= Input::get('employee_address');
 		$employee->bank_account = Input::get('employee_bank_account');
 		$employee->active 		= Input::get('employee_active');
+		$employee->size_shoes	= Input::get('employee_size_shoes');
+		$employee->size_shirt	= Input::get('employee_size_shirt');
+		$employee->size_pant	= Input::get('employee_size_pant');
 
 		$employee->save();
 
