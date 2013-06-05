@@ -18,6 +18,9 @@ class Create_Employees_Table
 			$table->string('role',200);
 			$table->string('phone',11);
 			$table->string('address',200);
+			$table->string('size_shoes',2);
+			$table->string('size_shirt',3);
+			$table->string('size_pant',2);
 			$table->string('bank_account',20);
 			$table->float('salary');
 			$table->boolean('active');

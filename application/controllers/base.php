@@ -18,6 +18,7 @@ class Base_Controller extends Controller
 		Asset::add('bootstrap-dropdown.js','js/bootstrap-dropdown.js');
 		Asset::add('bootstrap-collapse.js','js/bootstrap-collapse.js');
 		Asset::add('bootstrap-transition.js','js/bootstrap-transition.js');
+		Asset::add('bootstrap-tab.js','js/bootstrap-tab.js');
 	}
 
 	public function __call($method, $parameters)

@@ -4,7 +4,7 @@
 
 	<div class="row-fluid">
 
-		<div class="span9">
+		<div class="span9 offset1">
 
 			<div class="row-fluid">
 				
@@ -78,10 +78,6 @@
 
 					</div>
 
-				</div>
-
-				<div class="span6">
-
 					<div class="control-group">
 
 						<label class="control-label">Teléfono</label>
@@ -120,6 +116,47 @@
 
 				</div>
 
+				<div class="span6">
+
+					<div class="control-group">
+
+						<label class="control-label">Talla de camisa</label>
+
+						<div class="controls">
+
+							<input id="employee_size_shirt" name="employee_size_shirt" type="text" class="span10" placeholder="Ej: S - M - L - XL - XXL" maxlength="3">
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Talla de zapatos</label>
+
+						<div class="controls">
+
+							<input id="employee_size_shoes" name="employee_size_shoes" type="text" class="span10" placeholder="Ej: 40 - 42 - 44" maxlength="2">
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Talla de pantalon</label>
+
+						<div class="controls">
+
+							<input id="employee_size_pant" name="employee_size_pant" type="text" class="span10" placeholder="Ej: 32 - 34 - 36" maxlength="2">
+
+						</div>
+
+					</div>
+			
+
+				</div>
+
 			</div>	
 
 			<div class="row-fluid">
@@ -142,13 +179,6 @@
 
 			{{ Form::close() }}
 		
-		</div>
-
-		<div class="span3">
-			
-			<legend>Ayuda</legend>
-			Informacion necesaria
-
 		</div>
 
 	</div>
