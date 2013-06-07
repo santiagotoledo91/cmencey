@@ -153,7 +153,40 @@
 						</div>
 
 					</div>
-			
+					
+					<div class="control-group">
+
+						<label class="control-label">Fecha de ingreso</label>
+
+						<div class="controls">
+
+							<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="Ej: 2013-01-01" maxlength="10">
+
+						</div>
+
+					</div>
+
+					<div class="control-group">
+
+						<label class="control-label">Activo</label>
+
+						<div class="controls">	
+
+							<label class="radio">
+
+								<input type="radio" name="employee_active" id="employee_active" value="1" required> Si 
+
+							</label>
+
+							<label class="radio">
+
+								<input type="radio" name="employee_active" id="employee_active" value="0" required> No
+
+							</label>
+
+						</div>
+
+					</div>
 
 				</div>
 

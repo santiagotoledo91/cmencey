@@ -8,27 +8,21 @@
 
 			<div class="row-fluid">
 
-				<h4 class="text-center">Editar perfil del empleado</h4>
-
-			</div>
-
-			<div class="row-fluid">
-
 				{{ Form::open('admin/employees/edit/'.$employee->id,'POST', array('class' => 'form-horizontal')) }}
 
-				<ul class="nav nav-tabs" id="myTab">
+				<ul class="nav nav-tabs" id="myTab" style="margin-bottom: 0px;border-bottom: 0px;">
 					
 					<li class="active">
-						<a href="#profile" data-toggle="tab">Informacion General</a>
+						<a href="#profile" data-toggle="tab"><strong>Informacion General</strong></a>
 					</li>
 					
 					<li>
-						<a href="#documents" data-toggle="tab">Documentos</a>
+						<a href="#documents" data-toggle="tab"><strong>Documentos</strong></a>
 					</li>
 
 				</ul>
 
-				<div class="tab-content">
+				<div class="tab-content" style="border: 1px solid; border-color: #dddddd; padding-top: 10px;">
 
 					<div class="tab-pane active" id="profile">
 						
@@ -36,25 +30,19 @@
 
 							<div class="control-group">
 
-								<label class="control-label">Cedula de identidad</label>
+								<label class="control-label">Cedula de identidad:</label>
 
-								<div class="controls">
+								<label class="control-label" style="text-align:left; margin-left:20px;"><strong>{{ $employee->pin }}</strong></label>
 
-									<h5>{{ $employee->pin }}</h5>
-
-								</div>
+								
 
 							</div>
 
 							<div class="control-group">
 
-								<label class="control-label">Nombre Completo</label>
+								<label class="control-label">Nombre Completo:</label>
 
-								<div class="controls">
-
-									<h5>{{ $employee->fullname }}</h5>
-
-								</div>
+								<label class="control-label" style="text-align:left; margin-left:20px;"><strong>{{ $employee->fullname }}</strong></label>
 
 							</div>
 
@@ -124,6 +112,66 @@
 
 							<div class="control-group">
 
+								<label class="control-label">Talla de camisa</label>
+
+								<div class="controls">
+
+									<input id="employee_size_shirt" name="employee_size_shirt" type="text" class="span10" placeholder="Ej: S - M - L - XL - XXL" maxlength="3">
+
+								</div>
+
+							</div>
+
+							<div class="control-group">
+
+								<label class="control-label">Talla de zapatos</label>
+
+								<div class="controls">
+
+									<input id="employee_size_shoes" name="employee_size_shoes" type="text" class="span10" placeholder="Ej: 40 - 42 - 44" maxlength="2">
+
+								</div>
+
+							</div>
+
+							<div class="control-group">
+
+								<label class="control-label">Talla de pantalon</label>
+
+								<div class="controls">
+
+									<input id="employee_size_pant" name="employee_size_pant" type="text" class="span10" placeholder="Ej: 32 - 34 - 36" maxlength="2">
+
+								</div>
+
+							</div>
+
+							<div class="control-group">
+
+								<label class="control-label">Fecha de ingreso</label>
+
+								<div class="controls">
+
+									<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="Ej: 2013-01-01" maxlength="10">
+
+								</div>
+
+							</div>
+
+							<div class="control-group">
+
+								<label class="control-label">Fecha de egreso</label>
+
+								<div class="controls">
+
+									<input id="employee_stopdate" name="employee_stopdate" type="text" class="span10" placeholder="Ej: 2013-12-31" maxlength="10">
+
+								</div>
+
+							</div>
+
+							<div class="control-group">
+
 								<label class="control-label">Activo</label>
 
 								<div class="controls">	
@@ -162,42 +210,6 @@
 
 							</div>							
 
-							<div class="control-group">
-
-								<label class="control-label">Talla de camisa</label>
-
-								<div class="controls">
-
-									<input id="employee_size_shirt" name="employee_size_shirt" type="text" class="span10" placeholder="Ej: S - M - L - XL - XXL" maxlength="3">
-
-								</div>
-
-							</div>
-
-							<div class="control-group">
-
-								<label class="control-label">Talla de zapatos</label>
-
-								<div class="controls">
-
-									<input id="employee_size_shoes" name="employee_size_shoes" type="text" class="span10" placeholder="Ej: 40 - 42 - 44" maxlength="2">
-
-								</div>
-
-							</div>
-
-							<div class="control-group">
-
-								<label class="control-label">Talla de pantalon</label>
-
-								<div class="controls">
-
-									<input id="employee_size_pant" name="employee_size_pant" type="text" class="span10" placeholder="Ej: 32 - 34 - 36" maxlength="2">
-
-								</div>
-
-							</div>
-
 						</div>
 
 					</div>
@@ -208,7 +220,7 @@
 							
 							<div class="control-group">
 
-								<div >
+								<div>
 
 									@if (!empty($documents))
 
@@ -258,7 +270,7 @@
 
 						<div class="controls">
 
-							<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Guardar</button>
+							<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Actualizar</button>
 
 						</div>
 
