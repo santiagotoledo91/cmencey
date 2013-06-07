@@ -1,0 +1,35 @@
+/* Sticky Footer Solution by Steve Hatcher
+http://stever.ca
+http://www.cssstickyfooter.com*/
+* {
+margin: 0;
+padding: 0;
+}/*Quitamos unas propiedades que por defecto traen los navegadores y las ponemos en “0”*/
+
+html, body {
+height: 100%;
+}
+
+#wrap {
+min-height: 100%;
+}
+
+#main {
+padding-bottom: 50px;
+}/* Altura en px del footer */
+
+#footer  {
+position: relative;
+margin-top: -50px; /* altura en px del footer con valor negativo */
+height: 35px; /* Altura del Footer en px*/
+font-size: 11px;
+padding: 15px 0px 0px 0px;
+clear: both;
+background: rgb(247, 247, 247);
+text-align: center;
+color: #777777;
+}
+
+#footer p {
+line-height: 5px;
+}
