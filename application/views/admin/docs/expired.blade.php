@@ -40,7 +40,6 @@
 
 			@else
 
-				<legend> Listado {{ $subtitle }} </legend>
 				<h4 class="text-center"> No tiene documentos por vencidos o por vencer.</h4>
 
 			@endif

@@ -46,8 +46,8 @@
 
 			@else
 
-				<legend>Listado de empleados</legend>
-				<h4 class="text-center"> Aun no ha registrado ningun empleado. {{ HTML::link('admin/employees/add','Agregar un nuevo empleado.') }}</h4>
+				<h4 class="text-center"> Aun no ha registrado ningun empleado </h4>
+				<h4 class="text-center"> {{ HTML::link('admin/employees/add','Agregar un nuevo empleado') }}</h4>
 
 			@endif
 

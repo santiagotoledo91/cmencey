@@ -38,7 +38,6 @@
 			
 			@else
 				
-				<legend> Listado {{ $subtitle }} </legend>
 				<h4 class="text-center"> No tiene documentos por consignar.</h4>
 
 			@endif

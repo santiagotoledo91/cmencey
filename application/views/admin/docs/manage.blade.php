@@ -47,8 +47,8 @@
 		
 			@else
 				
-				<legend> Listado de documentos requeridos</legend>
-				<h4 class="text-center"> Aun no ha registrado ningun tipo de documento. {{ HTML::link('admin/docs/add','Agregar un nuevo tipo.') }} </h4>
+				<h4 class="text-center"> Aun no ha agregado ningun tipo de documento. </h4>
+				<h4 class="text-center"> {{ HTML::link('admin/docs/add','Agregar nuevo tipo') }} </h4>
 			
 			@endif
 	

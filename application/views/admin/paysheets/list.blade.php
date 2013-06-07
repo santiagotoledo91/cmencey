@@ -41,8 +41,8 @@
 
 			@else
 
-				<legend>Listado de nominas</legend>
-				<h4 class="text-center"> Aun no ha generado ninguna nomina. {{ HTML::link('admin/paysheets/pre','Generar nomina.') }}</h4>
+				<h4 class="text-center"> Aun no ha generado ninguna nomina</h4>
+				<h4 class="text-center"> {{ HTML::link('admin/paysheets/pre','Generar nomina') }}</h4>
 			
 			@endif
 
