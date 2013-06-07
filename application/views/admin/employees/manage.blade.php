@@ -4,12 +4,12 @@
 
 	<div class="row-fluid">
 
-		<div class="span10 offset1">
+		<div class="span12">
 
 			@if (!empty($employees))
 				
-				<legend>Listado de empleados</legend>
-
+				<h4 class="text-center">Listado de empleados</h4>
+				<hr>
 				<table class="table table-bordered table-hover">
 
 					<tr class="head well">

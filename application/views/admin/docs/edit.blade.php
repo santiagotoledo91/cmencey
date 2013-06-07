@@ -6,9 +6,10 @@
 
 		<div class="span10 offset1">
 
-			<div class="row-fluid">
+			<div class="row-fluid span6 offset3">
 				
-				<legend class="text-center">Editar documento</legend>
+				<h4 class="text-center">Editar documento</h4>
+				<hr>
 
 			</div>
 

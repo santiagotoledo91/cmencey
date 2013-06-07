@@ -4,11 +4,12 @@
 
 	<div class="row-fluid">
 
-		<div class="span10 offset1">
+		<div class="span12">
 
 			@if (!empty($paysheets))
 
-				<legend class="text-center">Listado de nominas</legend>
+				<h4 class="text-center">Listado de nominas</h4>
+				<hr>
 
 				<table class="table table-bordered table-hover">
 

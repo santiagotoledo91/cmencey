@@ -8,7 +8,8 @@
 
 			<div class="row-fluid">
 				
-				<legend>Nuevo empleado</legend>
+				<h4 class="text-center">Nuevo empleado</h4>
+				<hr>
 			
 			</div>
 

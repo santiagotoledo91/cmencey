@@ -4,10 +4,12 @@
 
 	<div class="row-fluid">
 
-		<div class="span10 offset1">
+		<div class="span12">
 
 			<div class="row-fluid">
 
+				<h4 class="text-center">Editar empleado</h4>
+				
 				{{ Form::open('admin/employees/edit/'.$employee->id,'POST', array('class' => 'form-horizontal')) }}
 
 				<ul class="nav nav-tabs" id="myTab" style="margin-bottom: 0px;border-bottom: 0px;">
@@ -22,7 +24,7 @@
 
 				</ul>
 
-				<div class="tab-content" style="border: 1px solid; border-color: #dddddd; padding-top: 10px;">
+				<div class="tab-content" style="border: 1px solid; border-color: #dddddd; padding: 10px;">
 
 					<div class="tab-pane active" id="profile">
 						
@@ -216,7 +218,7 @@
 
 		 			<div class="tab-pane" id="documents">
 
-						<div class="span10 offset1" style="height:410px; overflow:auto;">
+						<div class="span12" style="height:410px; overflow:auto;	">
 							
 							<div class="control-group">
 

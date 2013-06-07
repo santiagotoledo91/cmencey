@@ -8,7 +8,8 @@
 
 			<div class="row-fluid span6 offset3">
 
-				<legend class="text-center">Nuevo tipo de documento</legend>
+				<h4 class="text-center">Nuevo tipo de documento</h4>
+				<hr>
 
 			</div>
 

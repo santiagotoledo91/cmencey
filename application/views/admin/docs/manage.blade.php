@@ -4,12 +4,13 @@
 	
 	<div class="row-fluid">
 	
-		<div class="span10 offset1">
+		<div class="span12">
 	
 			@if (!empty($document_types))
 
-				<legend class="text-center"> Documentos requeridos </legend>
-		
+				<h4 class="text-center"> Documentos requeridos </h4>
+				<hr>
+
 				<table class="table table-bordered table-hover">
 		
 					<tr class="head well">

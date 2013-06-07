@@ -113,22 +113,22 @@ class Admin_Employees_Controller extends Base_Controller
 				{
 					case 0: 
 						$document->row_class="success";
-						$document->show = '<td> </label> Vigente hasta <input type="text" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td>'; 
+						$document->show = '<td> <label> Vigente hasta <input type="text" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>'; 
 					break;
 
 					case 1: 
 						$document->row_class="warning";
-						$document->show = '<td> </label> Vence el <input type="text" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td>';
+						$document->show = '<td> <label> Vence el <input type="text" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>';
 					break;
 
 					case 2: 
 						$document->row_class="error";
-						$document->show = '<td> </label> Vencido desde <input type="text"  name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td>';
+						$document->show = '<td> <label> Vencido desde <input type="text"  name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>';
 					break;
 
 					case 3: 
 						$document->row_class="error";
-						$document->show = '<td> </label> Pendiente por registrar <input type="text"  name="employee_expirable_documents['.$document->id.']" placeholder="AAAA-MM-DD"> </td>';
+						$document->show = '<td> <label> Pendiente por registrar <input type="text"  name="employee_expirable_documents['.$document->id.']" placeholder="AAAA-MM-DD"> </td> </label>';
 					break;
 				}
 			}

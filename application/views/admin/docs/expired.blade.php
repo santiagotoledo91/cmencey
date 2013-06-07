@@ -4,11 +4,12 @@
 
 	<div class="row-fluid">
 
-		<div class="span10 offset1">
+		<div class="span12">
 
 			@if (!empty($documents))
 
-				<legend class="text-center"> {{ $subtitle }} </legend>
+				<h4 class="text-center"> Documentos vencidos y por vencer </h4>
+				<hr>
 
 				<table class="table table-bordered table-hover">
 
