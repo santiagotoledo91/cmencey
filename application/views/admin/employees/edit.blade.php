@@ -118,7 +118,7 @@
 
 								<div class="controls">
 
-									<input id="employee_size_shirt" name="employee_size_shirt" type="text" class="span10" placeholder="Ej: S - M - L - XL - XXL" maxlength="3">
+									<input id="employee_size_shirt" name="employee_size_shirt" type="text" class="span10" placeholder="Ej: S - M - L - XL - XXL" maxlength="3" value="{{ $employee->size_shirt }}">
 
 								</div>
 
@@ -130,7 +130,7 @@
 
 								<div class="controls">
 
-									<input id="employee_size_shoes" name="employee_size_shoes" type="text" class="span10" placeholder="Ej: 40 - 42 - 44" maxlength="2">
+									<input id="employee_size_shoes" name="employee_size_shoes" type="text" class="span10" placeholder="Ej: 40 - 42 - 44" maxlength="2" value="{{ $employee->size_shoes }}">
 
 								</div>
 
@@ -142,7 +142,7 @@
 
 								<div class="controls">
 
-									<input id="employee_size_pant" name="employee_size_pant" type="text" class="span10" placeholder="Ej: 32 - 34 - 36" maxlength="2">
+									<input id="employee_size_pant" name="employee_size_pant" type="text" class="span10" placeholder="Ej: 32 - 34 - 36" maxlength="2" value="{{ $employee->size_pant }}">
 
 								</div>
 
@@ -154,7 +154,7 @@
 
 								<div class="controls">
 
-									<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="Ej: 2013-01-01" maxlength="10">
+									<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="Ej: 2013-01-01" maxlength="10" value="{{ $employee->startdate }}">
 
 								</div>
 
@@ -166,7 +166,7 @@
 
 								<div class="controls">
 
-									<input id="employee_stopdate" name="employee_stopdate" type="text" class="span10" placeholder="Ej: 2013-12-31" maxlength="10">
+									<input id="employee_stopdate" name="employee_stopdate" type="text" class="span10" placeholder="Ej: 2013-12-31" maxlength="10" value="{{ $employee->stopdate }}">
 
 								</div>
 

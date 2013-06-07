@@ -152,6 +152,8 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->size_shoes	= Input::get('employee_size_shoes');
 		$employee->size_shirt	= Input::get('employee_size_shirt');
 		$employee->size_pant	= Input::get('employee_size_pant');
+		$employee->startdate 	= Input::get('employee_startdate');
+		$employee->stopdate 	= Input::get('employee_stopdate');
 
 		$employee->save();
 

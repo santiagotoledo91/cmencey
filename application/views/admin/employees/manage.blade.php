@@ -36,7 +36,7 @@
 						<td>{{ $employee->address }}</td>
 						<td>Bs. {{ $employee->salary }}</td>
 						<td>{{ $employee->active }}</td>
-						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar') }} - Activar</td>
+						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar empleado') }} </td>
 
 					</tr>
 

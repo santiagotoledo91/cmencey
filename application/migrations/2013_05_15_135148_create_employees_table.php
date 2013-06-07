@@ -24,9 +24,10 @@ class Create_Employees_Table
 			$table->string('bank_account',20);
 			$table->float('salary');
 			$table->boolean('active');
-			$table->date('startdate');
-			$table->date('stopdate');
 		});
+
+		DB::query('ALTER TABLE employees ADD startdate DATE');
+		DB::query('ALTER TABLE employees ADD stopdate DATE');
 	}
 
 	/**
