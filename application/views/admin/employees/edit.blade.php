@@ -102,7 +102,7 @@
 
 								<div class="controls">
 
-									<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" value="{{ $employee->bank_account }}"  maxlength="20" required>
+									<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" value="{{ $employee->bank_account }}"  maxlength="20">
 
 								</div>
 
