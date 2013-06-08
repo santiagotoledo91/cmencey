@@ -1,62 +1,33 @@
 @layout('layouts.login')
 @section('content')
 
-<div class="container-fluid" style="margin-top: 200px">
-
-	<div class="row-fluid">
-
-		<div class="span4 offset4">
-
-			{{ Form::open('admin/login','POST', array('class' => 'form-horizontal')) }}
-
-			<div id="legend">
-
-				<h3 class="text-center"> Construcciones Mencey, C.A.</h3>
+		<div class="login center">
 				
-				<legend class="text-center">Sistema de gestión de personal.</legend>
-
+			<div class="text-center ">
+				
+				{{ HTML::image('img/logo.png','logo', array('width' => '300')) }} 
+				<h4 class="text-center" style="margin-top: 10px;">Sistema de gestion de personal</h4>
+			
 			</div>
+	
+			{{ Form::open('admin/login','POST', array('class' => 'form-horizontal login-form')) }}
 
-			<div class="control-group">
+				
+				{{ $errors->first('username', 	'<div class="alert alert-error text-center">:message</div>') }}
+				{{ $errors->first('password', 	'<div class="alert alert-error text-center">:message</div>') }}
+				{{ $errors->first('auth'	, 	'<div class="alert alert-error text-center">:message</div>') }}
 
-				<label class="control-label" for="username">Usuario</label>
+				<!-- Username input-->
+				<input type="text" id="username" name="username" class="input-medium" placeholder="Usuario" required>
 
-				<div class="controls">
+				<!-- Password input-->
+				<input type="password" id="password" name="password"  class="input-medium" placeholder="Contrasena" required>
 
-					<input type="text" name="username" id="username">
-
-				</div>
-
-			</div>
-
-			<div class="control-group">
-
-				<label for="password" class="control-label">Contrase&ntilde;a</label>
-
-				<div class="controls">
-
-					<input type="password" name="password" id="password">
-
-				</div>
-
-			</div>
-
-			<div class="control-group">
-
-				<div class="controls">
-
-					<button class="btn btn-primary" type="submit" value="Iniciar sesion"><i class="icon-share-alt icon-white"></i> Iniciar Sesión</a></button>
-
-				</div>
-
-			</div>
+				<!-- Login button-->
+				<button id="submit" name="submit" class="btn btn-primary">Iniciar sesion</button>
 
 			{{ Form::close() }}
 
 		</div>
-
-	</div>
-
-</div>
 
 @endsection

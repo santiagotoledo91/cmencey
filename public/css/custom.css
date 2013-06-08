@@ -33,3 +33,45 @@ color: #777777;
 #footer p {
 line-height: 5px;
 }
+
+ .login {
+  width: 450px;
+  position: absolute;
+  top: -50;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 450px;
+  height: 300px;
+  margin: auto;
+
+ }
+
+ .login-form {
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  background: transparent;
+  padding: 10px 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+ }
+
+ .login input {
+  text-align: center;
+  display: block;
+  padding: 0px 5px 0px 5px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  min-height: 30px;
+  width: 180px
+ }
+
+ .login button {
+  margin-top: 15px;
+  margin-bottom: 0px;
+  width: 180px
+ }
+
