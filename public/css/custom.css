@@ -75,7 +75,7 @@ line-height: 5px;
   width: 180px
  }
 
- .table-info {
+ .white-area {
   margin-top: 20px;
   margin-right: auto;
   margin-left: auto;
@@ -83,7 +83,7 @@ line-height: 5px;
   border: 1px solid #dddddd;
  }
 
- .table-info td {
+ .white-area td {
   border: 0px;
   padding: 15px;
  }
