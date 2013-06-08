@@ -109,7 +109,7 @@
 
 						<div class="controls">
 
-							<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" placeholder="Ej: 0116077880015459039" maxlength="20">
+							<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" placeholder="Ej: 0116 0778 80 015459039" maxlength="23">
 
 						</div>
 

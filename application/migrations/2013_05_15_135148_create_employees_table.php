@@ -21,7 +21,7 @@ class Create_Employees_Table
 			$table->string('size_shoes',2);
 			$table->string('size_shirt',3);
 			$table->string('size_pant',2);
-			$table->string('bank_account',20);
+			$table->string('bank_account',23);
 			$table->float('salary');
 			$table->boolean('active');
 		});
