@@ -19,12 +19,11 @@
 		<div id="main">
 
 			<!-- START HEADER -->
-			<div class="navbar">
+			<div class="navbar navbar-static-top" style="margin-bottom:15px;">
 
 				<div class="navbar-inner">
 
 					<div class="container">
-
 
 						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 							<span class="icon-bar"></span>
@@ -38,7 +37,7 @@
 
 							<ul class="nav">
 
-								<li><a href=" {{ URL::to('admin') }} "><i class="icon-home"></i> Inicio</a></li>
+								<li><a href=" {{ URL::to('admin') }} "><i class="icon-home"></i> Resumen</a></li>
 
 								<li class="divider-vertical"></li>
 
@@ -49,11 +48,11 @@
 									<ul class="dropdown-menu">
 
 										<li>
-											<a href="{{ URL::to('admin/paysheets/pre') }}">Generar nómina</a>
+											<a href="{{ URL::to('admin/paysheets/pre') }}"><i class="icon-plus"></i> Generar nómina</a>
 										</li>
 
 										<li>
-											<a href="#">Prestaciones sociales</a>
+											<a href="#"><i class="icon-plus"></i> Calcular prestaciones sociales</a>
 										</li>
 
 									</ul>
@@ -164,7 +163,7 @@
 
 			</div>
 			<!-- END HEADER -->
-
+			<div id="spacer"></div>
 			<!-- START CONTENT -->
 				@yield('content')
 			<!-- END CONTENT -->

@@ -6,7 +6,7 @@
 			<div class="text-center ">
 				
 				{{ HTML::image('img/logo.png','logo', array('width' => '300')) }} 
-				<h4 class="text-center" style="margin-top: 10px;">Sistema de gestion de personal</h4>
+				
 			
 			</div>
 	
@@ -24,7 +24,7 @@
 				<input type="password" id="password" name="password"  class="input-medium" placeholder="Contrasena" required>
 
 				<!-- Login button-->
-				<button id="submit" name="submit" class="btn btn-primary">Iniciar sesion</button>
+				<button id="submit" name="submit" class="btn btn-inverse">Iniciar sesion</button>
 
 			{{ Form::close() }}
 

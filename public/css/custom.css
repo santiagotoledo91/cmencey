@@ -8,6 +8,7 @@ padding: 0;
 
 html, body {
 height: 100%;
+background: url('../img/bg-1.png') repeat;
 }
 
 #wrap {
@@ -44,7 +45,6 @@ line-height: 5px;
   width: 450px;
   height: 300px;
   margin: auto;
-
  }
 
  .login-form {
@@ -75,3 +75,15 @@ line-height: 5px;
   width: 180px
  }
 
+ .table-info {
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  border: 1px solid #dddddd;
+ }
+
+ .table-info td {
+  border: 0px;
+  padding: 15px;
+ }
