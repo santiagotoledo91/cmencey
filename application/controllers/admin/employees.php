@@ -102,7 +102,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 					// the document has not been consigned yet
 					case 3: 
-						$document->show = '<td class="error"> <input type="checkbox" name="employee_non_expirable_documents[]" value="'.$document->id.'"> Marcar como recibido </td>'; 
+						$document->show = '<td class="error"> <input type="checkbox" name="employee_non_expirable_documents[]" value="'.$document->id.'"> <label class="checkbox"> Marcar como recibido </label> </td>'; 
 						$document->row_class="error";
 					break; 
 				}

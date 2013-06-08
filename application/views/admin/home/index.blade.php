@@ -48,8 +48,8 @@
 		<div class="span3">
 
 			<h4 class="text-center"> Documentacion </h4>
-
-			<table class="table white-area table-hover">
+			<div class="space1"></div>
+			<table class="table table-info table-hover">
 
 				@if ($pending != 0)
 					<tr class="error">
@@ -87,8 +87,9 @@
 			</table>
 
 			<h4 class="text-center"> Informacion general </h4>
+			<div class="space1"></div>
 
-			<table class="white-area table-bordered table ">
+			<table class="table-info table-bordered table ">
 
 				<tr>
 					<td> Trabajadores activos: </td>

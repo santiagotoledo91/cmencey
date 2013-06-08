@@ -7,10 +7,11 @@
 		<div class="span12">
 
 			@if (!empty($employees))
-				
+
 				<h4 class="text-center">Listado de empleados</h4>
-				<hr>
-				<table class="table table-bordered table-hover">
+				<div class="space1"></div>
+
+				<table class="table table-hover white-area">
 
 					<tr class="head well">
 
@@ -36,7 +37,7 @@
 						<td>{{ $employee->address }}</td>
 						<td>Bs. {{ $employee->salary }}</td>
 						<td>{{ $employee->active }}</td>
-						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar empleado') }} </td>
+						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar') }} </td>
 
 					</tr>
 

@@ -9,13 +9,13 @@
 			<div class="row-fluid">
 				
 				<h4 class="text-center">Nuevo empleado</h4>
-				<hr>
-			
+				<div class="space1"></div>
+
 			</div>
 
-			<div class="row-fluid">
+			<div class="row-fluid white-area">
 
-				{{ Form::open('admin/employees/add','POST', array('class' => 'form-horizontal')) }}
+				{{ Form::open('admin/employees/add','POST', array('class' => 'form-horizontal white-area-content')) }}
 
 				<div class="span6">
 
@@ -201,6 +201,7 @@
 
 						<div class="controls">
 
+							<div class="space1"></div>
 							<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Añadir empleado</button>
 
 						</div>

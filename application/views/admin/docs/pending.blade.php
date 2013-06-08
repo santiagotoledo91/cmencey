@@ -9,9 +9,9 @@
 			@if (!empty($documents))
 
 				<h4 class="text-center"> Documentos por consignar </h4>
-				<hr>
+				<div class="space1"></div>
 
-				<table class="table table-bordered table-hover">
+				<table class="table table-hover table-documents white-area">
 
 					<tr class="head well">
 

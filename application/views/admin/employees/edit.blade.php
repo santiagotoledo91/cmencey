@@ -4,11 +4,11 @@
 
 	<div class="row-fluid">
 
-		<div class="span12">
+		<div class="span10 offset1">
 
 			<div class="row-fluid">
 
-				<h4 class="text-center">Editar empleado</h4>
+				<h4 class="text-center" style="margin-bottom:0px">Editar empleado</h4>
 				
 				{{ Form::open('admin/employees/edit/'.$employee->id,'POST', array('class' => 'form-horizontal')) }}
 
@@ -24,9 +24,9 @@
 
 				</ul>
 
-				<div class="tab-content" style="border: 1px solid; border-color: #dddddd; padding: 10px;">
+				<div class="tab-content white-area ">
 
-					<div class="tab-pane active" id="profile">
+					<div class="tab-pane active white-area-content" id="profile">
 						
 						<div class="span5 offset1">
 
@@ -35,8 +35,6 @@
 								<label class="control-label">Cedula de identidad:</label>
 
 								<label class="control-label" style="text-align:left; margin-left:20px;"><strong>{{ $employee->pin }}</strong></label>
-
-								
 
 							</div>
 
@@ -218,7 +216,7 @@
 
 		 			<div class="tab-pane" id="documents">
 
-						<div class="span12" style="height:410px; overflow:auto;	">
+						<div class="span12" style="height:425px; overflow:auto; padding:0px;">
 							
 							<div class="control-group">
 
@@ -226,9 +224,9 @@
 
 									@if (!empty($documents))
 
-										<table class="table table-bordered table-hover">
+										<table class="table table-hover table-documents">
 
-											<tr class="well">
+											<tr>
 
 												<th>Documento</th>
 												
@@ -240,7 +238,7 @@
 
 											<tr class="{{$document->row_class}}">
 
-												<td> <label> {{ $document->description }} </label></td>
+												<td> {{ $document->description }} </td>
 
 												{{ $document->show }}
 

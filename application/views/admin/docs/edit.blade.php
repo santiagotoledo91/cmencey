@@ -9,7 +9,7 @@
 			<div class="row-fluid span6 offset3">
 				
 				<h4 class="text-center">Editar documento</h4>
-				<hr>
+				<div class="space1"></div>
 
 			</div>
 
@@ -18,60 +18,64 @@
 				{{ Form::open('admin/docs/edit/'.$document_type->id,'POST', array('class' => 'form-horizontal')) }}
 
 				<div class="span6 offset3">
+					
+					<div class="white-area white-area-content">
+						
+						<div class="control-group">
 
-					<div class="control-group">
+							<label class="control-label">Nombre</label>
 
-						<label class="control-label">Nombre</label>
+							<div class="controls">
 
-						<div class="controls">
+								<input id="document_type_description" name="document_type_description" type="text" value="{{$document_type->description}}" class="input" required="">
 
-							<input id="document_type_description" name="document_type_description" type="text" value="{{$document_type->description}}" class="input" required="">
-
-						</div>
-
-					</div>
-
-					<div class="control-group">
-
-						<label class="control-label">¿Llevar control del vencimiento?</label>
-
-						<div class="controls">	
-
-							@if ($document_type->expires == 1)
-
-								<label class="radio">
-
-									<input type="radio" name="document_type_expires" id="document_type_expires" value="1" required checked> Si 
-
-								</label>
-
-								<label class="radio">
-
-									<input type="radio" name="document_type_expires" id="document_type_expires" value="0" required> No
-
-								</label>
-
-							@else
-
-								<label class="radio">
-
-									<input type="radio" name="document_type_expires" id="document_type_expires" value="1" required> Si 
-
-								</label>
-
-								<label class="radio">
-
-									<input type="radio" name="document_type_expires" id="document_type_expires" value="0" required checked> No
-
-								</label>
-
-							@endif
+							</div>
 
 						</div>
 
-					</div>
+						<div class="control-group">
 
-				</div>	
+							<label class="control-label">¿Llevar control del vencimiento?</label>
+
+							<div class="controls">	
+
+								@if ($document_type->expires == 1)
+
+									<label class="radio">
+
+										<input type="radio" name="document_type_expires" id="document_type_expires" value="1" required checked> Si 
+
+									</label>
+
+									<label class="radio">
+
+										<input type="radio" name="document_type_expires" id="document_type_expires" value="0" required> No
+
+									</label>
+
+								@else
+
+									<label class="radio">
+
+										<input type="radio" name="document_type_expires" id="document_type_expires" value="1" required> Si 
+
+									</label>
+
+									<label class="radio">
+
+										<input type="radio" name="document_type_expires" id="document_type_expires" value="0" required checked> No
+
+									</label>
+
+								@endif
+
+							</div>
+
+						</div>
+
+					</div>	
+
+				</div>
 
 			</div>
 
@@ -83,6 +87,8 @@
 
 						<div class="controls">
 						
+							<div class="space1"></div>
+							
 							<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Guardar</button>
 					
 						</div>

@@ -21,143 +21,141 @@
 			<!-- START HEADER -->
 			<div class="navbar navbar-static-top" style="margin-bottom:15px;">
 
-				<div class="navbar-inner">
+			<div class="navbar-inner">
 
-					<div class="container">
 
-						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
 
-						<a class="brand">Construcciones Mencey, C.A</a>
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
 
-						<div class="nav-collapse">
+					<a class="brand">Construcciones Mencey, C.A</a>
 
-							<ul class="nav">
+					<div class="nav-collapse">
 
-								<li><a href=" {{ URL::to('admin') }} "><i class="icon-home"></i> Resumen</a></li>
+						<ul class="nav">
 
-								<li class="divider-vertical"></li>
+							<li><a href=" {{ URL::to('admin') }} "><i class="icon-home icon-white"></i> Resumen</a></li>
 
-								<li class="dropdown">
+							<li class="divider-vertical"></li>
 
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase"></i> Tesoreria <b class="caret"></b></a>
+							<li class="dropdown">
 
-									<ul class="dropdown-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase icon-white"></i> Tesoreria <b class="caret"></b></a>
 
-										<li>
-											<a href="{{ URL::to('admin/paysheets/pre') }}"><i class="icon-plus"></i> Generar nómina</a>
-										</li>
+								<ul class="dropdown-menu">
 
-										<li>
-											<a href="#"><i class="icon-plus"></i> Calcular prestaciones sociales</a>
-										</li>
+									<li>
+										<a href="{{ URL::to('admin/paysheets/pre') }}"><i class="icon-plus"></i> Generar nómina</a>
+									</li>
 
-									</ul>
+									<li>
+										<a href="#"><i class="icon-plus"></i> Calcular prestaciones sociales</a>
+									</li>
 
-								</li>
+								</ul>
 
-								<li class="divider-vertical"></li>
+							</li>
 
-								<li class="dropdown">
+							<li class="divider-vertical"></li>
 
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> Personal <b class="caret"></b></a>
+							<li class="dropdown">
 
-									<ul class="dropdown-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Personal <b class="caret"></b></a>
 
-										<li>
-											<a href="{{ URL::to('admin/employees/add') }}"><i class="icon-plus"></i> Añadir</a>
-										</li>
+								<ul class="dropdown-menu">
 
-										<li>
-											<a href=" {{ URL::to('admin/employees/manage') }} "><i class="icon-cog"></i> Ver - Editar</a>
-										</li>
+									<li>
+										<a href="{{ URL::to('admin/employees/add') }}"><i class="icon-plus"></i> Añadir</a>
+									</li>
 
-									</ul>
+									<li>
+										<a href=" {{ URL::to('admin/employees/manage') }} "><i class="icon-cog"></i> Ver - Editar</a>
+									</li>
 
-								</li>
+								</ul>
 
-								<li class="divider-vertical"></li>
+							</li>
 
-								<li class="dropdown">
+							<li class="divider-vertical"></li>
 
-									<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-folder-open"></i> Documentos <b class="caret"></b></a>
+							<li class="dropdown">
 
-									<ul class="dropdown-menu">
+								<a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-folder-open icon-white"></i> Documentos <b class="caret"></b></a>
 
-										<li>
-											<a href="{{ URL::to('admin/docs/expired') }}"><i class="icon-exclamation-sign"></i> Vencidos y por vencer</a>
-										</li>
+								<ul class="dropdown-menu">
 
-										<li>
-											<a href="{{ URL::to('admin/docs/pending') }}"><i class="icon-exclamation-sign"></i> Por consignar</a>
-										</li>
+									<li>
+										<a href="{{ URL::to('admin/docs/expired') }}"><i class="icon-exclamation-sign"></i> Vencidos y por vencer</a>
+									</li>
 
-										<li class="divider"></li>
+									<li>
+										<a href="{{ URL::to('admin/docs/pending') }}"><i class="icon-exclamation-sign"></i> Por consignar</a>
+									</li>
 
-										<li>
-											<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Nuevo tipo de documento</a>
-										</li>
+									<li class="divider"></li>
 
-										<li>
-											<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar tipos de documentos</a>
-										</li>
+									<li>
+										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Nuevo tipo de documento</a>
+									</li>
 
-									</ul>
+									<li>
+										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar tipos de documentos</a>
+									</li>
 
-								</li>
+								</ul>
 
-								<li class="divider-vertical"></li>
+							</li>
 
-								<li class="dropdown">
+							<li class="divider-vertical"></li>
 
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-print"></i> Imprimir <b class="caret"></b></a>
+							<li class="dropdown">
 
-									<ul class="dropdown-menu">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-print icon-white"></i> Imprimir <b class="caret"></b></a>
 
-										<li>
-											<a href="{{ URL::to('admin/paysheets/list') }}">Nómina</a>
-										</li>
+								<ul class="dropdown-menu">
 
-										<li>
-											<a href="#">Recibos de págo</a>
-										</li>
+									<li>
+										<a href="{{ URL::to('admin/paysheets/list') }}">Nómina</a>
+									</li>
 
-										<li>
-											<a href="#">Prestaciones sociales</a>
-										</li>
+									<li>
+										<a href="#">Recibos de págo</a>
+									</li>
 
-										<li class="divider"></li>
+									<li>
+										<a href="#">Prestaciones sociales</a>
+									</li>
 
-										<li>
-											<a href="#">Solvencia A</a>
-										</li>
+									<li class="divider"></li>
 
-										<li>
-											<a href="#">Solvencia B</a>
-										</li>
+									<li>
+										<a href="#">Solvencia A</a>
+									</li>
 
-										<li>
-											<a href="#">Solvencia C</a>
-										</li>
+									<li>
+										<a href="#">Solvencia B</a>
+									</li>
 
-									</ul>
+									<li>
+										<a href="#">Solvencia C</a>
+									</li>
 
-								</li>
+								</ul>
 
-							</ul>
+							</li>
 
-							<ul class="nav pull-right">
+						</ul>
 
-								<li><a href=" {{ URL::to('admin/logout') }} "><i class="icon-off"></i> Cerrar sesion</a></li>
+						<ul class="nav pull-right">
 
-							</ul>
+							<li><a href=" {{ URL::to('admin/logout') }} "><i class="icon-off icon-white"></i> Cerrar sesion</a></li>
 
-						</div>	
+						</ul>
 
-					</div>
+					</div>	
 
 				</div>
 
@@ -177,7 +175,7 @@
 	<!-- START FOOTER -->
 	<div id="footer">
 
-		<p>Construcciones Mencey, C.A - Sistema de administracion de personal</p>
+		<p>Construcciones Mencey, C.A - Sistema de gestión de personal</p>
 		<p>Copyright © Santiago Toledo — Todos los derechos reservados.</p>
 
 	</div>

@@ -9,7 +9,6 @@
 			@if (!empty($paysheets))
 
 				<h4 class="text-center">Listado de nominas</h4>
-				<hr>
 
 				<table class="table table-bordered table-hover">
 

@@ -9,8 +9,8 @@
 		<div class="span12">
 
 			<h4 class="text-center">Vista preliminar - Nómina {{$startdate}} al {{$stopdate}}</h4>
-			<hr>
-
+			<div class="space1"></div>
+			
 			<table class="table table-bordered table-hover" style="font-size: 12px">
 
 				<tr class="head well">
@@ -56,9 +56,13 @@
 
 			@endforeach
 
+				<tr>
+					<td colspan="14"><h4 class="text-center">TOTAL = Bs. {{$total}}</h4></td>
+				</tr>
+
 			</table>
 
-			<h4 class="text-right">TOTAL = Bs. {{$total}}</h4>
+			
 
 			<div class="text-center">
 

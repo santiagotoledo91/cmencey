@@ -9,9 +9,9 @@
 			@if (!empty($document_types))
 
 				<h4 class="text-center"> Documentos requeridos </h4>
-				<hr>
+				<div class="space1"></div>
 
-				<table class="table table-bordered table-hover">
+				<table class="table white-area table-hover">
 		
 					<tr class="head well">
 		
