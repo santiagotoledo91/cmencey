@@ -100,7 +100,7 @@
 
 								<div class="controls">
 
-									<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" value="{{ $employee->bank_account }}"  maxlength="20">
+									<input id="employee_bank_account" name="employee_bank_account" type="text" class="span10" value="{{ $employee->bank_account }}"  maxlength="23" placeholder="Ej: 0116 0778 80 015459039">
 
 								</div>
 
