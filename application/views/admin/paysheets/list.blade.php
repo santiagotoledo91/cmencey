@@ -30,7 +30,7 @@
 						<td>{{ $paysheet->startdate }}</td>
 						<td>{{ $paysheet->stopdate }}</td>
 						<td>Bs. {{ $paysheet->total }}</td>
-						<td>{{ HTML::link('admin/print/paysheet/'.$paysheet->id,'Imprimir') }}</td>
+						<td>{{ HTML::link('admin/print/paysheet/'.$paysheet->id,'Imprimir',array('target' => '_blank')) }}</td>
 
 					</tr>
 
