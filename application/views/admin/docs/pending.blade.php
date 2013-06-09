@@ -15,9 +15,9 @@
 
 					<tr class="head well">
 
+						<th>DOCUMENTO</th>
 						<th>C.I</th>
 						<th>NOMBRE DEL EMPLEADO</th>
-						<th>DOCUMENTO</th>
 						<th>ACCIONES</th>
 					</tr>
 
@@ -25,9 +25,9 @@
 
 					<tr>
 
+						<td>{{ $document->description }} </td>
 						<td>{{ $document->employee_pin }}</td>
 						<td>{{ $document->employee_fullname }}</td>
-						<td>{{ $document->description }} </td>
 						<td>{{ HTML::link('admin/employees/edit/'.$document->employee_id,'Actualizar') }}</td>
 						
 					</tr>

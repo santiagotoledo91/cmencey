@@ -96,14 +96,14 @@ class Admin_Employees_Controller extends Base_Controller
 					case 0:
 					case 1:
 					case 2: 
-						$document->show = '<td class="succes"> Recibido </td>'; 
-						$document->row_class="success";
+						$document->show = '<td> Recibido </td>'; 
+						$document->row_class="success-min";
 					break; 
 
 					// the document has not been consigned yet
 					case 3: 
-						$document->show = '<td class="error"> <input type="checkbox" name="employee_non_expirable_documents[]" value="'.$document->id.'"> <label class="checkbox"> Marcar como recibido </label> </td>'; 
-						$document->row_class="error";
+						$document->show = '<td> <input type="checkbox" name="employee_non_expirable_documents[]" value="'.$document->id.'"> <label class="checkbox"> Marcar como recibido </label> </td>'; 
+						$document->row_class="error-min";
 					break; 
 				}
 			}
@@ -112,22 +112,22 @@ class Admin_Employees_Controller extends Base_Controller
 				switch ($document->status) 
 				{
 					case 0: 
-						$document->row_class="success";
+						$document->row_class="success-min";
 						$document->show = '<td> <label> Vigente hasta <input type="text" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>'; 
 					break;
 
 					case 1: 
-						$document->row_class="warning";
+						$document->row_class="warning-min";
 						$document->show = '<td> <label> Vence el <input type="text" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>';
 					break;
 
 					case 2: 
-						$document->row_class="error";
-						$document->show = '<td> <label> Vencido desde <input type="text"  name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>';
+						$document->row_class="error-min";
+						$document->show = '<td"> <label> Vencido desde <input type="text"  name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>';
 					break;
 
 					case 3: 
-						$document->row_class="error";
+						$document->row_class="error-min";
 						$document->show = '<td> <label> Pendiente por registrar <input type="text"  name="employee_expirable_documents['.$document->id.']" placeholder="AAAA-MM-DD"> </td> </label>';
 					break;
 				}

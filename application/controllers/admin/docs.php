@@ -40,8 +40,8 @@ class Admin_Docs_Controller extends Base_Controller
 		{
 			switch ($document->status) 
 			{
-				case 1: $document->class = 'warning'; 	break;
-				case 2: $document->class = 'error'; 	break;
+				case 1: $document->class = 'warning-min'; 	break;
+				case 2: $document->class = 'error-min'; 	break;
 			}
 		}
 

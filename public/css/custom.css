@@ -8,7 +8,6 @@ http://www.cssstickyfooter.com*/
 
 html, body {
 	height: 100%;
-	background: url('../img/bg-1.png') repeat;
 }
 
 #wrap {
@@ -144,4 +143,29 @@ th {
 }
 .nav-collapse .nav > li > a {
 	color: white;
+}
+
+.error-min {
+	border-left: 5px solid red;
+}
+
+.warning-min {
+	border-left: 5px solid yellow;
+}
+
+.success-min {
+	border-left: 5px solid green;	
+}
+
+
+.error-min-r {
+	border-right: 5px solid red;
+}
+
+.warning-min-r {
+	border-right: 5px solid yellow;
+}
+
+.success-min-r {
+	border-right: 5px solid green;	
 }

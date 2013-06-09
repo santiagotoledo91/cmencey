@@ -52,34 +52,34 @@
 			<table class="table table-info table-hover">
 
 				@if ($pending != 0)
-					<tr class="error">
+					<tr class="error-min-r">
 						<td> Documentos por consignar: </td>
 						<td>{{ $pending }}</td>
 					</tr>
 				@else
-					<tr class="success">
+					<tr class="success-min-r">
 						<td colspan="2"> No hay documentos por consignar. </td>
 					</tr>
 				@endif
 
 				@if ($expired != 0)
-					<tr class="error">
+					<tr class="error-min-r">
 						<td> Documentos vencidos: </td>
 						<td>{{ $expired }}</td>
 					</tr>
 				@else
-					<tr class="success">
+					<tr class="success-min-r">
 						<td colspan="2"> No hay documentos vencidos. </td>
 					</tr>
 				@endif
 				
 				@if ($close_to_expire != 0)
-					<tr class="error">
+					<tr class="error-min-r">
 						<td> Documentos por vencer: </td>
-						<td>{{ $expired }}</td>
+						<td>{{ $close_to_expire }}</td>
 					</tr>
 				@else
-					<tr class="success">
+					<tr class="success-min-r">
 						<td colspan="2"> No hay documentos por vencer. </td>
 					</tr>
 				@endif

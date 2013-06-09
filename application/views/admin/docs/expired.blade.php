@@ -15,10 +15,10 @@
 
 					<tr class="head well">
 
-						<th>C.I</th>
-						<th>NOMBRE DEL EMPLEADO</th>
 						<th>DOCUMENTO</th>
 						<th>FECHA DE VENCIMIENTO</th>
+						<th>C.I</th>
+						<th>NOMBRE DEL EMPLEADO</th>
 						<th>ACCIONES</th>
 					</tr>
 
@@ -26,10 +26,10 @@
 
 					<tr class=" {{ $document->class	}} ">
 
-						<td>{{ $document->employee_pin }}</td>
-						<td>{{ $document->employee_fullname }}</td>
 						<td>{{ $document->description }} </td>
 						<td>{{ $document->expiration }} </td>
+						<td>{{ $document->employee_pin }}</td>
+						<td>{{ $document->employee_fullname }}</td>
 						<td>{{ HTML::link('admin/employees/edit/'.$document->employee_id,'Actualizar') }}</td>
 						
 					</tr>
