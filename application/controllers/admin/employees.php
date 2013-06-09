@@ -123,7 +123,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 					case 2: 
 						$document->row_class="error-min";
-						$document->show = '<td"> <label> Vencido desde <input type="text"  name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>';
+						$document->show = '<td> <label> Vencido desde <input type="text"  name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'"> </td> </label>';
 					break;
 
 					case 3: 
