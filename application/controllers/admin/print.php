@@ -41,9 +41,17 @@ class Admin_Print_Controller extends Base_Controller
 
 	public function get_attendance()
 	{
-		$title = $this->title.' - Control de asistencia';		
-		$employees = Employee::where('active','=','1')->get();
+		$title 		= $this->title.' - Control de asistencia';		
+		$employees 	= Employee::where('active','=','1')->get();
 
 		return View::make('admin.print.attendance')->with('title',$title)->with('employees',$employees);
+	}
+
+	public function get_employees()
+	{
+		$title 		= $this->title.' - Listado de empleados';	
+		$employees 	= Employee::where('active','=','1')->get();
+
+		return View::make('admin.print.employees')->with('title',$title)->with('employees',$employees);
 	}
 }

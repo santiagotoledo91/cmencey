@@ -136,7 +136,7 @@
 									</li>
 
 									<li>
-										<a href="#">Solvencia B</a>
+										<a href="{{ URL::to('admin/print/employees') }}" target="_blank">Listado de personal</a>
 									</li>
 
 									<li>
