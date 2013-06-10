@@ -158,7 +158,9 @@ class Admin_Paysheets_Controller extends Base_Controller
 				$payment->save();
 			}
 			
-			return View::make('admin.paysheets.sendtoprint')->with('paysheet_id',$paysheet->id);
+			$url = '/admin/print/paysheet/'.$paysheet->id;
+			
+			return View::make('admin.print.sendtoprint')->with('url',$url);
 		}
 		else
 		{
