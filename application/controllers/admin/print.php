@@ -38,4 +38,12 @@ class Admin_Print_Controller extends Base_Controller
 
 		return View::make('admin.print.paysheet')->with('title',$title)->with('paysheet',$paysheet)->with('paysheetpayments',$paysheetpayments);
 	}
+
+	public function get_attendance()
+	{
+		$title = $this->title.' - Control de asistencia';		
+		$employees = Employee::where('active','=','1')->get();
+
+		return View::make('admin.print.attendance')->with('title',$title)->with('employees',$employees);
+	}
 }

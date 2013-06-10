@@ -132,7 +132,7 @@
 									<li class="divider"></li>
 
 									<li>
-										<a href="#">Solvencia A</a>
+										<a href="{{ URL::to('admin/print/attendance') }}" target="_blank">Control de asistencia</a>
 									</li>
 
 									<li>

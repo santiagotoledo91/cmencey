@@ -46,8 +46,9 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('admin/paysheets/save','admin.paysheets@save');
 	Route::get('admin/paysheets/list','admin.paysheets@list');
 
-	Route::post('admin/print/receipt/','admin.print@receipts');
+	Route::post('admin/print/receipt','admin.print@receipts');
 	Route::get('admin/print/paysheet/(:num)','admin.print@paysheet');
+	Route::get('admin/print/attendance','admin.print@attendance');
 
 	
 	// all other restricted routes goes here
