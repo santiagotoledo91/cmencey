@@ -11,25 +11,32 @@
 			<h4 class="text-center">Vista preliminar - Nómina {{$startdate}} al {{$stopdate}}</h4>
 			<div class="space1"></div>
 			
-			<table class="table table-bordered table-hover" style="font-size: 12px">
+			<table class="table table-bordered table-hover " style="font-size: 11px">
 
-				<tr class="head well">
+				<tr class="text-center">
 
-					<th>C.I</th>
-					<th>NOMBRE</th>
-					<th>SALARIO BASE SEMANAL</th>
-					<th>BONO DE ALIMENTACION</th>
-					<th>HORAS EXTRA</th>
-					<th>BONO DE PRODUCCION</th>
-					<th>PRIMAS EXTRAORDINARIAS</th>
-					<th>OTROS</th>
-					<th>TOTAL DEVENGADO</th>
-					<th>PRESTAMOS RECIBIDOS</th>
-					<th>SSO</th>
-					<th>PARO FORZOSO</th>
-					<th>FAOV</th>
-					<th>TOTAL A PAGAR</th>
+					<th rowspan="2" style="width:1px;">C.I</th>
+					<th rowspan="2" >NOMBRE</th>
+					<th colspan="6">ASIGNACIONES</th>
+					<th rowspan="2" style="width:50px;">TOTAL DEVENGADO</th>
+					<th colspan="5">DEDUCCIONES</th>
+					<th rowspan="2" style="width:50px;">TOTAL A PAGAR</th>
 
+				</tr>
+
+				<tr class="text-center">
+					<th style="width:55px;">SALARIO BASE SEMANAL</th>
+					<th style="width:55px;">BONO DE ALIMENT.</th>
+					<th style="width:55px;">HORAS EXTRA</th>
+					<th style="width:55px;">BONO DE PROD.</th>
+					<th style="width:55px;">PRIMAS EXT.</th>
+					<th style="width:55px;">OTROS</th>
+					<th style="width:55px;">SSO</th>
+					<th style="width:55px;">PARO FORZOSO</th>
+					<th style="width:55px;">FAOV</th>
+					<th style="width:55px;">INCES</th>
+					<th style="width:55px;">PRESTAMOS RECIBIDOS</th>
+					
 				</tr>
 
 			@foreach ($employees as $employee)
@@ -46,10 +53,11 @@
 					<td>Bs. {{ $employee->extra_raws 		}}	</td>
 					<td>Bs. {{ $employee->others 			}}	</td>
 					<td>Bs. {{ $employee->accrued_total 	}}	</td>
-					<td>Bs. {{ $employee->received_loans 	}}	</td>
 					<td>Bs. {{ $employee->sso 				}}	</td>
 					<td>Bs. {{ $employee->forced_stop		}}	</td>
 					<td>Bs. {{ $employee->faov 				}}	</td>
+					<td>Bs. INCES	</td>
+					<td>Bs. {{ $employee->received_loans 	}}	</td>
 					<td>Bs. {{ $employee->net_total 		}}	</td>
 
 				</tr>
@@ -57,7 +65,7 @@
 			@endforeach
 
 				<tr>
-					<td colspan="14"><h4 class="text-center">TOTAL = Bs. {{$total}}</h4></td>
+					<td colspan="15"><h4 class="text-center">TOTAL = Bs. {{$total}}</h4></td>
 				</tr>
 
 			</table>

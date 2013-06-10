@@ -169,3 +169,7 @@ th {
 .success-min-r {
 	border-right: 5px solid green;	
 }
+
+.text-center > th {
+	text-align: center;
+}

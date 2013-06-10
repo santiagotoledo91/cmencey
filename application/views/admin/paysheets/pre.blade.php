@@ -15,30 +15,37 @@
 				
 				<table class="table table-bordered table-hover" style="font-size: 12px">
 
-					<tr class="head well">
+					<tr class="text-center">
 
-						<th style="text-align: center;">C.I</th>
-						<th style="text-align: center;">NOMBRE</th>
-						<th style="text-align: center;width: 84px;">SALARIO BASE SEMANAL</th>
-						<th style="text-align: center;">LU</th>
-						<th style="text-align: center;">MA</th>
-						<th style="text-align: center;">MI</th>
-						<th style="text-align: center;">JU</th>
-						<th style="text-align: center;">VI</th>
-						<th style="text-align: center;">SA</th>
-						<th style="text-align: center;">DO</th>
-						<th style="text-align: center;">HORAS EXTRA</th>
-						<th style="text-align: center;">BONO DE PRODUCCION</th>
-						<th style="text-align: center;">OTROS</th>
-						<th style="text-align: center;">PRIMAS EXTRAORD.</th>
-						<th style="text-align: center;">PRESTAMOS RECIBIDOS</th>
-						<th style="text-align: center;">INCLUIR</th>
+						<th rowspan="2">C.I</th>
+						<th rowspan="2">NOMBRE</th>
+						<th rowspan="2" style="width: 84px;">SALARIO BASE SEMANAL</th>
+						<th rowspan="2">LU</th>
+						<th rowspan="2">MA</th>
+						<th rowspan="2">MI</th>
+						<th rowspan="2">JU</th>
+						<th rowspan="2">VI</th>
+						<th rowspan="2">SA</th>
+						<th rowspan="2">DO</th>
+						<th colspan="4">ASIGNACIONES</th>
+						<th>DEDUCCIONES</th>
+						<th rowspan="2">INCLUIR</th>
+
+					</tr>
+
+					<tr class="text-center">
+
+						<th >HORAS EXTRA</th>
+						<th >BONO DE PRODUCCION</th>
+						<th >PRIMAS EXTRAORD.</th>
+						<th >OTROS</th>
+						<th >PRESTAMOS RECIBIDOS</th>
 
 					</tr>
 
 				@foreach ($employees as $employee)
 
-					<tr style="text-align: center">
+					<tr>
 
 						<input type="hidden" name="id[]" value="{{ $employee->id }}">
 						<td> {{ $employee->pin }} </td>
@@ -51,10 +58,10 @@
 						<td style="text-align: center;"> <input type="checkbox" name="fr[{{ $employee->id }}]" checked></td>
 						<td style="text-align: center;"> <input type="checkbox" name="sa[{{ $employee->id }}]"></td>
 						<td style="text-align: center;"> <input type="checkbox" name="su[{{ $employee->id }}]"></td>
-						<td style="width: 84px;text-align: center;">Bs. <input type="text" name="extra_hours[{{ $employee->id }}]" value="0" style="width: 35px;"</td>
+						<td style="width: 84px;text-align: center;">Bs. <input type="text" name="extra_hours[{{ $employee->id }}]" value="0" style="width: 35px;"></td>
 						<td style="width: 84px;text-align: center;">Bs. <input type="text" name="production_bonus[{{ $employee->id }}]" value="0" style="width: 35px;"></td>
-						<td style="width: 84px;text-align: center;">Bs. <input type="text" name="others[{{ $employee->id }}]" value="0" style="width: 35px;"></td>
 						<td style="width: 84px;text-align: center;">Bs. <input type="text" name="extra_raws[{{ $employee->id }}]" value="0" style="width: 35px;"></td>
+						<td style="width: 84px;text-align: center;">Bs. <input type="text" name="others[{{ $employee->id }}]" value="0" style="width: 35px;"></td>
 						<td style="width: 84px;text-align: center;">Bs. <input type="text" name="received_loans[{{ $employee->id }}]" value="0" style="width: 35px;"></td>
 						<td style="text-align: center;"> <input type="checkbox" name="include[{{ $employee->id }}]" checked></td>
 
