@@ -56,7 +56,7 @@
 					<td>Bs. {{ $employee->sso 				}}	</td>
 					<td>Bs. {{ $employee->forced_stop		}}	</td>
 					<td>Bs. {{ $employee->faov 				}}	</td>
-					<td>Bs. INCES	</td>
+					<td>Bs. {{ $employee->inces				}}	</td>
 					<td>Bs. {{ $employee->received_loans 	}}	</td>
 					<td>Bs. {{ $employee->net_total 		}}	</td>
 

@@ -87,6 +87,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 				$employee->sso 					= round((0.045 	* ($employee->salary * 7)),2);
 				$employee->forced_stop 			= round((0.005 	* ($employee->salary * 7)),2);
 				$employee->faov 				= round((0.01 	* ($employee->salary * 7)),2);
+				$employee->inces 				= round((0.005  * ($employee->salary * 7)),2);
 				$employee->received_loans 		= round($received_loans[$id],2);
 
 				$employee->accrued_total 		= round((($employee->salary * 7) + ($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws)),2);
@@ -151,6 +152,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 				$payment->accrued_total		= $employee->accrued_total;
 				$payment->sso 				= $employee->sso;
 				$payment->faov 				= $employee->faov;
+				$payment->inces 			= $employee->inces;
 				$payment->forced_stop 		= $employee->forced_stop;
 				$payment->received_loans 	= $employee->received_loans;
 				$payment->net_total			= $employee->net_total;

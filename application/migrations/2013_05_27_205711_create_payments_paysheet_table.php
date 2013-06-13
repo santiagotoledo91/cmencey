@@ -30,6 +30,7 @@ class Create_Payments_Paysheet_Table {
 			$table->float('accrued_total');
 			$table->float('sso');
 			$table->float('faov');
+			$table->float('inces');
 			$table->float('forced_stop');
 			$table->float('received_loans');
 			$table->float('net_total');
