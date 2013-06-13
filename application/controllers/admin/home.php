@@ -13,7 +13,7 @@ class Admin_Home_Controller extends Base_Controller
 	{
 		$title = $this->title.' - Inicio';
 
-		$paysheets = Paysheet::order_by('id','desc')->take(3)->get();
+		$paysheets = Paysheet::order_by('id','desc')->take(8)->get();
 
 		$close_to_expire  = DB::table('documents')
 								->join('employees','employees.id','=','documents.employee_id')
