@@ -173,3 +173,7 @@ th {
 .text-center > th {
 	text-align: center;
 }
+
+.dropdown-menu .divider {
+	border-bottom: 1px solid rgb(196, 196, 196);
+}
