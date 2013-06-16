@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
-Route::any('/','home@index');
+//temporally direct access allowed
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,7 @@ Route::get('admin/logout','admin.auth@logout');
 
 Route::group(array('before' => 'auth'), function() 
 { 
+	Route::any('/','admin.home@index');
 	Route::any('admin','admin.home@index');
 	
 	Route::get('admin/docs/manage','admin.docs@manage');
