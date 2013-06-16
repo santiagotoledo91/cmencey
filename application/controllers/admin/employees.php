@@ -49,10 +49,11 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->address 		= strtoupper(Input::get('employee_address'));
 		$employee->salary 		= round(Input::get('employee_salary'),2);
 		$employee->bank_account = Input::get('employee_bank_account');
-		$employee->active 		= 0;
 		$employee->size_shoes	= Input::get('employee_size_shoes');
 		$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
 		$employee->size_pant	= Input::get('employee_size_pant');
+		$employee->startdate	= Input::get('employee_startdate');
+		$employee->active 		= Input::get('employee_active');
 
 		$employee->save();
 
@@ -148,10 +149,12 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->phone 		= Input::get('employee_phone');
 		$employee->address 		= strtoupper(Input::get('employee_address'));
 		$employee->bank_account = Input::get('employee_bank_account');
-		$employee->active 		= Input::get('employee_active');
 		$employee->size_shoes	= Input::get('employee_size_shoes');
 		$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
 		$employee->size_pant	= Input::get('employee_size_pant');
+		$employee->active 		= Input::get('employee_active');
+		$employee->startdate	= Input::get('employee_startdate');
+		$employee->stopdate		= Input::get('employee_stopdate');
 
 		$employee->save();
 
