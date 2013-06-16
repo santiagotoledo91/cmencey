@@ -54,19 +54,50 @@ class Admin_Socialbeneficts_Controller extends Base_Controller
 		$stop 	= new DateTime(date('Y-m-d',strtotime($payment->stopdate)));
 
 		$payment->servicetime 			= $start->diff($stop);
+		
+		// +1 day its added to the days in order to count the first day worked if its less than a month of work
+		if ( ($start->format('m') == $stop->format('m')) AND ($start->format('y') == $stop->format('y')) ) { $payment->servicetime->d = $payment->servicetime->d + 1; }
 
-		$payment->antiquity_days 		= ( $payment->servicetime->m * 6 ) + ( ($payment->servicetime->d / 30) * 6 );
+		// calculates the vacation days 
+		// if is not the first year at work yet
+		if ($payment->servicetime->y == 0)
+		{  
+			$vacations_max_days 	 	= 80;
+			$payment->vacations_days 	= round( ( $payment->servicetime->m * ($vacations_max_days / 12) ) + ( $payment->servicetime->d * ($vacations_max_days / 365) ),2); 
+		}
+		// if it have 1 year at work
+		if ($payment->servicetime->y == 1)
+		{ 
+			// 80 days because its the first year
+			$vacations_days_by_years 	= 80;
+			// the max days of the year in order to calculate the extra months and days
+			$vacations_max_days 		= 81;
+			// calculates the total vacations days
+			$payment->vacations_days 	= round($vacations_days_by_years + ($payment->servicetime->m * ($vacations_max_days / 12)) + ( ($payment->servicetime->d) * ($vacations_max_days / 365) ),2); 
+		}
+		// if it have more than 1 year at work 
+		if ($payment->servicetime->y != 0)
+		{ 
+			// 80 days by year + 1 day by extra year after the first year
+			$vacations_days_by_years 	= ($payment->servicetime->y * 80) + $payment->servicetime->y - 1;
+			// calculates the max days of the last year in order to calculate the months and days
+			$vacations_max_days 		= (80 + ($payment->servicetime->y));
+			// calculates the total vacations days
+			$payment->vacations_days 	= round($vacations_days_by_years + ($payment->servicetime->m * ($vacations_max_days / 12)) + ( ($payment->servicetime->d) * ($vacations_max_days / 365) ),2); 
+		}
+		
+		$payment->vacations_total		= round($payment->vacations_days * $employee->salary,2); 
+
+		$payment->antiquity_days 		= (($payment->servicetime->y * 72)  + ($payment->servicetime->m * 6 )) + ( ($payment->servicetime->d / 30) * 6 );
 		$payment->antiquity_total 		= round($payment->antiquity_days * $employee->salary, 2);
-
-		$payment->vacations_days		= round($payment->servicetime->days * 0.21917808219178,2);
-		$payment->vacations_total		= round($payment->vacations_days * $employee->salary,2);
+	
 		$payment->down_salaries_total 	= round($payment->down_salaries_days * $employee->salary,2);
 
 		// modifies the date in order to calculate the utilities total
 		if ($start->format('d')	!= '1') { $start->modify('first day of next month');} 
 		if ($stop->format('d')	!= '1') { $stop->modify('first day of this month');	}
 
-		$payment->utilities_days	= $start->diff($stop)->m * 6.25;
+		$payment->utilities_days	= ($start->diff($stop)->y * 75) + $start->diff($stop)->m * 6.25;
 		$payment->utilities_total 	= round(($payment->utilities_days) * $employee->salary,2); 
 
 		$payment->assignments_total = round($payment->antiquity_total + $payment->utilities_total + $payment->down_salaries_total + $payment->vacations_total,2);
