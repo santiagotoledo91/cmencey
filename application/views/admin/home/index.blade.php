@@ -38,8 +38,8 @@
 
 			@else
 
-				<h4 class="text-center"> Aun no ha generado ninguna nomina</h4>
-				<h4 class="text-center"> {{ HTML::link('admin/paysheets/pre','Generar nomina') }}</h4>
+				<h4 class="text-center"> Aun no ha generado ninguna nómina</h4>
+				<h4 class="text-center"> {{ HTML::link('admin/paysheets/pre','Generar nómina') }}</h4>
 
 			@endif
 
@@ -47,7 +47,7 @@
 
 		<div class="span3">
 
-			<h4 class="text-center"> Documentacion </h4>
+			<h4 class="text-center"> Documentación </h4>
 			<div class="space1"></div>
 			<table class="table table-info table-hover">
 
@@ -86,7 +86,7 @@
 
 			</table>
 
-			<h4 class="text-center"> Informacion general </h4>
+			<h4 class="text-center"> Información general </h4>
 			<div class="space1"></div>
 
 			<table class="table-info table-bordered table ">

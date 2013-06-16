@@ -52,7 +52,7 @@
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-plus"></i> Liquidar empleado</a>
+										<a href="#"><i class="icon-plus"></i> Liquidación</a>
 									</li>
 
 								</ul>
@@ -122,11 +122,7 @@
 									</li>
 
 									<li>
-										<a href="#">Recibos de págo</a>
-									</li>
-
-									<li>
-										<a href="#">Prestaciones sociales</a>
+										<a href="#">Liquidación</a>
 									</li>
 
 									<li class="divider"></li>
@@ -137,6 +133,10 @@
 
 									<li>
 										<a href="{{ URL::to('admin/print/employees') }}" target="_blank">Listado de personal</a>
+									</li>
+
+									<li>
+										<a href="{{ URL::to('admin/print/employees') }}" target="_blank">Constancia de trabajo</a>
 									</li>
 
 								</ul>
