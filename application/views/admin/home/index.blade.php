@@ -8,11 +8,11 @@
 
 			@if (!empty($paysheets))
 
-				<h4 class="text-center">Ultimas nominas generadas</h4>
+				<h4 class="text-center">Últimas nóminas generadas</h4>
 
-				<table class="table table-bordered table-hover" style="margin-top:19px;">
+				<table class="table table-bordered table-hover table-centered" style="margin-top:19px;" >
 
-					<tr class="head well">
+					<tr>
 
 						<th>N˚</th>
 						<th>PERIODO</th>

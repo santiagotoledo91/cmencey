@@ -8,9 +8,9 @@
 
 			@if (!empty($paysheets))
 
-				<h4 class="text-center">Listado de nominas</h4>
+				<h4 class="text-center">Listado de nóminas</h4>
 
-				<table class="table table-bordered table-hover">
+				<table class="table table-bordered table-hover table-centered">
 
 					<tr class="head well">
 
@@ -25,7 +25,7 @@
 
 					<tr>
 
-						<td>{{ $paysheet->id }} </td>
+						<td>{{ $paysheet->id }}</td>
 						<td>Desde {{ $paysheet->startdate }} hasta {{ $paysheet->stopdate }}</td>
 						<td>Bs. {{ $paysheet->total }}</td>
 						<td>{{ HTML::link('admin/print/paysheet/'.$paysheet->id,'Imprimir',array('target' => '_blank')) }}</td>
