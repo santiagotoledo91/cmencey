@@ -43,16 +43,16 @@
 
 							<li class="dropdown">
 
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase icon-white"></i> Tesoreria <b class="caret"></b></a>
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-briefcase icon-white"></i> Pagos <b class="caret"></b></a>
 
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="{{ URL::to('admin/paysheets/pre') }}"><i class="icon-plus"></i> Generar nómina</a>
+										<a href="{{ URL::to('admin/paysheets/pre') }}"><i class="icon-plus"></i> Nómina semanal</a>
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-plus"></i> Calcular prestaciones sociales</a>
+										<a href="#"><i class="icon-plus"></i> Liquidar empleado</a>
 									</li>
 
 								</ul>
@@ -98,11 +98,11 @@
 									<li class="divider"></li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Nuevo tipo de documento</a>
+										<a href="{{ URL::to('admin/docs/add') }}"><i class="icon-plus"></i> Añadir</a>
 									</li>
 
 									<li>
-										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Editar tipos de documentos</a>
+										<a href="{{ URL::to('admin/docs/manage') }}"><i class="icon-cog"></i> Ver - Editar</a>
 									</li>
 
 								</ul>
@@ -118,7 +118,7 @@
 								<ul class="dropdown-menu">
 
 									<li>
-										<a href="{{ URL::to('admin/paysheets/list') }}">Nómina</a>
+										<a href="{{ URL::to('admin/paysheets/list') }}">Nómina semanal</a>
 									</li>
 
 									<li>
@@ -137,10 +137,6 @@
 
 									<li>
 										<a href="{{ URL::to('admin/print/employees') }}" target="_blank">Listado de personal</a>
-									</li>
-
-									<li>
-										<a href="#">Solvencia C</a>
 									</li>
 
 								</ul>

@@ -8,7 +8,7 @@
 	
 			@if (!empty($document_types))
 
-				<h4 class="text-center"> Documentos requeridos </h4>
+				<h4 class="text-center"> Tipos de documentos </h4>
 				<div class="space1"></div>
 
 				<table class="table white-area table-hover">
