@@ -161,7 +161,7 @@
 
 						<div class="controls">
 
-							<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="Ej: 2013-01-01" maxlength="10">
+							<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="DD-MM-AAAA" maxlength="10">
 
 						</div>
 

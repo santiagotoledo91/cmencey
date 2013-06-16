@@ -38,6 +38,8 @@ class Admin_Docs_Controller extends Base_Controller
 										
 		foreach ($documents as $document) 
 		{
+			if (!empty($document->expiration)) { $document->expiration = date('d-m-Y',strtotime($document->expiration)); }
+
 			switch ($document->status) 
 			{
 				case 1: $document->class = 'warning-min'; 	break;

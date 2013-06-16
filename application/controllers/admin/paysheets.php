@@ -24,7 +24,7 @@ class Admin_Paysheets_Controller extends Base_Controller
 		if (!empty($paysheet))
 		{
 			$startdate	= strtotime(date("Y-m-d", strtotime($paysheet->stopdate)). "+1 days");
-			$startdate	= date("Y-m-d",$startdate);
+			$startdate	= date("d-m-Y",$startdate);
 		} 
 		else
 		{
@@ -57,7 +57,8 @@ class Admin_Paysheets_Controller extends Base_Controller
 		
 		// calculates the stop day by adding 6 days (weekly paysheet).
 		$stopdate 			= strtotime(date("Y-m-d", strtotime($startdate)). "+6 days");
-		$stopdate  			= date("Y-m-d",$stopdate);
+		$stopdate  			= date("d-m-Y",$stopdate);
+		
 
 		// creates an array of objects with the employee paysheet properties
 		foreach ($id as $id)
@@ -112,8 +113,8 @@ class Admin_Paysheets_Controller extends Base_Controller
 	public function post_save()
 	{
 		$total 		= Session::get('total');
-		$startdate	= Session::get('startdate');
-		$stopdate 	= Session::get('stopdate');
+		$startdate	= date('Y-m-d',strtotime(Session::get('startdate')));
+		$stopdate 	= date('Y-m-d',strtotime(Session::get('stopdate')));
 		$employees 	= Session::get('employees');
 
 		$lastpaysheet = Paysheet::order_by('id','desc')->first();
@@ -176,6 +177,12 @@ class Admin_Paysheets_Controller extends Base_Controller
 		$title = $this->title.' - Listado de nominas';
 		
 		$paysheets = Paysheet::order_by('id','desc')->get();
+		
+		foreach ($paysheets as $paysheet)
+		{
+			$paysheet->startdate 	= date('d-m-Y',strtotime($paysheet->startdate));
+			$paysheet->stopdate 	= date('d-m-Y',strtotime($paysheet->stopdate));
+		}
 		
 		return View::make('admin.paysheets.list')->with('title',$title)->with('paysheets',$paysheets);
 	}

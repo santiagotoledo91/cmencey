@@ -15,7 +15,7 @@
 					<tr class="head well">
 
 						<th>N˚</th>
-						<th>FECHA</th>
+						<th>PERIODO</th>
 						<th>TOTAL</th>
 						<th>ACCIONES</th>
 

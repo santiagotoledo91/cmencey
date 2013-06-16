@@ -15,6 +15,12 @@ class Admin_Home_Controller extends Base_Controller
 
 		$paysheets = Paysheet::order_by('id','desc')->take(8)->get();
 
+		foreach ($paysheets as $paysheet)
+		{
+			$paysheet->startdate 	= date('d-m-Y',strtotime($paysheet->startdate));
+			$paysheet->stopdate 	= date('d-m-Y',strtotime($paysheet->stopdate));
+		}
+
 		$close_to_expire  = DB::table('documents')
 								->join('employees','employees.id','=','documents.employee_id')
 								->join('document_types','document_types.id','=','documents.document_type_id')

@@ -30,12 +30,19 @@ class Admin_Print_Controller extends Base_Controller
 		$title = $this->title.' - Nomina';
 
 		$paysheet = Paysheet::find($id);
-
+		
+		$paysheet->startdate 	= date('d-m-Y',strtotime($paysheet->startdate));
+		$paysheet->stopdate 	= date('d-m-Y',strtotime($paysheet->stopdate));
+		
 		$paysheetpayments = DB::table('payments_paysheet')
 									->where('paysheet_id','=',$id)
 									->join('employees','employees.id','=','payments_paysheet.employee_id')
 									->get();
-
+		foreach ($paysheetpayments as $payment) 
+		{
+			$payment->startdate = date('d-m-Y',strtotime($payment->startdate));
+			$payment->stopdate 	= date('d-m-Y',strtotime($payment->stopdate));
+		}
 		return View::make('admin.print.paysheet')->with('title',$title)->with('paysheet',$paysheet)->with('paysheetpayments',$paysheetpayments);
 	}
 

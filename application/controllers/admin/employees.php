@@ -16,9 +16,14 @@ class Admin_Employees_Controller extends Base_Controller
 		$title = $this->title.' - Gestionar empleados.';
 
 		$employees = DB::table('employees')->get();
-
+		
+		
+		
 		foreach ($employees as $employee)
 		{
+			
+			if (!empty($employee->startdate))	{ $employee->startdate 	= date('d-m-Y',strtotime($employee->startdate)); }
+
 			switch ($employee->active) 
 			{
 				case 0: $employee->active = 'No'; break;
@@ -52,7 +57,7 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->size_shoes	= Input::get('employee_size_shoes');
 		$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
 		$employee->size_pant	= Input::get('employee_size_pant');
-		$employee->startdate	= Input::get('employee_startdate');
+		$employee->startdate	= date('Y-m-d',strtotime(Input::get('employee_startdate')));
 		$employee->active 		= Input::get('employee_active');
 
 		$employee->save();
@@ -87,8 +92,14 @@ class Admin_Employees_Controller extends Base_Controller
 						->join('document_types','document_types.id','=','documents.document_type_id')
 						->get(array('*','documents.id as id'));
 
+		if (!empty($employee->startdate)) 	{ $employee->startdate 	= date('d-m-Y',strtotime($employee->startdate)); }
+		if (!empty($employee->stopdate))	{ $employee->stopdate 	= date('d-m-Y',strtotime($employee->stopdate)); }
+		
+
 		foreach ($documents as $document) 
 		{
+			if (!empty($document->expiration)) { $document->expiration = date('d-m-Y',strtotime($document->expiration)); }
+
 			if ($document->expires == false) 
 			{
 				switch ($document->status) 
@@ -129,7 +140,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 					case 3: 
 						$document->row_class="error-min";
-						$document->show = '<td> <label> Pendiente por registrar <input type="text"  name="employee_expirable_documents['.$document->id.']" placeholder="AAAA-MM-DD"> </td> </label>';
+						$document->show = '<td> <label> Pendiente por registrar <input type="text"  name="employee_expirable_documents['.$document->id.']" placeholder="DD-MM-AAAA"> </td> </label>';
 					break;
 				}
 			}
@@ -153,8 +164,8 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
 		$employee->size_pant	= Input::get('employee_size_pant');
 		$employee->active 		= Input::get('employee_active');
-		$employee->startdate	= Input::get('employee_startdate');
-		$employee->stopdate		= Input::get('employee_stopdate');
+		$employee->startdate	= date('Y-m-d',strtotime(Input::get('employee_startdate')));
+		$employee->stopdate		= date('Y-m-d',strtotime(Input::get('employee_stopdate')));
 
 		$employee->save();
 
@@ -176,6 +187,7 @@ class Admin_Employees_Controller extends Base_Controller
 				// searches the document to update
 				$document = Document::find($id);
 
+				$expiration = date('Y-m-d',strtotime($expiration));
 				// to prevent blank values to be set as status 2
 				if ($expiration != '')
 				{

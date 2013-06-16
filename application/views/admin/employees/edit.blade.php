@@ -152,7 +152,7 @@
 
 								<div class="controls">
 
-									<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="Ej: 2013-01-01" maxlength="10" value="{{ $employee->startdate }}">
+									<input id="employee_startdate" name="employee_startdate" type="text" class="span10" placeholder="DD-MM-AAAA" maxlength="10" value="{{ $employee->startdate }}">
 
 								</div>
 
@@ -164,7 +164,7 @@
 
 								<div class="controls">
 
-									<input id="employee_stopdate" name="employee_stopdate" type="text" class="span10" placeholder="Ej: 2013-12-31" maxlength="10" value="{{ $employee->stopdate }}">
+									<input id="employee_stopdate" name="employee_stopdate" type="text" class="span10" placeholder="DD-MM-AAAA" maxlength="10" value="{{ $employee->stopdate }}">
 
 								</div>
 

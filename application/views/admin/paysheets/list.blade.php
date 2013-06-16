@@ -15,8 +15,7 @@
 					<tr class="head well">
 
 						<th>N˚</th>
-						<th>DESDE</th>
-						<th>HASTA</th>
+						<th>PERIODO</th>
 						<th>TOTAL</th>
 						<th>ACCIONES</th>
 						
@@ -27,8 +26,7 @@
 					<tr>
 
 						<td>{{ $paysheet->id }} </td>
-						<td>{{ $paysheet->startdate }}</td>
-						<td>{{ $paysheet->stopdate }}</td>
+						<td>Desde {{ $paysheet->startdate }} hasta {{ $paysheet->stopdate }}</td>
 						<td>Bs. {{ $paysheet->total }}</td>
 						<td>{{ HTML::link('admin/print/paysheet/'.$paysheet->id,'Imprimir',array('target' => '_blank')) }}</td>
 

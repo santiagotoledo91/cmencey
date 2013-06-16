@@ -20,8 +20,8 @@
 						<th>NOMBRE</th>
 						<th>TELÉFONO</th>
 						<th>DIRECCIÓN</th>
-						<th>SALARIO</th>
 						<th>INGRESO</th>
+						<th>SALARIO</th>
 						<th>ACTIVO</th>
 						<th>ACCIONES</th>
 
@@ -36,8 +36,8 @@
 						<td>{{ $employee->fullname }}</td>
 						<td>{{ $employee->phone }}</td>
 						<td>{{ $employee->address }}</td>
-						<td>Bs. {{ $employee->salary }}</td>
 						<td>{{ $employee->startdate }}</td>
+						<td>Bs. {{ $employee->salary }}</td>
 						<td>{{ $employee->active }}</td>
 						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar') }} </td>
 

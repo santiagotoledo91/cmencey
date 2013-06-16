@@ -10,7 +10,7 @@
 
 			@if (!empty($employees))
 				
-				<h4 class="text-center"> Prenómina - Fecha de inicio:  <input type="text" name="startdate" class="input-small" placeholder="Ej:2013-05-23" required value="{{$startdate}}"></h4>
+				<h4 class="text-center"> Prenómina - Fecha de inicio:  <input type="text" name="startdate" class="input-small" placeholder="DD-MM-AAAA" required value="{{$startdate}}"></h4>
 				<div class="space1"></div>
 				
 				<table class="table table-bordered table-hover" style="font-size: 12px">
