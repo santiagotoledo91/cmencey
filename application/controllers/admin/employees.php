@@ -164,8 +164,8 @@ class Admin_Employees_Controller extends Base_Controller
 		$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
 		$employee->size_pant	= Input::get('employee_size_pant');
 		$employee->active 		= Input::get('employee_active');
-		$employee->startdate	= date('Y-m-d',strtotime(Input::get('employee_startdate')));
-		$employee->stopdate		= date('Y-m-d',strtotime(Input::get('employee_stopdate')));
+		if (!empty($employee->startdate)) { $employee->startdate = date('Y-m-d',strtotime(Input::get('employee_startdate'))); }
+		if (!empty($employee->stopdate)) { $employee->stopdate = date('Y-m-d',strtotime(Input::get('employee_stopdate'))); }
 
 		$employee->save();
 
@@ -187,10 +187,11 @@ class Admin_Employees_Controller extends Base_Controller
 				// searches the document to update
 				$document = Document::find($id);
 
-				$expiration = date('Y-m-d',strtotime($expiration));
 				// to prevent blank values to be set as status 2
-				if ($expiration != '')
+				if (!empty($expiration))
 				{
+					$expiration = date('Y-m-d',strtotime($expiration));
+
 					// up to date
 					if ($expiration > $today)  
 					{
