@@ -11,7 +11,7 @@
 				<h4 class="text-center">Listado de empleados</h4>
 				<div class="space1"></div>
 
-				<table class="table table-hover white-area">
+				<table class="table table-hover white-area" style="font-size:11px;">
 
 					<tr class="head well">
 
@@ -21,6 +21,7 @@
 						<th>TELÉFONO</th>
 						<th>DIRECCIÓN</th>
 						<th>SALARIO</th>
+						<th>INGRESO</th>
 						<th>ACTIVO</th>
 						<th>ACCIONES</th>
 
@@ -36,6 +37,7 @@
 						<td>{{ $employee->phone }}</td>
 						<td>{{ $employee->address }}</td>
 						<td>Bs. {{ $employee->salary }}</td>
+						<td>{{ $employee->startdate }}</td>
 						<td>{{ $employee->active }}</td>
 						<td>{{ HTML::link('admin/employees/edit/'.$employee->id,'Editar') }} </td>
 
