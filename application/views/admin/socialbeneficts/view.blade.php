@@ -142,7 +142,7 @@
 							<td>{{$payment->received_advances}}</td>
 						</tr>
 						<tr>
-							<td colspan="3" style="text-align:left;">PRESTAMOS</td>
+							<td colspan="3" style="text-align:left;">PRÉSTAMOS</td>
 							<td>{{$payment->received_loans}}</td>
 						</tr>
 						<tr>
