@@ -179,5 +179,5 @@ th {
 }
 
 .table-centered th , .table-centered td {
-	text-align:center !important;
+	text-align:center;
 } 

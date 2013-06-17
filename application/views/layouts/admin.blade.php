@@ -52,7 +52,7 @@
 									</li>
 
 									<li>
-										<a href="#"><i class="icon-plus"></i> Liquidación</a>
+										<a href="{{ URL::to('admin/socialbeneficts/employeeslist') }}"><i class="icon-plus"></i> Liquidación</a>
 									</li>
 
 								</ul>

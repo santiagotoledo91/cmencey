@@ -52,6 +52,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('admin/print/attendance','admin.print@attendance');
 	Route::get('admin/print/employees','admin.print@employees');
 
+	Route::get('admin/socialbeneficts/employeeslist','admin.socialbeneficts@employeeslist');
+	Route::get('admin/socialbeneficts/pre/(:num)','admin.socialbeneficts@pre');
+	Route::post('admin/socialbeneficts/view','admin.socialbeneficts@view');
+	Route::post('admin/socialbeneficts/save','admin.socialbeneficts@save');
+	Route::get('admin/socialbeneficts/list','admin.socialbeneficts@list');
+
 	
 	// all other restricted routes goes here
 
