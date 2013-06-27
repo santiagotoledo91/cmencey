@@ -1,7 +1,7 @@
 .receipt
 {
 	width: 45%;
-	height: 90%;
+	height: 650px;
 	margin: 5% 2.5% 5% 2.5%;
 	border: 1px solid;
 	padding: 0px;
@@ -93,7 +93,7 @@ h5
 .receipt-signatures a 
 {
 	border-top: 1px solid;
-	margin-left: 30px;
+	margin-left: 20px;
 	margin-right: 42px;
 }
 
