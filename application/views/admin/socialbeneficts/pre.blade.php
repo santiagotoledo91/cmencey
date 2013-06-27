@@ -175,7 +175,7 @@
 
 						<div class="controls">
 
-							<input name="check" type="text" class="input-mini" maxlength="5" value="0">
+							<input name="check" type="text" class="input-small" maxlength="8" required>
 
 						</div>
 
