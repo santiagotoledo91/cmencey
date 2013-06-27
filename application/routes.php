@@ -51,6 +51,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('admin/print/paysheet/(:num)','admin.print@paysheet');
 	Route::get('admin/print/attendance','admin.print@attendance');
 	Route::get('admin/print/employees','admin.print@employees');
+	Route::get('admin/print/socialbeneficts/(:num)','admin.print@socialbeneficts');
 
 	Route::get('admin/socialbeneficts/employeeslist','admin.socialbeneficts@employeeslist');
 	Route::get('admin/socialbeneficts/pre/(:num)','admin.socialbeneficts@pre');

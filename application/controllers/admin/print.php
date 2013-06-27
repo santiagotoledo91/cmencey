@@ -46,6 +46,18 @@ class Admin_Print_Controller extends Base_Controller
 		return View::make('admin.print.paysheet')->with('title',$title)->with('paysheet',$paysheet)->with('paysheetpayments',$paysheetpayments);
 	}
 
+	public function get_socialbeneficts($id)
+	{
+		$title = $this->title.' - Liquidación';
+
+		$payment = DB::table('payments_socialbeneficts')
+									->where('payments_socialbeneficts.id','=',$id)
+									->join('employees','employees.id','=','payments_socialbeneficts.employee_id')
+									->first();
+									
+		return View::make('admin.print.socialbeneficts')->with('title',$title)->with('payment',$payment);
+	}
+
 	public function get_attendance()
 	{
 		$title 		= $this->title.' - Control de asistencia';		
