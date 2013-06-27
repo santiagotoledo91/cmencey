@@ -122,7 +122,7 @@
 									</li>
 
 									<li>
-										<a href="#">Liquidación</a>
+										<a href="{{ URL::to('admin/socialbeneficts/list') }}">Liquidación</a>
 									</li>
 
 									<li class="divider"></li>

@@ -206,4 +206,22 @@ class Admin_Socialbeneficts_Controller extends Base_Controller
 		return View::make('admin.print.sendtoprint')->with('url',$url);
 
 	}
+
+	public function get_list()
+	{
+		$title = $this->title.' - Listado de liquidaciones';
+		
+		$socialbeneficts = DB::table('payments_socialbeneficts')
+									->join('employees','employees.id','=','payments_socialbeneficts.employee_id')
+									->order_by('payments_socialbeneficts.id','desc')
+									->get();	
+		
+		foreach ($socialbeneficts as &$socialbenefict)
+		{
+			$socialbenefict->startdate 	= date('d-m-Y',strtotime($socialbenefict->startdate));
+			$socialbenefict->stopdate 	= date('d-m-Y',strtotime($socialbenefict->stopdate));
+		}
+
+		return View::make('admin.socialbeneficts.list')->with('title',$title)->with('socialbeneficts',$socialbeneficts);
+	}
 }
