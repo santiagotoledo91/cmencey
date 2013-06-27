@@ -15,6 +15,7 @@
 			
 			<div class="row-fluid" style="font-size:11px;">
 			
+				{{ Form::open('admin/socialbeneficts/save','POST') }}
 				<div class="span12">
 			
 					<table class="table table-bordered table-centered table-condensed">
@@ -54,7 +55,7 @@
 							<td>{{$payment->reason}} </td>
 							<td>{{$payment->startdate}} </td>
 							<td>{{$payment->stopdate}} </td>
-							<td>{{$payment->servicetime->y}} AÑO(S) {{$payment->servicetime->m}} MES(ES) Y  {{$payment->servicetime->d}} DÍA(S) </td>
+							<td>{{$payment->servicetime}} </td>
 						</tr>
 						
 						<tr>
@@ -195,7 +196,7 @@
 						</tr>
 
 						<tr>
-							<td colspan="2"><strong>FECHA:</strong> {{ date('d-m-Y') }} </td>
+							<td colspan="2"><strong>FECHA:</strong> {{ date('d-m-Y',strtotime($payment->createdate)) }} </td>
 							<td colspan="2"><strong>FECHA: __-__-____</strong></td>
 						</tr>	
 
@@ -214,7 +215,6 @@
 						<div class="controls">
 
 							<div class="space1"></div>
-							<a href="{{URL::to('admin/socialbeneficts/employeeslist') }}" name="cancel" class="btn btn-primary btn-block"><i class="icon-error icon-white"></i> Cancelar</a>
 							<button id="submit" name="submit" class="btn btn-primary btn-block"><i class="icon-ok icon-white"></i> Guardar</button>
 
 						</div>

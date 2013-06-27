@@ -45,18 +45,17 @@ class Admin_Socialbeneficts_Controller extends Base_Controller
 		$payment->received_advances 	= Input::get('received_advances');
 		$payment->received_loans		= Input::get('received_loans');
 		$payment->others				= Input::get('others'); 
-		
-		$payment->startdate 			= Input::get('startdate'); 
+		$payment->startdate 			= Input::get('startdate');
 		$payment->stopdate 				= Input::get('stopdate'); 
 		
 		/*
 		|--------------------------------------------------------------------------|
-		| Service time calculation											   |
+		| Service time calculation											 	   |
 		|--------------------------------------------------------------------------|
 		*/
 		// formats the start and stop dates to a object in order to calculate the service time
-		$start 	= new DateTime(date('Y-m-d',strtotime($payment->startdate)));
-		$stop 	= new DateTime(date('Y-m-d',strtotime($payment->stopdate)));
+		$start 	= new DateTime($payment->startdate);
+		$stop 	= new DateTime($payment->stopdate);
 
 		$payment->servicetime 			= $start->diff($stop);
 		
@@ -162,10 +161,49 @@ class Admin_Socialbeneficts_Controller extends Base_Controller
 		
 		// payment total calculation
 		$payment->total 			= $payment->assignments_total - $payment->deductions_total;
+		$payment->createdate		= date('Y-m-d');
+		$payment->servicetime 		= $payment->servicetime->y.' AÑO(S) '.$payment->servicetime->m.' MES(ES) Y '.$payment->servicetime->d.' DÍA(S)';
 
 		Session::put('payment',$payment);
 		Session::put('employee',$employee);
 
 		return View::make('admin.socialbeneficts.view')->with('title',$title)->with('employee',$employee)->with('payment',$payment);	
+	}
+
+	public function post_save()
+	{
+		$info		= Session::get('payment');
+		$employee 	= Session::get('employee');
+
+		$payment 						= new PaymentSocialBeneficts;
+
+		$payment->employee_id 			= $employee->id;
+		$payment->reason 				= $info->reason;
+		$payment->check 				= $info->check;
+		$payment->servicetime 			= (string) $info->servicetime;
+		$payment->antiquity_days 		= $info->antiquity_days;
+		$payment->antiquity_total		= $info->antiquity_total;
+		$payment->utilities_days 		= $info->utilities_days;
+		$payment->utilities_total		= $info->utilities_total;
+		$payment->vacations_days 		= $info->vacations_days;
+		$payment->vacations_total 		= $info->vacations_total;
+		$payment->down_salaries_days 	= $info->down_salaries_days;
+		$payment->down_salaries_total	= $info->down_salaries_total;
+		$payment->assignments_total 	= $info->assignments_total;
+		$payment->received_advances 	= $info->received_advances;
+		$payment->received_loans 		= $info->received_loans;
+		$payment->others 				= $info->others;
+		$payment->deductions_total 		= $info->deductions_total;
+		$payment->total 				= $info->total;	
+		$payment->startdate 			= date('Y-m-d',strtotime($info->startdate));
+		$payment->stopdate 				= date('Y-m-d',strtotime($info->stopdate));
+		$payment->createdate 			= $info->createdate;
+
+		$payment->save();
+			
+		$url = '/admin/print/socialbeneficts/'.$payment->id;
+			
+		return View::make('admin.print.sendtoprint')->with('url',$url);
+
 	}
 }
