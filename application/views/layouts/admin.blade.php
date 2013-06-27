@@ -136,7 +136,7 @@
 									</li>
 
 									<li>
-										<a href="{{ URL::to('admin/print/employees') }}" target="_blank">Constancia de trabajo</a>
+										<a href="{{ URL::to('admin/print/proofofemployment/list') }}">Constancia de trabajo</a>
 									</li>
 
 								</ul>

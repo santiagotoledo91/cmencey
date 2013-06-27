@@ -54,7 +54,7 @@ class Admin_Print_Controller extends Base_Controller
 									->where('payments_socialbeneficts.id','=',$id)
 									->join('employees','employees.id','=','payments_socialbeneficts.employee_id')
 									->first();
-									
+
 		return View::make('admin.print.socialbeneficts')->with('title',$title)->with('payment',$payment);
 	}
 
@@ -72,5 +72,23 @@ class Admin_Print_Controller extends Base_Controller
 		$employees 	= Employee::where('active','=','1')->get();
 
 		return View::make('admin.print.employees')->with('title',$title)->with('employees',$employees);
+	}
+
+	public function get_proofofemployment($id)
+	{
+		$title = $this->title.' - Constancia de trabajo';
+
+		$employee = Employee::find($id);
+
+		return View::make('admin.print.proofofemployment')->with('title',$title)->with('employee',$employee);
+	}
+
+	public function get_proofofemployment_list()
+	{
+		$title = $this->title.' - Listado de empleados.';
+
+		$employees = DB::table('employees')->get();
+		
+		return View::make('admin.print.proofofemployment_list')->with('title',$title)->with('employees',$employees);
 	}
 }
