@@ -171,7 +171,7 @@
 
 					<div class="control-group">
 						
-						<label class="control-label">Cheque #:</label>
+						<label class="control-label">Cheque #</label>
 
 						<div class="controls">
 

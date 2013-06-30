@@ -38,7 +38,7 @@
 
 			@else
 
-				<h4 class="text-center"> Aun no ha generado ninguna nómina</h4>
+				<h4 class="text-center"> Aún no ha generado ninguna nómina</h4>
 				<h4 class="text-center"> {{ HTML::link('admin/paysheets/pre','Generar nómina') }}</h4>
 
 			@endif
