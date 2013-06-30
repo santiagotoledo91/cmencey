@@ -39,7 +39,7 @@
 						<td>{{ $employee->startdate }}</td>
 						<td>Bs. {{ $employee->salary }}</td>
 						<td>{{ $employee->active }}</td>
-						<td>{{ HTML::link('admin/print/proofofemployment/'.$employee->id,'Imprimir') }} </td>
+						<td>{{ HTML::link('admin/print/proofofemployment/'.$employee->id,'Imprimir', array('target' => '_blank')) }} </td>
 
 					</tr>
 
