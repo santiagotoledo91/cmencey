@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="space1"></div>
-		
+
 		<table style="font-size:9px; text-align: center">
 			
 			<tr>
@@ -60,8 +60,6 @@
 			</tr>
 
 		</table>
-
-		<div class="space1"></div>
 
 		<table style="font-size:9px; text-align: center">
 
@@ -258,8 +256,6 @@
 			</tr>
 
 		</table>
-
-		<div class="space1"></div>
 
 		<table style="font-size:9px; text-align: center">
 
