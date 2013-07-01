@@ -139,6 +139,12 @@
 										<a href="{{ URL::to('admin/print/proofofemployment/list') }}">Constancia de trabajo</a>
 									</li>
 
+									<li class="divider"></li>
+
+									<li>
+										<a href="{{ URL::to('admin/print/solvency/pre') }}">Solvencias</a>
+									</li>
+
 								</ul>
 
 							</li>

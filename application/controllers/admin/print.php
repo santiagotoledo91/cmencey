@@ -89,6 +89,71 @@ class Admin_Print_Controller extends Base_Controller
 
 		$employees = DB::table('employees')->get();
 		
+
+		foreach ($employees as $employee)
+		{
+			
+			if (!empty($employee->startdate))	{ $employee->startdate 	= date('d-m-Y',strtotime($employee->startdate)); }
+
+			switch ($employee->active) 
+			{
+				case 0: $employee->active = 'No'; break;
+				case 1:	$employee->active = 'Si';break;
+			}
+		}
+
 		return View::make('admin.print.proofofemployment_list')->with('title',$title)->with('employees',$employees);
 	}
+
+	public function get_solvency_pre()
+	{
+		$title = $this->title.' - Solvencias.';
+
+		$paysheets = Paysheet::get();
+
+		
+		foreach ($paysheets as &$paysheet) 
+		{
+			if (!empty($paysheet->stopdate))	{ $paysheet->stopdate 	= date('d-m-Y',strtotime($paysheet->stopdate)); }
+			if (!empty($paysheet->startdate))	{ $paysheet->startdate 	= date('d-m-Y',strtotime($paysheet->startdate)); }
+		}
+
+		
+		return View::make('admin.print.solvency_pre')->with('title',$title)->with('paysheets',$paysheets);
+	}
+
+	public function post_solvency()
+	{
+		$title = $this->title.' - Solvencias.';
+
+
+		$startdate 	= date('Y-m-d',strtotime(Input::get('solvency_startdate')));
+		$stopdate 	= date('Y-m-d',strtotime(Input::get('solvency_stopdate')));
+		
+		$concept 	= Input::get('solvency_concept');
+
+		$solvency 	= new StdClass;
+
+		$solvency->payments = DB::table('paysheets')
+							->select(array(DB::raw('employees.fullname, employees.pin, SUM(payments_paysheet.'.$concept.') as total')))
+							->where('paysheets.startdate','>=',$startdate)
+							->where('paysheets.stopdate','<=',$stopdate)
+							->join('payments_paysheet','payments_paysheet.paysheet_id','=','paysheets.id')
+							->join('employees','employees.id','=','payments_paysheet.employee_id')
+							->group_by('payments_paysheet.employee_id')
+							->get();
+		
+		$solvency->startdate 	= date('d-m-Y',strtotime($startdate));
+		$solvency->stopdate 	= date('d-m-Y',strtotime($stopdate));
+		
+		switch ($concept) {
+			case 'forced_stop':	$solvency->concept = 'Paro Forzoso'; break;
+			case 'sso':			$solvency->concept = 'SSO'; break;
+			case 'inces':		$solvency->concept = 'INCES'; break;
+			case 'faov':		$solvency->concept = 'FAOV'; break;
+		}
+		
+		return View::make('admin.print.solvency')->with('title',$title)->with('solvency',$solvency);
+	}
+
 }
