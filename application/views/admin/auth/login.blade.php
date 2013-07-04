@@ -6,7 +6,7 @@
 			<div class="white-area white-area-content">
 				<div class="text-center ">
 
-					{{ HTML::image('img/logo.png','logo', array('width' => '300')) }} 
+					{{ HTML::image('img/logo.png','logo', array('width' => '230')) }} 
 					<div class="space1"></div>
 
 				</div>
