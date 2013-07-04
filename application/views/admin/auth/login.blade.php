@@ -26,7 +26,7 @@
 						<input type="password" id="password" name="password"  class="input-medium" placeholder="Contrasena" required>
 
 						<!-- Login button-->
-						<button id="submit" name="submit" class="btn btn-primary">Iniciar sesion</button>
+						<button id="submit" name="submit" class="btn btn-primary">Iniciar sesión</button>
 						<div class="space1"></div>
 					{{ Form::close() }}
 
