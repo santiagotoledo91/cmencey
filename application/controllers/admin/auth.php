@@ -8,7 +8,7 @@ class Admin_Auth_Controller extends Base_Controller
 	{
 		parent::__construct();
 
-		$this->title = 'Construcciones Mencey, C.A - Sistema de gestion de personal';
+		$this->title = 'Construcciones Mencey, C.A';
 	}
 	
 	public function get_login() 
