@@ -21,7 +21,10 @@
 
 					<div class="control-group">
 
-						<label class="control-label">Cedula de identidad</label>
+						
+						{{ $errors->first('Cédula','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('existe','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						<label class="control-label"> Cedula de identidad</label>
 
 						<div class="controls">
 
@@ -33,6 +36,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Nombres','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Nombres</label>
 
 						<div class="controls">
@@ -45,6 +49,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Apellidos','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Apellidos</label>
 
 						<div class="controls">
@@ -57,6 +62,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Cargo','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Cargo</label>
 
 						<div class="controls">
@@ -69,11 +75,12 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Salario','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Salario diario (Bs.)</label>
 
 						<div class="controls">
 
-							<input id="employee_salary" name="employee_salary" type="text" placeholder="Ej: 150" maxlength="8" class="span10" required>
+							<input id="employee_salary" name="employee_salary" type="text" placeholder="Ej: 150" maxlength="4" class="span10" required>
 
 						</div>
 
@@ -81,6 +88,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Teléfono','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Teléfono</label>
 
 						<div class="controls">
@@ -93,11 +101,12 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Dirección','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Dirección</label>
 
 						<div class="controls">
 
-							<textarea id="employee_address" name="employee_address" class="span10" required></textarea>
+							<textarea id="employee_address" name="employee_address" maxlength="200" class="span10" required></textarea>
 
 						</div>
 
@@ -105,6 +114,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Cuenta Bancaria','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Cuenta bancaria N˚ (Banco de venezuela)</label>
 
 						<div class="controls">
@@ -121,7 +131,8 @@
 
 					<div class="control-group">
 
-						<label class="control-label">Talla de camisa</label>
+						{{ $errors->first('Talla de Camisa','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						<label class="control-label">Talla de Camisa</label>
 
 						<div class="controls">
 
@@ -133,6 +144,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Talla de Zapatos','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Talla de zapatos</label>
 
 						<div class="controls">
@@ -145,7 +157,8 @@
 
 					<div class="control-group">
 
-						<label class="control-label">Talla de pantalon</label>
+						{{ $errors->first('Talla de Pantalon','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						<label class="control-label">Talla de Pantalon</label>
 
 						<div class="controls">
 
@@ -157,7 +170,8 @@
 					
 					<div class="control-group">
 
-						<label class="control-label">Fecha de ingreso</label>
+						{{ $errors->first('Fecha de Ingreso','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						<label class="control-label">Fecha de Ingreso</label>
 
 						<div class="controls">
 
@@ -169,6 +183,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('Activo','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Activo</label>
 
 						<div class="controls">	

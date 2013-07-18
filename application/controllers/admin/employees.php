@@ -43,42 +43,115 @@ class Admin_Employees_Controller extends Base_Controller
 
 	public function post_add()
 	{
-		// registers the employee
+		// get the input fields, with the name that will be displayed
+		$input["Cédula"] 			= Input::get('employee_pin');
+		$input["Nombres"] 			= Input::get('employee_firstnames');
+		$input["Apellidos"] 		= Input::get('employee_lastnames');
+		$input["Cargo"]				= Input::get('employee_role');
+		$input["Teléfono"]			= Input::get('employee_phone');
+		$input["Dirección"] 		= Input::get('employee_address');
+		$input["Salario"] 			= Input::get('employee_salary');
+		$input["Cuenta Bancaria"] 	= Input::get('employee_bank_account');
+		$input["Talla de Zapatos"] 	= Input::get('employee_size_shoes');
+		$input["Talla de Camisa"] 	= Input::get('employee_size_shirt');
+		$input["Talla de Pantalon"] = Input::get('employee_size_pant');
+		$input["Fecha de Ingreso"] 	= Input::get('employee_startdate');
+		$input["Activo"] 			= Input::get('employee_active');
 
-		$employee = new Employee();
+		// set the validation rules
+		$rules = array(
+				'Cédula'				=> array('required','numeric','max:99999999'),
+				'Nombres'				=> array('required','alpha','max:100'),
+				'Apellidos'				=> array('required','alpha','max:100'),
+				'Cargo'					=> array('required','alpha','max:200'),
+				'Teléfono'				=> array('required','numeric','max:99999999999'),
+				'Dirección'				=> array('required','max:200'),
+				'Salario'				=> array('required','numeric','max:9999'),
+				'Cuenta Bancaria'		=> array('max:23'),
+				'Talla de Zapatos'		=> array('numeric','max:48'),
+				'Talla de Camisa'		=> array('alpha_num','max:3'),
+				'Talla de Pantalon'		=> array('numeric','max:50'),
+				'Fecha de Ingreso'		=> array('date_format:d-m-Y'),
+				'Activo'		=> array('required'),
+			);
 
-		$employee->pin 			= Input::get('employee_pin');
-		$employee->fullname 	= strtoupper(Input::get('employee_firstnames').' '.Input::get('employee_lastnames'));
-		$employee->role 		= strtoupper(Input::get('employee_role'));
-		$employee->phone 		= Input::get('employee_phone');
-		$employee->address 		= strtoupper(Input::get('employee_address'));
-		$employee->salary 		= round(Input::get('employee_salary'),2);
-		$employee->bank_account = Input::get('employee_bank_account');
-		$employee->size_shoes	= Input::get('employee_size_shoes');
-		$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
-		$employee->size_pant	= Input::get('employee_size_pant');
-		$employee->startdate	= date('Y-m-d',strtotime(Input::get('employee_startdate')));
-		$employee->active 		= Input::get('employee_active');
+		// set the custom messages
+		$messages = array(
+			'required' 		=> 'Campo Obligatorio',
+			'numeric'		=> 'Solo Números',
+			'alpha'			=> 'Solo Letras',
+			'alpha_num'		=> 'Solo Números y Letras',
+			'max'			=> 'Máximo :size caracteres',
+			'date_format'	=> 'El formato debe ser DD-MM-AAAA',
+		);
 
-		$employee->save();
+		// validates the data
+		$validation = Validator::make($input, $rules,$messages);
 
-		// retrieves the aviable document types
-		$document_types = DB::table('document_types')->get();
-
-		// register the employee documents in the documents table 
-		foreach ($document_types as $document_type) 
+ 
+		// validation failed
+		if ($validation->fails()) 
 		{
-			$document = new Document();
+			return Redirect::to('admin/employees/add')->with_errors($validation);
+		} 
+	
+		else // validation passed
+		{
+			// validates if the user already exist
+			// THIS SHOULD BE A CUSTOM VALIDATION RULE, FIX IT! 
+			$pin = Employee::where('employees.pin','=',Input::get('employee_pin'))->first();
+			
+			// the users exist
+			if (!empty($pin)) 
+			{
+				// creates a new message with the object format
+				$messages = new \Laravel\Messages;
 
-			$document->employee_id 			= $employee->id;
-			$document->document_type_id 	= $document_type->id;
-			$document->status 				= 3;
-			$document->expiration 			= null;
+				// adds the message
+				$messages->add('existe','La Cédula '.Input::get('employee_pin').' ya esta registrada en el sistema');
 
-			$document->save();
+				// redirects with the error
+				return Redirect::to('admin/employees/add')->with_errors($messages);
+			}
+			else // its new user
+			{
+				// registers the employee
+				$employee = new Employee();
+
+				$employee->pin 			= Input::get('employee_pin');
+				$employee->fullname 	= strtoupper(Input::get('employee_firstnames').' '.Input::get('employee_lastnames'));
+				$employee->role 		= strtoupper(Input::get('employee_role'));
+				$employee->phone 		= Input::get('employee_phone');
+				$employee->address 		= strtoupper(Input::get('employee_address'));
+				$employee->salary 		= round(Input::get('employee_salary'),2);
+				$employee->bank_account = Input::get('employee_bank_account');
+				$employee->size_shoes	= Input::get('employee_size_shoes');
+				$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
+				$employee->size_pant	= Input::get('employee_size_pant');
+				$employee->startdate	= date('Y-m-d',strtotime(Input::get('employee_startdate')));
+				$employee->active 		= Input::get('employee_active');
+
+				$employee->save();
+
+				// retrieves the aviable document types
+				$document_types = DB::table('document_types')->get();
+
+				// register the employee documents in the documents table 
+				foreach ($document_types as $document_type) 
+				{
+					$document = new Document();
+
+					$document->employee_id 			= $employee->id;
+					$document->document_type_id 	= $document_type->id;
+					$document->status 				= 3;
+					$document->expiration 			= null;
+
+					$document->save();
+				}
+
+				return Redirect::to('admin/employees/manage');
+			}
 		}
-
-		return Redirect::to('admin/employees/manage');
 	}
 
 	public function get_edit($id)

@@ -30,8 +30,6 @@ class Admin_Auth_Controller extends Base_Controller
 	public function post_login()
 	{
 		// get the input fields
-		$input = Input::all();
-
 		$input["username"] = Input::get('username');
 		$input["password"] = Input::get('password');
 
