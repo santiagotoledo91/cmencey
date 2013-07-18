@@ -4,6 +4,8 @@
 	
 	{{ Asset::styles() }} 
 
+	<link rel="shortcut icon" href="favicon.ico" /> 
+
 </head>
 <body>
 	

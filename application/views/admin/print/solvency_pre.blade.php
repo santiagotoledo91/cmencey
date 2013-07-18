@@ -15,7 +15,7 @@
 
 			<div class="row-fluid">
 
-				{{ Form::open('admin/print/solvency2','POST', array('class' => 'form-horizontal')) }}
+				{{ Form::open('admin/print/solvency','POST', array('class' => 'form-horizontal')) }}
 
 				<div class="span6 offset3">
 

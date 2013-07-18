@@ -181,3 +181,9 @@ th {
 .table-centered th , .table-centered td {
 	text-align:center;
 } 
+
+.alert {
+	padding: 5px 15px 5px 15px;
+	color: white !important;
+	text-shadow: none !important;
+}

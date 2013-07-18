@@ -29,18 +29,54 @@ class Admin_Auth_Controller extends Base_Controller
 
 	public function post_login()
 	{
-		$username = Input::get('username');
-		$password = Input::get('password');
+		// get the input fields
+		$input = Input::all();
 
-		$cretendials = array('username' => $username, 'password' => $password);
+		$input["username"] = Input::get('username');
+		$input["password"] = Input::get('password');
 
-		if (Auth::attempt($cretendials))
+		// set the validation rules
+		$rules = array(
+				'username'	=> 'required',
+				'password'	=> 'required'
+			);
+
+		// set the custom messages
+		$messages = array(
+			'username_required' => 'El campo usuario es requerido.',
+			'password_required'	=> 'El campo contraseña es requerido.',
+		);
+
+		// validates the data
+		$validation = Validator::make($input, $rules,$messages);
+ 
+		// validation failed
+		if ($validation->fails()) 
 		{
-			return Redirect::to('admin');
-		}
-		else
+			return Redirect::to('admin/login')->with_errors($validation);
+		} 
+		// validation passed
+		else  
 		{
-			return Redirect::to('admin/login');
+			$username 		= Input::get('username');
+			$password 		= Input::get('password');
+			$cretendials 	= array('username' => $username, 'password' => $password);
+
+			if (Auth::attempt($cretendials)) 
+			{
+				return Redirect::to('/');
+			} 
+			else 
+			{
+				// creates a new message with the object format
+				$messages = new \Laravel\Messages;
+
+				// adds the message
+				$messages->add('auth','Usuario o contraseña incorrectos');
+
+				// redirects with the error
+				return Redirect::to('admin/login')->with_errors($messages);
+			}
 		}
 	}
 

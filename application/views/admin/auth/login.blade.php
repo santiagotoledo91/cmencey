@@ -1,12 +1,12 @@
 @layout('layouts.login')
 @section('content')
 
-		<div class="login center">
+		<div class="login center" style="width:380px;">
 
-			<div class="white-area white-area-content">
+			<div class="white-area white-area-content" style="box-shadow: 0px 0px 20px gray;">
 				<div class="text-center ">
 
-					{{ HTML::image('img/logo.png','logo', array('width' => '300')) }} 
+					{{ HTML::image('img/logo.png','logo', array('width' => '230')) }} 
 					<div class="space1"></div>
 
 				</div>
@@ -23,10 +23,10 @@
 						<input type="text" id="username" name="username" class="input-medium" placeholder="Usuario" required>
 
 						<!-- Password input-->
-						<input type="password" id="password" name="password"  class="input-medium" placeholder="Contrasena" required>
+						<input type="password" id="password" name="password"  class="input-medium" placeholder="Contraseña" required>
 
 						<!-- Login button-->
-						<button id="submit" name="submit" class="btn btn-primary">Iniciar sesion</button>
+						<button id="submit" name="submit" class="btn btn-primary">Iniciar sesión</button>
 						<div class="space1"></div>
 					{{ Form::close() }}
 

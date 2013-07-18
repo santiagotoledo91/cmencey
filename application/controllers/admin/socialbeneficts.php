@@ -17,6 +17,12 @@ class Admin_Socialbeneficts_Controller extends Base_Controller
 
 		$employees = Employee::where('active','=','1')->get();
 
+		foreach ($employees as &$employee)
+		{
+			$employee->startdate 	= date('d-m-Y',strtotime($employee->startdate));
+			$employee->stopdate 	= date('d-m-Y',strtotime($employee->stopdate));
+		}
+
 		return View::make('admin.socialbeneficts.employeeslist')->with('title',$title)->with('employees',$employees);
 	}
 
