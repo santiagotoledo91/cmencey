@@ -61,9 +61,9 @@ class Admin_Employees_Controller extends Base_Controller
 		// set the validation rules
 		$rules = array(
 				'employee_pin'			=> array('required','numeric','max:99999999'),
-				'employee_firstnames'	=> array('required','alpha','max:100'),
-				'employee_lastnames'	=> array('required','alpha','max:100'),
-				'employee_role'			=> array('required','alpha','max:200'),
+				'employee_firstnames'	=> array('required','max:100'),
+				'employee_lastnames'	=> array('required','max:100'),
+				'employee_role'			=> array('required','max:200'),
 				'employee_phone'		=> array('required','numeric','max:99999999999'),
 				'employee_address'		=> array('required','max:200'),
 				'employee_salary'		=> array('required','numeric','max:9999'),
