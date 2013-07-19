@@ -32,7 +32,7 @@
 
 					</tr>
 
-				@endforeach
+				@endforeach	
 
 				</table>
 
@@ -49,12 +49,12 @@
 
 			<h4 class="text-center"> Documentación </h4>
 			<div class="space1"></div>
-			<table class="table table-info table-hover">
+			<table class="table table-info table-hover pointer">
 
 				@if ($pending != 0)
 					<tr class="error-min-r" onclick="document.location = 'admin/docs/pending/' ">
 						<td> Documentos por consignar: </td>
-						<td>{{ HTML::link('admin/docs/pending/',$pending) }}</td>
+						<td>{{ $pending }}</td>
 					</tr>
 				@else
 					<tr class="success-min-r">
@@ -65,7 +65,7 @@
 				@if ($expired != 0)
 					<tr class="error-min-r" onclick="document.location = 'admin/docs/expired/' ">
 						<td> Documentos vencidos: </td>
-						<td>{{ HTML::link('admin/docs/expired/',$expired) }}</td>
+						<td>{{ $expired }}</td>
 					</tr>
 				@else
 					<tr class="success-min-r">
@@ -76,7 +76,7 @@
 				@if ($close_to_expire != 0)
 					<tr class="error-min-r" onclick="document.location = 'admin/docs/expired/' ">
 						<td> Documentos por vencer: </td>
-						<td>{{ HTML::link('admin/docs/expired/',$close_to_expire) }}</td>
+						<td>{{ $close_to_expire }}</td>
 					</tr>
 				@else
 					<tr class="success-min-r">
@@ -89,16 +89,16 @@
 			<h4 class="text-center"> Información general </h4>
 			<div class="space1"></div>
 
-			<table class="table-info table-bordered table ">
+			<table class="table-info table-bordered table table-hover pointer">
 
 				<tr onclick="document.location = 'admin/employees/manage'">
 					<td> Trabajadores activos: </td>
-					<td>{{ HTML::link('admin/employees/manage', $employees ) }}</td>
+					<td>{{ $employees }}</td>
 				</tr>
 				
 				<tr onclick="document.location = 'admin/docs/manage'">
 					<td> Tipos de documentos registrados: </td>
-					<td>{{ HTML::link('admin/docs/manage', $document_types ) }}</td>
+					<td>{{ $document_types }}</td>
 				</tr>
 
 			</table>

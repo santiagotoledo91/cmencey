@@ -187,3 +187,7 @@ th {
 	color: white !important;
 	text-shadow: none !important;
 }
+
+.pointer {
+	cursor: pointer;
+}
