@@ -44,35 +44,35 @@ class Admin_Employees_Controller extends Base_Controller
 	public function post_add()
 	{
 		// get the input fields, with the name that will be displayed
-		$input["Cédula"] 			= Input::get('employee_pin');
-		$input["Nombres"] 			= Input::get('employee_firstnames');
-		$input["Apellidos"] 		= Input::get('employee_lastnames');
-		$input["Cargo"]				= Input::get('employee_role');
-		$input["Teléfono"]			= Input::get('employee_phone');
-		$input["Dirección"] 		= Input::get('employee_address');
-		$input["Salario"] 			= Input::get('employee_salary');
-		$input["Cuenta Bancaria"] 	= Input::get('employee_bank_account');
-		$input["Talla de Zapatos"] 	= Input::get('employee_size_shoes');
-		$input["Talla de Camisa"] 	= Input::get('employee_size_shirt');
-		$input["Talla de Pantalon"] = Input::get('employee_size_pant');
-		$input["Fecha de Ingreso"] 	= Input::get('employee_startdate');
-		$input["Activo"] 			= Input::get('employee_active');
+		$input["employee_pin"] 			= Input::get('employee_pin');
+		$input["employee_firstnames"] 	= Input::get('employee_firstnames');
+		$input["employee_lastnames"] 	= Input::get('employee_lastnames');
+		$input["employee_role"]			= Input::get('employee_role');
+		$input["employee_phone"]		= Input::get('employee_phone');
+		$input["employee_address"] 		= Input::get('employee_address');
+		$input["employee_salary"] 		= Input::get('employee_salary');
+		$input["employee_bank_account"] = Input::get('employee_bank_account');
+		$input["employee_size_shoes"] 	= Input::get('employee_size_shoes');
+		$input["employee_size_shirt"] 	= Input::get('employee_size_shirt');
+		$input["employee_size_pant"]	= Input::get('employee_size_pant');
+		$input["employee_startdate"] 	= Input::get('employee_startdate');
+		$input["employee_active"] 		= Input::get('employee_active');
 
 		// set the validation rules
 		$rules = array(
-				'Cédula'				=> array('required','numeric','max:99999999'),
-				'Nombres'				=> array('required','alpha','max:100'),
-				'Apellidos'				=> array('required','alpha','max:100'),
-				'Cargo'					=> array('required','alpha','max:200'),
-				'Teléfono'				=> array('required','numeric','max:99999999999'),
-				'Dirección'				=> array('required','max:200'),
-				'Salario'				=> array('required','numeric','max:9999'),
-				'Cuenta Bancaria'		=> array('max:23'),
-				'Talla de Zapatos'		=> array('numeric','max:48'),
-				'Talla de Camisa'		=> array('alpha_num','max:3'),
-				'Talla de Pantalon'		=> array('numeric','max:50'),
-				'Fecha de Ingreso'		=> array('date_format:d-m-Y'),
-				'Activo'		=> array('required'),
+				'employee_pin'			=> array('required','numeric','max:99999999'),
+				'employee_firstnames'	=> array('required','alpha','max:100'),
+				'employee_lastnames'	=> array('required','alpha','max:100'),
+				'employee_role'			=> array('required','alpha','max:200'),
+				'employee_phone'		=> array('required','numeric','max:99999999999'),
+				'employee_address'		=> array('required','max:200'),
+				'employee_salary'		=> array('required','numeric','max:9999'),
+				'employee_bank_account'	=> array('max:23'),
+				'employee_size_shoes'	=> array('numeric','max:48'),
+				'employee_size_shirt'	=> array('alpha_num','max:3'),
+				'employee_size_pant'	=> array('numeric','max:50'),
+				'employee_startdate'	=> array('date_format:d-m-Y'),
+				'employee_active'		=> array('required'),
 			);
 
 		// set the custom messages
@@ -81,7 +81,7 @@ class Admin_Employees_Controller extends Base_Controller
 			'numeric'		=> 'Solo Números',
 			'alpha'			=> 'Solo Letras',
 			'alpha_num'		=> 'Solo Números y Letras',
-			'max'			=> 'Máximo :size caracteres',
+			'max'			=> 'Máximo :max caracteres',
 			'date_format'	=> 'El formato debe ser DD-MM-AAAA',
 		);
 
@@ -99,7 +99,7 @@ class Admin_Employees_Controller extends Base_Controller
 		{
 			// validates if the user already exist
 			// THIS SHOULD BE A CUSTOM VALIDATION RULE, FIX IT! 
-			$pin = Employee::where('employees.pin','=',Input::get('employee_pin'))->first();
+			$pin = Employee::where('employees.pin','=',$input["employee_pin"])->first();
 			
 			// the users exist
 			if (!empty($pin)) 
@@ -108,7 +108,7 @@ class Admin_Employees_Controller extends Base_Controller
 				$messages = new \Laravel\Messages;
 
 				// adds the message
-				$messages->add('existe','La Cédula '.Input::get('employee_pin').' ya esta registrada en el sistema');
+				$messages->add('existe','La Cédula '.$input["employee_pin"].' ya esta registrada en el sistema');
 
 				// redirects with the error
 				return Redirect::to('admin/employees/add')->with_errors($messages);
@@ -118,18 +118,18 @@ class Admin_Employees_Controller extends Base_Controller
 				// registers the employee
 				$employee = new Employee();
 
-				$employee->pin 			= Input::get('employee_pin');
-				$employee->fullname 	= strtoupper(Input::get('employee_firstnames').' '.Input::get('employee_lastnames'));
-				$employee->role 		= strtoupper(Input::get('employee_role'));
-				$employee->phone 		= Input::get('employee_phone');
-				$employee->address 		= strtoupper(Input::get('employee_address'));
-				$employee->salary 		= round(Input::get('employee_salary'),2);
-				$employee->bank_account = Input::get('employee_bank_account');
-				$employee->size_shoes	= Input::get('employee_size_shoes');
-				$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
-				$employee->size_pant	= Input::get('employee_size_pant');
-				$employee->startdate	= date('Y-m-d',strtotime(Input::get('employee_startdate')));
-				$employee->active 		= Input::get('employee_active');
+				$employee->pin 			= $input["employee_pin"];
+				$employee->fullname 	= strtoupper($input["employee_firstnames"].' '.$input["employee_lastnames"]);
+				$employee->role 		= strtoupper($input["employee_role"]);
+				$employee->phone 		= $input["employee_phone"];
+				$employee->address 		= strtoupper($input["employee_address"]);
+				$employee->salary 		= round($input["employee_salary"],2);
+				$employee->bank_account = $input["employee_bank_account"];
+				$employee->size_shoes	= $input["employee_size_shoes"];
+				$employee->size_shirt	= strtoupper($input["employee_size_shirt"]);
+				$employee->size_pant	= $input["employee_size_pant"];
+				$employee->startdate	= date('Y-m-d',strtotime($input["employee_startdate"]));
+				$employee->active 		= $input["employee_active"];
 
 				$employee->save();
 

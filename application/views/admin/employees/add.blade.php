@@ -22,7 +22,7 @@
 					<div class="control-group">
 
 						
-						{{ $errors->first('Cédula','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_pin','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						{{ $errors->first('existe','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label"> Cedula de identidad</label>
 
@@ -36,7 +36,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Nombres','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_firstnames','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Nombres</label>
 
 						<div class="controls">
@@ -49,7 +49,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Apellidos','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_lastnames','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Apellidos</label>
 
 						<div class="controls">
@@ -62,7 +62,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Cargo','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_role','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Cargo</label>
 
 						<div class="controls">
@@ -75,7 +75,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Salario','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_salary','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Salario diario (Bs.)</label>
 
 						<div class="controls">
@@ -88,7 +88,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Teléfono','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_phone','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Teléfono</label>
 
 						<div class="controls">
@@ -101,7 +101,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Dirección','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_address','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Dirección</label>
 
 						<div class="controls">
@@ -114,7 +114,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Cuenta Bancaria','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_bank_account','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Cuenta bancaria N˚ (Banco de venezuela)</label>
 
 						<div class="controls">
@@ -131,7 +131,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Talla de Camisa','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_size_shirt','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Talla de Camisa</label>
 
 						<div class="controls">
@@ -144,7 +144,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Talla de Zapatos','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_size_shoes','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Talla de zapatos</label>
 
 						<div class="controls">
@@ -157,7 +157,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Talla de Pantalon','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_size_pant','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Talla de Pantalon</label>
 
 						<div class="controls">
@@ -170,7 +170,7 @@
 					
 					<div class="control-group">
 
-						{{ $errors->first('Fecha de Ingreso','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_startdate','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Fecha de Ingreso</label>
 
 						<div class="controls">
@@ -183,7 +183,7 @@
 
 					<div class="control-group">
 
-						{{ $errors->first('Activo','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('employee_active','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Activo</label>
 
 						<div class="controls">	
