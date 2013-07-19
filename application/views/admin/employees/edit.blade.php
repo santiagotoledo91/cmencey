@@ -240,7 +240,7 @@
 
 												<td> {{ $document->description }} </td>
 
-												{{ $document->show }}
+												<td> {{ $document->show }} </td>
 
 											</tr>
 
