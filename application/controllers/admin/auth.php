@@ -35,14 +35,13 @@ class Admin_Auth_Controller extends Base_Controller
 
 		// set the validation rules
 		$rules = array(
-				'username'	=> 'required',
+				'username'	=> array('required','max:15'),
 				'password'	=> 'required'
 			);
 
 		// set the custom messages
 		$messages = array(
-			'username_required' => 'El campo usuario es requerido.',
-			'password_required'	=> 'El campo contraseña es requerido.',
+			'required' => 'Campo Obligatorio',
 		);
 
 		// validates the data
@@ -70,7 +69,7 @@ class Admin_Auth_Controller extends Base_Controller
 				$messages = new \Laravel\Messages;
 
 				// adds the message
-				$messages->add('auth','Usuario o contraseña incorrectos');
+				$messages->add('auth','Usuario o Contraseña Incorrectos');
 
 				// redirects with the error
 				return Redirect::to('admin/login')->with_errors($messages);
