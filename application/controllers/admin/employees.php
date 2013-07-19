@@ -43,7 +43,7 @@ class Admin_Employees_Controller extends Base_Controller
 
 	public function post_add()
 	{
-		// get the input fields, with the name that will be displayed
+		// get the input fields
 		$input["employee_pin"] 			= Input::get('employee_pin');
 		$input["employee_firstnames"] 	= Input::get('employee_firstnames');
 		$input["employee_lastnames"] 	= Input::get('employee_lastnames');
@@ -225,91 +225,150 @@ class Admin_Employees_Controller extends Base_Controller
 
 	public function post_edit($id)
 	{
-		// updates the employee information
-		$employee = Employee::find($id);
-
-		$employee->role 		= strtoupper(Input::get('employee_role'));
-		$employee->salary 		= round(Input::get('employee_salary'),2);
-		$employee->phone 		= Input::get('employee_phone');
-		$employee->address 		= strtoupper(Input::get('employee_address'));
-		$employee->bank_account = Input::get('employee_bank_account');
-		$employee->size_shoes	= Input::get('employee_size_shoes');
-		$employee->size_shirt	= strtoupper(Input::get('employee_size_shirt'));
-		$employee->size_pant	= Input::get('employee_size_pant');
-		$employee->active 		= Input::get('employee_active');
+		// get the input fields
+		$input["employee_role"]						= Input::get('employee_role');
+		$input["employee_phone"]					= Input::get('employee_phone');
+		$input["employee_address"] 					= Input::get('employee_address');
+		$input["employee_salary"] 					= Input::get('employee_salary');
+		$input["employee_bank_account"] 			= Input::get('employee_bank_account');
+		$input["employee_size_shoes"] 				= Input::get('employee_size_shoes');
+		$input["employee_size_shirt"]	 			= Input::get('employee_size_shirt');
+		$input["employee_size_pant"]				= Input::get('employee_size_pant');
+		$input["employee_startdate"]	 			= Input::get('employee_startdate');
+		$input["employee_stopdate"] 				= Input::get('employee_stopdate');
+		$input["employee_active"] 					= Input::get('employee_active');
 		
-		$startdate 				= Input::get('employee_startdate');
-		if (!empty($startdate)) { $employee->startdate = date('Y-m-d',strtotime(Input::get('employee_startdate'))); } else { $employee->startdate = null; }
+		// set the validation rules
+		$rules = array(
+				'employee_role'						=> array('required','max:200'),
+				'employee_phone'					=> array('required','numeric','max:99999999999'),
+				'employee_address'					=> array('required','max:200'),
+				'employee_salary'					=> array('required','numeric','max:9999'),
+				'employee_bank_account'				=> array('max:23'),
+				'employee_size_shoes'				=> array('numeric','max:48'),
+				'employee_size_shirt'				=> array('alpha_num','max:3'),
+				'employee_size_pant'				=> array('numeric','max:50'),
+				'employee_startdate'				=> array('date_format:d-m-Y'),
+				'employee_stopdate'					=> array('date_format:d-m-Y'),
+				'employee_active'					=> array('required'),
+			);
+		
+		// append the expirable documents array as individual validation fields and rules
 
-		$stopdate 				= Input::get('employee_stopdate');
-		if (!empty($stopdate))  { $employee->stopdate = date('Y-m-d',strtotime(Input::get('employee_stopdate'))); } else { $employee->stopdate = null; }
-
-		$employee->save();
-
-		// gets todays date
-		$today = date("Y-m-d");
-
-		// close to expire means 1 month or less but still not expired
-		$close_to_expire = strtotime(date("Y-m-d", strtotime($today)). "+1 month");
-		$close_to_expire = date("Y-m-d",$close_to_expire);
-
-		// retrieves the expirable documents array
-		$expirable_documents = Input::get('employee_expirable_documents');
-
-		// updates the status of the documents according to the expiration date
-		if (isset($expirable_documents))
+		foreach (Input::get('employee_expirable_documents') as $doc_id=>$doc)
 		{
-		foreach ($expirable_documents as $id=>$expiration) 
-			{
-				// searches the document to update
-				$document = Document::find($id);
-
-				// to prevent blank values to be set as status 2
-				if (!empty($expiration))
-				{
-					$expiration = date('Y-m-d',strtotime($expiration));
-
-					// up to date
-					if ($expiration > $today)  
-					{
-						$document->status = 0;
-					}
-
-					// about to expire
-					if ($expiration <= $close_to_expire)
-					{
-						$document->status = 1;
-					}
-
-					// expired
-					if ($expiration <= $today)
-					{
-						$document->status = 2;
-					}
-
-					$document->expiration = $expiration;
-				}
-
-			$document->save();
-			}
+			$input["employee_expirable_document_".$doc_id] = $doc;
+			$rules["employee_expirable_document_".$doc_id] = array('date_format:d-m-Y');
 		}
 
-		// retrieves the no expirable documents array
-		$non_expirable_documents = Input::get('employee_non_expirable_documents');
+		// set the custom messages
+		$messages = array(
+			'required' 		=> 'Campo Obligatorio',
+			'numeric'		=> 'Solo Números',
+			'alpha'			=> 'Solo Letras',
+			'alpha_num'		=> 'Solo Números y Letras',
+			'max'			=> 'Máximo :max caracteres',
+			'date_format'	=> 'El formato debe ser DD-MM-AAAA',
+		);
 
-		if (isset($non_expirable_documents))
+		// validates the data
+		$validation = Validator::make($input, $rules,$messages);
+ 
+		// validation failed
+		if ($validation->fails()) 
 		{
-			foreach ($non_expirable_documents as $id) 
-			{
-				$document = Document::find($id);
+			
+			return Redirect::to('admin/employees/edit/'.$id)->with_errors($validation);
+		} 
+	
+		else // validation passed
+		{
+			// updates the employee information
+			$employee = Employee::find($id);
 
-				// received
-				$document->status = 0;
+			$employee->role 		= strtoupper($input["employee_role"]);
+			$employee->salary 		= round($input["employee_salary"],2);
+			$employee->phone 		= $input["employee_phone"];
+			$employee->address 		= strtoupper($input["employee_address"]);
+			$employee->bank_account = $input["employee_bank_account"];
+			$employee->size_shoes	= $input["employee_size_shoes"];
+			$employee->size_shirt	= strtoupper($input["employee_size_shirt"]);
+			$employee->size_pant	= $input["employee_size_pant"];
+			$employee->active 		= $input["employee_active"];
+			
+			$startdate 				= $input["employee_startdate"];
+			if (!empty($startdate)) { $employee->startdate = date('Y-m-d',strtotime($input["employee_startdate"])); } else { $employee->startdate = null; }
+
+			$stopdate 				= $input["employee_stopdate"];
+			if (!empty($stopdate))  { $employee->stopdate = date('Y-m-d',strtotime($input["employee_stopdate"])); } else { $employee->stopdate = null; }
+
+			$employee->save();
+
+			// gets todays date
+			$today = date("Y-m-d");
+
+			// close to expire means 1 month or less but still not expired
+			$close_to_expire = strtotime(date("Y-m-d", strtotime($today)). "+1 month");
+			$close_to_expire = date("Y-m-d",$close_to_expire);
+
+			// retrieves the expirable documents array
+			$expirable_documents = Input::get('employee_expirable_documents');
+
+			// updates the status of the documents according to the expiration date
+			if (isset($expirable_documents))
+			{
+			foreach ($expirable_documents as $id=>$expiration) 
+				{
+					// searches the document to update
+					$document = Document::find($id);
+
+					// to prevent blank values to be set as status 2
+					if (!empty($expiration))
+					{
+						$expiration = date('Y-m-d',strtotime($expiration));
+
+						// up to date
+						if ($expiration > $today)  
+						{
+							$document->status = 0;
+						}
+
+						// about to expire
+						if ($expiration <= $close_to_expire)
+						{
+							$document->status = 1;
+						}
+
+						// expired
+						if ($expiration <= $today)
+						{
+							$document->status = 2;
+						}
+
+						$document->expiration = $expiration;
+					}
 
 				$document->save();
+				}
 			}
-		}
 
-		return Redirect::to('admin/employees/manage');
+			// retrieves the no expirable documents array
+			$non_expirable_documents = Input::get('employee_non_expirable_documents');
+
+			if (isset($non_expirable_documents))
+			{
+				foreach ($non_expirable_documents as $id) 
+				{
+					$document = Document::find($id);
+
+					// received
+					$document->status = 0;
+
+					$document->save();
+				}
+			}
+
+			return Redirect::to('admin/employees/manage');
+		}
 	}
 }

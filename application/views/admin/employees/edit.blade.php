@@ -48,6 +48,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_role','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Cargo</label>
 
 								<div class="controls">
@@ -60,6 +61,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_salary','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Salario diario (Bs.)</label>
 
 								<div class="controls">
@@ -72,6 +74,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_phone','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Teléfono</label>
 
 								<div class="controls">
@@ -84,6 +87,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_address','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Dirección</label>
 
 								<div class="controls">
@@ -96,6 +100,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_bank_account','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Cuenta bancaria N˚ (Banco de venezuela)</label>
 
 								<div class="controls">
@@ -111,7 +116,7 @@
 						<div class="span5">
 
 							<div class="control-group">
-
+								{{ $errors->first('employee_size_shirt','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Talla de camisa</label>
 
 								<div class="controls">
@@ -124,6 +129,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_size_shoes','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Talla de zapatos</label>
 
 								<div class="controls">
@@ -136,6 +142,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_size_pant','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Talla de pantalon</label>
 
 								<div class="controls">
@@ -148,6 +155,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_startdate','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Fecha de ingreso</label>
 
 								<div class="controls">
@@ -160,6 +168,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_stopdate','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Fecha de egreso</label>
 
 								<div class="controls">
@@ -172,6 +181,7 @@
 
 							<div class="control-group">
 
+								{{ $errors->first('employee_active','<p style="color: red; text-align:center; margin-left:120px; margin-bottom:1px;">:message</p>') }}	
 								<label class="control-label">Activo</label>
 
 								<div class="controls">	
@@ -240,7 +250,7 @@
 
 												<td> {{ $document->description }} </td>
 
-												<td> {{ $document->show }} </td>
+												<td> {{ $document->show }} {{ $errors->first('employee_expirable_document_'.$document->id,'<p style="color: red;">:message</p>') }} </td>
 
 											</tr>
 
