@@ -63,6 +63,7 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('startdate','<p style="color: red; text-align:center; margin-left:55px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Fecha de ingreso</label>
 
 						<div class="controls">
@@ -75,6 +76,8 @@
 
 					<div class="control-group">
 
+						{{ $errors->first('period','<p style="color: red; text-align:left; margin-left:180px; margin-bottom:1px;">:message</p>') }}	
+						{{ $errors->first('stopdate','<p style="color: red; text-align:center; margin-left:55px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Fecha de egreso</label>
 
 						<div class="controls">
@@ -117,11 +120,12 @@
 
 					<div class="control-group">
 						
+						{{ $errors->first('down_salaries_days','<p style="color: red; text-align:left; margin-left:180px; margin-bottom:1px;margin-top:1px;">:message</p>') }}	
 						<label class="control-label">Salarios caidos (Dias)</label>
 
 						<div class="controls">
 
-							<input name="down_salaries_days" type="text" class="input-mini" maxlength="2" value="0">
+							<input name="down_salaries_days" type="text" class="input-mini" maxlength="2" value="0" required="required">
 
 						</div>
 
@@ -135,11 +139,12 @@
 
 					<div class="control-group">
 						
+						{{ $errors->first('received_advances','<p style="color: red; text-align:left; margin-left:180px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Anticipos recibidos (Bs.)</label>
 
 						<div class="controls">
 
-							<input name="received_advances" type="text" class="input-mini" maxlength="5" value="0">
+							<input name="received_advances" type="text" class="input-mini" maxlength="5" value="0" required="required">
 
 						</div>
 
@@ -147,11 +152,12 @@
 
 					<div class="control-group">
 						
+						{{ $errors->first('received_loans','<p style="color: red; text-align:left; margin-left:180px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Préstamos recibidos (Bs.)</label>
 
 						<div class="controls">
 
-							<input name="received_loans" type="text" class="input-mini" maxlength="5" value="0">
+							<input name="received_loans" type="text" class="input-mini" maxlength="5" value="0" required="required">
 
 						</div>
 
@@ -159,11 +165,12 @@
 
 					<div class="control-group">
 						
+						{{ $errors->first('others','<p style="color: red; text-align:left; margin-left:180px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Otros (Bs.)</label>
 
 						<div class="controls">
 
-							<input name="others" type="text" class="input-mini" maxlength="5" value="0">
+							<input name="others" type="text" class="input-mini" maxlength="5" value="0" required="required">
 
 						</div>
 
@@ -171,11 +178,12 @@
 
 					<div class="control-group">
 						
+						{{ $errors->first('check','<p style="color: red; text-align:left; margin-left:180px; margin-bottom:1px;">:message</p>') }}	
 						<label class="control-label">Cheque #</label>
 
 						<div class="controls">
 
-							<input name="check" type="text" class="input-small" maxlength="8" required>
+							<input name="check" type="text" class="input-small" maxlength="10" required="required">
 
 						</div>
 
