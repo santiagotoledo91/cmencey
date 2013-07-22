@@ -42,8 +42,8 @@
 
 			@else
 
-				<h4 class="text-center"> Aun no ha generado ninguna nomina</h4>
-				<h4 class="text-center"> {{ HTML::link('admin/socialbeneficts/pre','Generar nomina') }}</h4>
+				<h4 class="text-center"> Aun no ha generado ninguna liquidación</h4>
+				<h4 class="text-center"> {{ HTML::link('admin/socialbeneficts/employeeslist','Generar Liquidación') }}</h4>
 			
 			@endif
 
