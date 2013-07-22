@@ -29,7 +29,7 @@
 
 							<div class="controls">
 
-								<input id="document_type_description" name="document_type_description" type="text" placeholder="Ej: Cédula de identidad" class="input" required="">
+								<input id="document_type_description" name="document_type_description" type="text" placeholder="Ej: Cédula de identidad" class="input" maxlength="100" required="">
 
 							</div>
 

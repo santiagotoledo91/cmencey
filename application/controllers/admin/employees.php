@@ -198,22 +198,22 @@ class Admin_Employees_Controller extends Base_Controller
 				{
 					case 0: 
 						$document->row_class="success-min";
-						$document->show = '<label> Vigente hasta <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'">  </label>'; 
+						$document->show = ' <label> Vigente hasta <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'" maxlength="10">  </label>'; 
 					break;
 
 					case 1: 
 						$document->row_class="warning-min";
-						$document->show = ' <label> Vence el <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'">  </label>';
+						$document->show = ' <label> Vence el <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'" maxlength="10">  </label>';
 					break;
 
 					case 2: 
 						$document->row_class="error-min";
-						$document->show = ' <label> Vencido desde <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'">  </label>';
+						$document->show = ' <label> Vencido desde <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" value="'.$document->expiration.'" maxlength="10">  </label>';
 					break;
 
 					case 3: 
 						$document->row_class="error-min";
-						$document->show = ' <label> Pendiente por registrar <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" placeholder="DD-MM-AAAA">  </label>';
+						$document->show = ' <label> Pendiente por registrar <input type="text" class="input-small" name="employee_expirable_documents['.$document->id.']" placeholder="DD-MM-AAAA" maxlength="10">  </label>';
 					break;
 				}
 			}
