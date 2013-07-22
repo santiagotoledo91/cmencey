@@ -10,8 +10,16 @@
 
 			@if (!empty($employees))
 				
-				<h4 class="text-center"> Prenómina - Fecha de inicio:  <input type="text" name="startdate" class="input-small" placeholder="DD-MM-AAAA" required value="{{$startdate}}"></h4>
+				<h4 class="text-center"> Prenómina - Fecha de inicio:  <input type="text" name="startdate" class="input-small" placeholder="DD-MM-AAAA" value="{{$startdate}}" maxlength="10" required=required></h4>
 				<div class="space1"></div>
+				
+				<?php $errors_msg = array_filter($errors->all()) ?>
+				
+				@if  (!empty($errors_msg))
+
+					<p style="color: red; text-align:center; margin-left:55px; margin-bottom:1px;">Verifique todos los campos (Solo se aceptan números. Todos los campos son requeridos).</p>
+
+				@endif
 				
 				<table class="table table-bordered table-hover" style="font-size: 12px">
 

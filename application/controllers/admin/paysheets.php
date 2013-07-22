@@ -36,78 +36,126 @@ class Admin_Paysheets_Controller extends Base_Controller
 
 	public function post_view()
 	{
-		$title = $this->title.' - Vista preliminar de nomina';
+		// get the input fields
 
-		$total 				= 0;
-		$id 				= Input::get('id');
-		$include 			= Input::get('include');
-		$mo					= Input::get('mo');
-		$tu 				= Input::get('tu');
-		$we 				= Input::get('we');
-		$th 				= Input::get('th');
-		$fr 				= Input::get('fr');
-		$sa 				= Input::get('sa');
-		$su 				= Input::get('su');
 		$extra_hours 		= Input::get('extra_hours');
 		$production_bonus 	= Input::get('production_bonus');
 		$others 			= Input::get('others');
 		$extra_raws 		= Input::get('extra_raws');
 		$received_loans 	= Input::get('received_loans');
-		$startdate 			= Input::get('startdate');
 		
-		// calculates the stop day by adding 6 days (weekly paysheet).
-		$stopdate 			= strtotime(date("Y-m-d", strtotime($startdate)). "+6 days");
-		$stopdate  			= date("d-m-Y",$stopdate);
-		
-
-		// creates an array of objects with the employee paysheet properties
-		foreach ($id as $id)
+		// dinamically creates the inputs and the rules
+		foreach (Input::get('id') as $id)
 		{
-			// determines if the employee will be included in the paysheet or not
-			if (isset($include[$id])) 
-			{ 
-				// loads the employee basic information
-				$employee = Employee::find($id);
+			// create the input entries
+			$input["extra_hours_".$id] 		= $extra_hours[$id];
+			$input["production_bonus_".$id] = $production_bonus[$id];
+			$input["others_".$id] 			= $others[$id];
+			$input["extra_raws_".$id]		= $extra_raws[$id];
+			$input["received_loans_".$id] 	= $received_loans[$id];
 
-				// determines which days has been worked
-				if (isset($mo[$id])) { $employee->mo = 1; } else { $employee->mo = 0; }
-				if (isset($tu[$id])) { $employee->tu = 1; } else { $employee->tu = 0; }
-				if (isset($we[$id])) { $employee->we = 1; } else { $employee->we = 0; }
-				if (isset($th[$id])) { $employee->th = 1; } else { $employee->th = 0; }
-				if (isset($fr[$id])) { $employee->fr = 1; } else { $employee->fr = 0; }
-				if (isset($sa[$id])) { $employee->sa = 1; $employee->extra_raws = $employee->extra_raws + 150; } else { $employee->sa = 0; }
-				if (isset($su[$id])) { $employee->su = 1; $employee->extra_raws = $employee->extra_raws + 150; } else { $employee->su = 0; }
-
-				$employee->worked = $employee->mo + $employee->tu + $employee->we + $employee->th + $employee->fr + $employee->sa + $employee->su;
-
-				$employee->feeding_bonus 		= 65 * $employee->worked;
-				$employee->extra_hours 			= round($extra_hours[$id],2); 
-				$employee->production_bonus 	= round($production_bonus[$id],2);
-				$employee->others 				= round($others[$id],2);
-				$employee->extra_raws 			= round(($employee->extra_raws + $extra_raws[$id]),2);
-				$employee->sso 					= round((0.045 	* ($employee->salary * 7)),2);
-				$employee->forced_stop 			= round((0.005 	* ($employee->salary * 7)),2);
-				$employee->faov 				= round((0.01 	* ($employee->salary * 7)),2);
-				$employee->inces 				= round((0.005  * ($employee->salary * 7)),2);
-				$employee->received_loans 		= round($received_loans[$id],2);
-
-				$employee->accrued_total 		= round((($employee->salary * 7) + ($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws)),2);
-				$employee->net_total 			= round(($employee->accrued_total - ($employee->sso + $employee->forced_stop + $employee->faov + $employee->received_loans)),2); 
-
-				// inserts the object in the array with the id as key
-				$employees[$id] = $employee;
-
-				// total to pay
-				$total = round(($total + $employee->net_total),2);
-			}
+			// create the rules entries
+			$rules["extra_hours_".$id] 		= array('required','max:9999','numeric');
+			$rules["production_bonus_".$id] = array('required','max:9999','numeric');
+			$rules["others_".$id] 			= array('required','max:9999','numeric');
+			$rules["extra_raws_".$id]		= array('required','max:9999','numeric');
+			$rules["received_loans_".$id] 	= array('required','max:9999','numeric');
 		}
 
-		Session::put('total',		$total);
-		Session::put('startdate',	$startdate);	
-		Session::put('stopdate',	$stopdate);
-		Session::put('employees',	$employees);
+		$input["startdate"] = Input::get('startdate');
+		
+		// set the custom messages
+		$messages = array(
+			'required'	=> 'Campo Obligatorio',
+			'max' 		=> 'Maximo :max',
+			'numeric' 	=> 'Solo Números',
+		);
 
-		return View::make('admin.paysheets.view')->with('title',$title)->with('total',$total)->with('startdate',$startdate)->with('stopdate',$stopdate)->with('employees',$employees);
+		// validates the data
+		$validation = Validator::make($input, $rules,$messages);
+ 
+		// validation failed
+		if ($validation->fails()) 
+		{
+			
+			return Redirect::to('/admin/paysheets/pre')->with_errors($validation);
+		} 
+		// validation passed
+		else  
+		{
+			$title = $this->title.' - Vista preliminar de nomina';
+
+			$total 				= 0;
+			$id 				= Input::get('id');
+			$include 			= Input::get('include');
+			$mo					= Input::get('mo');
+			$tu 				= Input::get('tu');
+			$we 				= Input::get('we');
+			$th 				= Input::get('th');
+			$fr 				= Input::get('fr');
+			$sa 				= Input::get('sa');
+			$su 				= Input::get('su');
+			$extra_hours 		= Input::get('extra_hours');
+			$production_bonus 	= Input::get('production_bonus');
+			$others 			= Input::get('others');
+			$extra_raws 		= Input::get('extra_raws');
+			$received_loans 	= Input::get('received_loans');
+			$startdate 			= Input::get('startdate');
+			
+			// calculates the stop day by adding 6 days (weekly paysheet).
+			$stopdate 			= strtotime(date("Y-m-d", strtotime($startdate)). "+6 days");
+			$stopdate  			= date("d-m-Y",$stopdate);
+			
+
+			// creates an array of objects with the employee paysheet properties
+			foreach ($id as $id)
+			{
+				// determines if the employee will be included in the paysheet or not
+				if (isset($include[$id])) 
+				{ 
+					// loads the employee basic information
+					$employee = Employee::find($id);
+
+					// determines which days has been worked
+					if (isset($mo[$id])) { $employee->mo = 1; } else { $employee->mo = 0; }
+					if (isset($tu[$id])) { $employee->tu = 1; } else { $employee->tu = 0; }
+					if (isset($we[$id])) { $employee->we = 1; } else { $employee->we = 0; }
+					if (isset($th[$id])) { $employee->th = 1; } else { $employee->th = 0; }
+					if (isset($fr[$id])) { $employee->fr = 1; } else { $employee->fr = 0; }
+					if (isset($sa[$id])) { $employee->sa = 1; $employee->extra_raws = $employee->extra_raws + 150; } else { $employee->sa = 0; }
+					if (isset($su[$id])) { $employee->su = 1; $employee->extra_raws = $employee->extra_raws + 150; } else { $employee->su = 0; }
+
+					$employee->worked = $employee->mo + $employee->tu + $employee->we + $employee->th + $employee->fr + $employee->sa + $employee->su;
+
+					$employee->feeding_bonus 		= 65 * $employee->worked;
+					$employee->extra_hours 			= round($extra_hours[$id],2); 
+					$employee->production_bonus 	= round($production_bonus[$id],2);
+					$employee->others 				= round($others[$id],2);
+					$employee->extra_raws 			= round(($employee->extra_raws + $extra_raws[$id]),2);
+					$employee->sso 					= round((0.045 	* ($employee->salary * 7)),2);
+					$employee->forced_stop 			= round((0.005 	* ($employee->salary * 7)),2);
+					$employee->faov 				= round((0.01 	* ($employee->salary * 7)),2);
+					$employee->inces 				= round((0.005  * ($employee->salary * 7)),2);
+					$employee->received_loans 		= round($received_loans[$id],2);
+
+					$employee->accrued_total 		= round((($employee->salary * 7) + ($employee->feeding_bonus + $employee->extra_hours + $employee->production_bonus + $employee->others + $employee->extra_raws)),2);
+					$employee->net_total 			= round(($employee->accrued_total - ($employee->sso + $employee->forced_stop + $employee->faov + $employee->received_loans)),2); 
+
+					// inserts the object in the array with the id as key
+					$employees[$id] = $employee;
+
+					// total to pay
+					$total = round(($total + $employee->net_total),2);
+				}
+			}
+
+			Session::put('total',		$total);
+			Session::put('startdate',	$startdate);	
+			Session::put('stopdate',	$stopdate);
+			Session::put('employees',	$employees);
+
+			return View::make('admin.paysheets.view')->with('title',$title)->with('total',$total)->with('startdate',$startdate)->with('stopdate',$stopdate)->with('employees',$employees);
+		}
 	}
 
 	public function post_save()
