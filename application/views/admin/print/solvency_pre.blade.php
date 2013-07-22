@@ -40,6 +40,7 @@
 
 						<div class="control-group">
 
+							{{ $errors->first('period','<p style="color: red; text-align:center; margin-left:150px; margin-bottom:1px;">:message</p>') }}	
 							<label class="control-label">Período de pago</label>
 
 							<div class="controls">	

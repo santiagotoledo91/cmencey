@@ -124,36 +124,51 @@ class Admin_Print_Controller extends Base_Controller
 
 	public function post_solvency()
 	{
-		$title = $this->title.' - Solvencias.';
+		// validates if the dates are picked the right way (stopdate greather that startdate)
+		// THIS SHOULD BE A CUSTOM VALIDATION RULE, FIX IT! 
+		$startdate = date('Y-m-d',strtotime(Input::get('solvency_startdate')));
+		$stopdate  = date('Y-m-d',strtotime(Input::get('solvency_stopdate')));
 
+		if ($stopdate < $startdate )
+		{
+			// creates a new message with the object format
+			$messages = new \Laravel\Messages;
 
-		$startdate 	= date('Y-m-d',strtotime(Input::get('solvency_startdate')));
-		$stopdate 	= date('Y-m-d',strtotime(Input::get('solvency_stopdate')));
-		
-		$concept 	= Input::get('solvency_concept');
+			// adds the message
+			$messages->add('period','El período de pago no es valido');
 
-		$solvency 	= new StdClass;
-
-		$solvency->payments = DB::table('paysheets')
-							->select(array(DB::raw('employees.fullname, employees.pin, SUM(payments_paysheet.'.$concept.') as total')))
-							->where('paysheets.startdate','>=',$startdate)
-							->where('paysheets.stopdate','<=',$stopdate)
-							->join('payments_paysheet','payments_paysheet.paysheet_id','=','paysheets.id')
-							->join('employees','employees.id','=','payments_paysheet.employee_id')
-							->group_by('payments_paysheet.employee_id')
-							->get();
-		
-		$solvency->startdate 	= date('d-m-Y',strtotime($startdate));
-		$solvency->stopdate 	= date('d-m-Y',strtotime($stopdate));
-		
-		switch ($concept) {
-			case 'forced_stop':	$solvency->concept = 'Paro Forzoso'; break;
-			case 'sso':			$solvency->concept = 'SSO'; break;
-			case 'inces':		$solvency->concept = 'INCES'; break;
-			case 'faov':		$solvency->concept = 'FAOV'; break;
+			// redirects with the error
+			return Redirect::to('admin/print/solvency/pre')->with_errors($messages);
 		}
-		
-		return View::make('admin.print.solvency')->with('title',$title)->with('solvency',$solvency);
+		else // the period its ok
+		{
+			$title = $this->title.' - Solvencias.';
+
+			$concept 	= Input::get('solvency_concept');
+
+			$solvency 	= new StdClass;
+
+			$solvency->payments = DB::table('paysheets')
+								->select(array(DB::raw('employees.fullname, employees.pin, SUM(payments_paysheet.'.$concept.') as total')))
+								->where('paysheets.startdate','>=',$startdate)
+								->where('paysheets.stopdate','<=',$stopdate)
+								->join('payments_paysheet','payments_paysheet.paysheet_id','=','paysheets.id')
+								->join('employees','employees.id','=','payments_paysheet.employee_id')
+								->group_by('payments_paysheet.employee_id')
+								->get();
+			
+			$solvency->startdate 	= date('d-m-Y',strtotime($startdate));
+			$solvency->stopdate 	= date('d-m-Y',strtotime($stopdate));
+			
+			switch ($concept) {
+				case 'forced_stop':	$solvency->concept = 'Paro Forzoso'; break;
+				case 'sso':			$solvency->concept = 'SSO'; break;
+				case 'inces':		$solvency->concept = 'INCES'; break;
+				case 'faov':		$solvency->concept = 'FAOV'; break;
+			}
+			
+			return View::make('admin.print.solvency')->with('title',$title)->with('solvency',$solvency);
+		}
 	}
 
 }
