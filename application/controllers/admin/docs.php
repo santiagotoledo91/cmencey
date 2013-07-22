@@ -104,6 +104,7 @@ class Admin_Docs_Controller extends Base_Controller
 			// validates if the DOCUMENT already exist
 			// THIS SHOULD BE A CUSTOM VALIDATION RULE, FIX IT! 
 			$description = DocumentType::where('document_types.description','=',$input['document_type_description'])->first();
+
 			
 			// the document exist
 			if (!empty($description)) 
@@ -112,10 +113,10 @@ class Admin_Docs_Controller extends Base_Controller
 				$messages = new \Laravel\Messages;
 
 				// adds the message
-				$messages->add('existe','El documento '.$input['document_type_description'].' ya esta registrado en el sistema');
+				$messages->add('exist','El documento "'.$input['document_type_description'].'" ya esta registrado en el sistema');
 
 				// redirects with the error
-				return Redirect::to('admin/documents/add')->with_errors($messages);
+				return Redirect::to('admin/docs/add')->with_errors($messages);
 			}
 			else // its a new document
 			{

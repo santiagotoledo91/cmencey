@@ -24,6 +24,7 @@
 						<div class="control-group">
 
 							{{ $errors->first('document_type_description','<p style="color: red; text-align:center; margin-left:55px; margin-bottom:1px;">:message</p>') }}	
+							{{ $errors->first('exist','<p style="color: red; text-align:center; margin-left:55px; margin-bottom:1px;">:message</p>') }}	
 							<label class="control-label">Nombre</label>
 
 							<div class="controls">
